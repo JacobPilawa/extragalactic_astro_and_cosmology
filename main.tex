@@ -3,6 +3,8 @@
 \usepackage{geometry}[margins = 1in]
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{eufrak}
+\usepackage{fullpage}
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage[makeroom]{cancel}
@@ -26,6 +28,37 @@
 \newcommand{\s}{\unit{s}}
 \newcommand{\km}{\unit{km}}
 \newcommand{\yr}{\unit{yr}}
+
+
+%%%%%
+\def\:{\ddot }
+\def\.{\dot }
+\def\^{\hat }
+\def\_{\bar }
+\def\~{\tilde }
+\def\hf{\frac12}
+\def\imply{\Rightarrow}
+\def\inv#1{\frac{1}{ #1}}
+\def\ddt{\frac{d}{dt}}
+\def\aa{\frac{\dot a }{ a}}
+\def\adda{\frac{\ddot a}{ a}}
+\def\thnot{\theta_0}
+\def\etot{\Omega_0}
+\def\econs{\Omega_{0,\Lambda}}
+\def\emat{\Omega_{0,M}}
+\def\econs{\Omega_{0,\Lambda}}
+\def\p{^\prime}
+\def\iff{\Leftrightarrow}
+\def\xv{{\vec x}}
+\def\pv{{\vec p}}
+\def\vv{{\vec v}}
+\def\ppt{\frac{\partial}{\partial t}}
+\def\ddt{\frac{d}{dt}}
+\def\epot{\frac{8\pi}{ 3}}
+\def\attw{a^{3+3w}}
+\def\athow{a^{-\frac{3}{2}(1+w)}}
+\def\atow{a^{-3(1+w)}}
+\def\atowi{a^{-3(1+w_i)}}
 
 
 
@@ -272,6 +305,236 @@ Let's look at a few special cases of the equation of state:
     \caption{Sketch of density over cosmic time. }
     \label{fig:density}
 \end{figure}
+
+\appendix 
+
+\section{Archival Lectures (C.P. Ma)}
+
+\subsection{Lecture 1}
+
+\subsubsection*{ The Cosmological Principle}
+
+The {\bf Cosmological Principle} states that the universe is spatially 
+{\it isotropic} (looks the same in all directions) 
+and {\it homogeneous} (has constant density everywhere) on large scales.
+The {\bf Perfect Cosmological Principle} states that the universe is
+also {\it temporally} isotropic and homogeneous (a steady state universe). 
+This is unlikely because it doesn't describe the Cosmic Microwave Background
+(CMB).  The CMB and Hubble's Law are both provide evidence for isotropy and
+homogeneity.
+
+\subsubsection*{ Hubble's Law (1929) }
+
+Hubble's Law is an empirical law stating that, on large scales, recessional 
+velocity is proportional to distance from observer.
+$$\boxed{v=Hr}$$ 
+where $H$, the Hubble parameter, is not constant, but can
+vary slowly with time.  By convention, $H$ is often expressed as
+$H=100\cdot h\frac{km}{ s\cdot Mpc}$, where 1 parsec (pc) $\approx3\cdot10^{18}cm
+=3.26ly$, is the distance at which 1 AU appears as 1 arcsec on the sky.  
+The Hubble Space Telescope Key Project (Freedman et al. ApJ 553, 47, 2001)
+measured the present day value of Hubble Constant 
+$H_0=72\pm 8\frac{km}{ s\cdot Mpc}$, giving us that the current timescale for
+the expansion of the universe is 
+$H_0^{-1}\approx\frac{h}{ 10^{11}}yrs\approx 9.778h^{-1}Gyrs$.
+
+\subsubsection*{ The Scale Factor $a(t)$ }
+
+$a(t)$ relates physical ($r$) and {\it comoving} ($x$) coordinates in an
+expanding universe:
+\begin{align}
+r&=a(t)x\\
+\dot r&=\dot ax+a\dot x=\underbrace{\aa}_{\equiv H}r+\underbrace{a\dot x}_{\equiv v_p}\\
+\end{align}
+Thus, the two components of physical velocity are $H$ (the Hubble expansion 
+parameter) and $v_p$ (the peculiar velocity, or motion relative to expansion)
+By convention, $t_0 \equiv$ today and $a(t_0)=1$.
+
+\subsubsection*{ The Friedmann Equations}
+
+The Friedmann Equation is an equation of motion for $a(t)$.  A rigorous
+derivation requires General Relativity, but we can fake it with a
+quasi-Newtonian derivation.
+We will model the universe as an {\it adiabatically} ($\Delta S=0$) expanding,
+isotropic, homogeneous medium.  Isotropy allows us to use $r$ as a scalar.
+Consider a thin, expanding spherical shell of radius $a$.
+Birkhoff's Theorum states that even in GR,
+the motion of such a shell depends only on the enclosed mass 
+$M={4\pi }{ 3}a^3\rho$.
+Thus, the energy per unit mass per unit length is:
+$$E=\overbrace{\hf \dot a^2}^{Kinetic}\overbrace{-\frac{G\cdot M}{ a}}^{Potential}
+=\hf \dot a^2-\frac{4\pi }{ 3}G\rho a^2.$$
+We define $k\equiv-\frac{2E}{ c^2}$, and we will show later that $k$ is a measure
+of the curvature of the universe: 
+$$k\begin{cases}
+>0&\,for\ E<0\ (bound)\\
+=0&\,for\ E=0\ (critical)\\
+<0&\,for\ E>0\ (unbound)\\\end{cases}$$
+where $k$ has units of $\inv{length^2}$ if $a$ is dimensionless.  Substituting
+$k$ into the above energy equation, and solving for $\aa$, we get:
+\def\paap{\left(\aa\right)}
+$$\boxed{H^2=\paap^2=\epot G\rho -\frac{k c^2 }{ a^2}}$$
+\centerline{($1^{st}$ Friedmann Equation)}
+This is a statement of conservation of $E$.
+The first law of thermodynamics ($\Delta S=0$) requires that any 
+system with positive pressure must lose energy as the volume enclosing it
+expands.  Thus, if $U$ is our internal energy and $P$ is our pressure:
+$$\frac{dU}{ dt}=-P\frac{dV}{ dt}.$$  
+In an expanding universe, $U={E}{ V}\cdot V=\rho a^3$, where $\rho$ is the
+energy density of the universe.  $P$ is the pressure of the photon gas, so:
+$$\dot \rho a^3+3\rho a^2\dot a=-P 3a^2\dot a,$$ 
+which simplifies to:
+$$\boxed{\dot \rho=-3\aa(\rho +P)}$$
+\centerline{($2^{nd}$ Friedmann Equation)}
+This is a a statement of the temperature loss of the universe 
+due to adiabatic expansion.\par
+Finally, $\ddt$($1^{st}$ Friedmann Equation) gives us:
+$$2\dot a\ddot a=\epot G \frac{d }{ dt}(\rho a^2) =\epot G a^2(\dot \rho +2\aa \rho).$$
+Substituting the $2^{nd}$ Friedmann Equation for $\dot \rho$:
+$$2\dot a\ddot a=\epot Ga^2 (-\aa \rho -3 \aa P) =-\epot G \aa (\rho +3P).$$  
+Now we have our $3^{rd}$ Equation:
+$$\boxed{\frac{\ddot {a }}{ a}=-\frac{4\pi G} {3} (\rho + 3P)}$$
+\centerline{($3^{rd}$ Friedmann Equation)}
+The $3^{rd}$ Friedmann Equation relates the acceleration of the expansion of
+the universe to the pressure of photon gas and the density of the universe.
+Note that if $3P \le -\rho$, we have an accelerating universe.\par
+Compare the $3^{rd}$ Friedmann Equation to the Newtonian equation for gravity,
+with $M=\frac{4\pi }{ 3}\rho x^3$ and $\rho_{eff}=\rho +3P$:
+$$\ddot x=\frac{-G\cdot M}{ x^2}={-4\pi }{ 3}G\rho x$$
+
+\subsection{Lecture 2}
+
+\subsubsection*{ The Friedmann Equations, continued }
+
+Recall we had the following equations:
+$$\paap^2={8\pi}{3}G\rho-\frac{k}{ a^2}$$
+$$\dot \rho=-3\aa(\rho+P)$$
+$$\frac{\ddot a}{ a}=-\frac{4\pi}{3}G(\rho+3P)$$
+
+To close the equations, we need to relate $P$ and $\rho$ with an equation of
+state:
+$$\boxed{P=w\rho(c^2)}$$ 
+Note that we will generally set $c=1$ in this class.
+Combined with (2), this gives us:
+\begin{align}
+\dot \rho&=-3\aa(1+w)\rho\\
+{\dot \rho}{\rho}&=-3(1+w)\aa\\
+\rho&\propto\atow\\
+\end{align}
+Note that we've assumed $\dot w=0$, which is okay most of the time.
+Some special cases of interest are:
+\begin{itemize}
+\item Pressure-less ``dust'' $P=0$, $w=0\imply\rho\propto a^{-3}$ because volume
+goes as $V\propto\inv{a^3}$.
+\item Relativistic particles (photons, bosons): $w=\inv{3}$, $P=\frac{\rho}{3}
+\imply\rho\propto a^{-4}$ because $VV\propto\inv{a^3}$, and energy is given
+by $E\propto\inv{a}$.
+\item  ($\Lambda$)/Dark Energy: $w=-1$, $P=-\rho\imply\rho=$ constant 
+in time.
+\end{itemize}
+To get density ($\rho$) as a function of time, want to solve for $w$.
+
+\subsubsection*{ Critical Density, $\rho_{crit}$ }
+
+We define $\rho_{crit}$ to be the critical density at which $k=0$ (and $E=0$):
+\def\rcr{{\rho_{crit}}}
+$$\rcr=\frac{3H^2}{8\pi G}$$
+Today, we measure: $\rho_{crit,0}=\frac{3H_0^2}{8\pi G}= 
+\frac{3}{8\pi}\frac{\left(100h\frac{km}{ sMpc}\right)^2}{ G}=2.78\cdot10^{11}h^2
+\frac{M_\odot}{ Mpc^3}=1.88\cdot10^{-29}h^2\frac{g}{ cm^3}$.
+Note that the mass of the sun is $M_\odot=2\cdot10^{33}g$, and
+the mass of the proton is $M_p=1.67\cdot10^{-24}g$.
+
+\subsubsection*{ Density Parameter, $\Omega(t)$}
+
+$\Omega$ measures the ratio of the density of the universe to the critical
+density:
+$$\Omega(t)\equiv\frac{\rho(t)}{\rho_c(t)}=\frac{8\pi G\rho(t)}{ 3H^2(t)}$$
+$$\Omega\begin{cases}
+\le1&\imply open\ (k\le0)\\
+=1&\imply flat\ (k=0)\\
+\ge1&\imply closed\ (k\ge0)
+\end{cases}$$
+
+In general, $\Omega$ can consist of multiple components: 
+$\Omega=\sum_i{\Omega_i}$ e.g. 
+$$\Omega\begin{cases}
+r&=radiation\\ 
+m&=matter\ (dark\ and\ luminous)\\
+b&=baryons\ (dark\ and\ luminous)\\ 
+\nu &=neutrinos\\ 
+\Lambda&=dark\ energy\end{cases}$$
+
+$\Omega = 1$ is an unstable equilibrium; any perturbation from $\Omega=1$ in
+the early universe ensures $\Omega$ is far from 1 today.  That we measure
+$\Omega_m\approx0.3$ today implies that the early universe must have been
+extremely finely tuned.
+
+\subsubsection*{ Evolution of $H(t)$}
+
+Today (at $a=1$): $k=\epot G\rho_0-H_0^2=H_0^2(\Omega_0-1)$.  Using the
+$1^{st}$ Friedmann equation (1), we have:
+$$\boxed{H^2=H_0^2(\frac{\Omega_0}{ a^{3+3w}}+\frac{1-\Omega_0}{ a^2})}$$
+\centerline{\bf (THE Friedmann Equation)}
+where $H_0\equiv\sqrt\frac{8\pi G\rho}{3\rcr}$, and it is understood that
+$\etot=\sum_i{\Omega_{i,0}}$.  Each $\Omega_i$ has it's own $w_i$, so really
+$\frac{\Omega_0}{\attw}=\sum_i\frac{\Omega_{i,0}}{ a^{3+3w_i}}$.
+
+\subsubsection*{ Evolution of $\Omega(a)$}
+
+We'll show in PS\#1 that for any single component:
+$$\frac{1-\Omega(a)}{\Omega(a)}=\frac{1-\Omega_0}{\Omega_0}a^{1+3w}$$
+Plotting $\Omega(a)$, we will find that for early $a$, $\Omega$ is {\it 
+extremely} close to 1.
+
+\subsubsection*{ Evolution of $a(t)$: Solving the Friedmann Equation}
+
+The evolution of the expansion of the universe is governed by:
+$$\paap^2=\epot G\rho-\frac{k}{ a^2}$$
+
+We can apply this to several models of the universe:
+\begin{itemize}
+\item The Einstein-deSitter (flat) Model: $k=0$, $\Omega(a)=\Omega_0=1$.
+Using that $\rho\propto\atow$, we have:
+\begin{align}
+\paap^2&\propto\atow\\
+a^{-1}a^{{3}{ 2}(1+w)}da&\propto dt\\
+\athow&\propto t\\
+\end{align}$$
+$$\boxed{a(t)\propto t^{{2}{ 3(1+w)}}}
+Thus, the rate of expansion of the universe depends on $w$:
+\item{(a)} The matter-dominated era: 
+$\Omega\approx\Omega_m\imply w=0, P=0, a\propto t^\frac{2 }{ 3}$.
+\item{(b)} The radiation-dominated era: 
+$\Omega\approx\Omega_r\imply w=\inv{3} \imply a(t)\propto t^\hf$.
+\item{(c)} The $\Lambda$-dominated era: 
+$\Omega\approx\Omega_\Lambda\imply w=-1, P=-\rho, \rho$ constant in time
+$\imply a(t)\propto e^{Ht}$, where H is now actually a constant.  This
+is exponential inflation.  We used to think that this only happened early on 
+(like $10^{-34}$
+seconds), but now we think that this has also been happening recently.
+Next time, we will do the harder two cases: open and closed.
+\end{itemize}
+
+\subsection{Lecture 3}
+
+\subsection{Lecture 4}
+
+\subsection{Lecture 5}
+
+\subsection{Lecture 6}
+
+\subsection{Lecture 7}
+
+\subsection{Lecture 8}
+
+\subsection{Lecture 9}
+
+\subsection{Lecture 10}
+
+\subsection{Lecture 11}
+
+
 
 
 \end{document}
