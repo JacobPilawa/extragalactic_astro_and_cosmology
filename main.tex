@@ -28,6 +28,8 @@
 \newcommand{\s}{\unit{s}}
 \newcommand{\km}{\unit{km}}
 \newcommand{\yr}{\unit{yr}}
+\newcommand{\g}{\unit{g}}
+\newcommand{\cm}{\unit{cm}}
 
 
 %%%%%
@@ -147,7 +149,7 @@ One other convention we need to establish:
 Below, we will use and derive these, but I am putting the equations at the top for convenience. 
 
 \begin{equation}
-    \boxed{\left(\frac{\dot{a}}{a}\right)^2 = \frac{8\pi}{3} G \rho - \frac{k}{c^2}}
+    \boxed{\left(\frac{\dot{a}}{a}\right)^2 = \frac{8\pi}{3} G \rho - \frac{kc^2}{a^2}}
 \end{equation}
 
 \begin{equation}
@@ -305,6 +307,160 @@ Let's look at a few special cases of the equation of state:
     \caption{Sketch of density over cosmic time. }
     \label{fig:density}
 \end{figure}
+
+\subsection{The Density Parameter; Open, flat, closed models; Redshift}
+
+Let's first define $\Omega$ in terms of the \textbf{critical density} $\rho_c$. This is defined to be the density needed to make the Universe flat. Recall the Friedmann Equation:
+
+\begin{equation}
+    \left(\frac{\dot a}{a}\right)^2 = \frac{8\pi}{3}G\rho - \frac{k}{a^2}
+\end{equation}
+
+First, set $k = 0 \iff E = 0$, then solve for $\rho$:
+
+\be
+    \boxed{\rho_c = \frac{3H^2}{8\pi G}}
+\ee
+
+This critical density can be interpreted as well as the mean density of a flat Universe ($k=0$). Importantly, $\rho_c$ is a function of $H$, which itself is a function of time. Setting $H = H_0$, we can get Today's value of $\rho_c$:
+
+\be
+    \rho_{c,0} = \frac{3H_0^2}{8\pi G} = 2.78 \times 10^{11} h^2 \frac{M_\odot}{\Mpc^3} = 1.88 \times 10^{-29} h^2 \frac{\g}{\cm^3}
+\ee
+
+This is about $10^{-5} h^2 m_{proton} \cm^{-3}$. Here are a few other useful numbers to carry around as well:
+
+\be
+    \rho_{thumb} \sim 1 \frac{\g}{\cm^3}
+\ee
+
+\be
+    \rho_{ISM} \sim 1 \frac{m_p}{\cm^3}
+\ee
+
+\be
+    \rho_{Universe} \sim 1 \rho_c
+\ee
+
+Now with these definitions, we have the \textbf{density paramater}:
+
+\be
+\Omega(t) \equiv \frac{\rho(t)}{\rho_c(t)} = \frac{8\pi G \rho(t)}{3H^2(t)}
+\ee
+
+There are three obvious possibilities:
+
+\begin{itemize}
+    \item $\Omega <1 \rightarrow$ Open Universe ($k<0$)
+    \item $\Omega = 1\rightarrow$ Flat Universe ($k=0$)
+    \item $\Omega >1 \rightarrow$ Closed Universe ($k>0$)
+\end{itemize}
+
+There are a few things to note. When we have \textit{mutliple components}, we have:
+
+\be
+\Omega(t) = \frac{\sum_{i} \rho_i}{\rho_c}
+\ee
+
+where $i$ is often representing radiation, matter, $\Lambda$, baryonic component of matter, dark matter, neutrinos, etc. Another thing we want to stress is that $\rho$, $\rho_c$, $\Omega$ \textbf{all depend on time}. Note that if $\rho > \rho_c$, it will STAY that way. The same goes for $\Omega$, and for other values. For example, these parameters will stay $>, <,$ or $=$ 1. 
+
+\subsubsection{Redshift}
+
+Observationally, we have
+
+\be
+1+z \equiv \frac{\lambda_{obs}}{\lambda_{rest}} = \frac{a(t_0)}{a(t)} = \frac{1}{a(t)}
+\ee
+
+\be
+\boxed{\frac{1}{a(t)} = 1+z}
+\ee
+
+\subsection{Time Evolution of Paramaters: Hubble, Density, Scale Factor}
+
+\subsubsection{Hubble Parameter}
+
+Worked out in Problem Set 1, but here is the solution:
+
+\be
+H^2(a) = H_0^2 \left(\frac{\Omega_0}{a^{3+3w}} + \frac{1-\Omega_0}{a^2}\right)
+\ee
+
+For multiple components (the common ones):
+
+\be
+H^2(a) = H_0^2 \left(\frac{\Omega_{0,m}}{a^{3}} + \Omega_{0,\Lambda} + \frac{\Omega_{0,r}}{a^{4}}+ ... + \frac{1-\Omega_{0,m}-\Omega_{0,\Lambda}-\Omega_{0,r}}{a^2}\right)
+\ee
+
+\subsubsection{Density Parameter}
+
+First, recall the critical density:
+
+\be
+\rho_c = \frac{3 H^2}{8\pi G} \rightarrow H^2 \Omega = \frac{8\pi}{3}G\rho
+\ee
+
+We can also look at the Friedmann equation:
+
+\begin{equation}
+    \left(\frac{\dot a}{a}\right)^2 = \frac{8\pi}{3}G\rho - \frac{k}{a^2}
+\end{equation}
+
+We can replace the first term on the right hand side and set $a=1$:
+
+\be
+k = H_0^2 \left(\Omega_0-1\right)
+\ee
+
+All of these together, we get:
+
+\be
+H^2 = H^2 \Omega - \frac{H_0^2 \left(\Omega_0-1\right)}{a^2}
+\ee
+
+Rearrange:
+
+\be
+1 - \Omega(a) = \frac{H_0^2}{H^2a^2}\left(1-\Omega_0\right)
+\ee
+
+We can use the time evolution of the Hubble Parameter to replace the $H$ terms, leaving:
+
+\be
+\boxed{1-\Omega(a) = \frac{1-\Omega_0}{\frac{\Omega_0}{a^{1+3w}} + 1-\Omega_0   }}
+\ee
+
+To be more explicit, let's write out the multi-component again:
+
+\be
+1 - \Omega(a) = \frac{1 - \Omega_0}{1 - \Omega_0 + \left(\Omega_{m,0}a^{-1} + \Omega_{0,\Lambda}a^{2} + \Omega_{r,0}a^{-2}\right)}
+\ee
+
+where $\Omega_0 = \sum_i \Omega_{0,i}$. Note that the above equation essentially FORCES $\Omega(a) \sim 1$. This foreshadows the Flatness Problem.
+
+\subsubsection{Scale Factor}
+
+This is essentially solving the Friedmann Equation for $a(t)$ for specific models (can, in general, be integrated). The most basic model is the Einstein-de Sitter model: a model that is flat $k = 0 \rightarrow \Omega =1$:
+
+\be
+\left(\frac{\dot a}{a}\right)^2 = \frac{8\pi}{3}G\rho
+\ee
+
+We have also see that $\rho \propto a^{-3(1+w)}$. Therefore:
+
+\be
+\mathrm{d} a a^{\frac32 (1+w)-1} \propto \mathrm{d}t
+\ee
+
+\be
+\boxed{a(t) \propto t^{\frac{2}{3(1+w)}}}
+\ee
+
+
+
+
+
+
 
 \appendix 
 
@@ -498,10 +654,10 @@ We can apply this to several models of the universe:
 Using that $\rho\propto\atow$, we have:
 \begin{align}
 \paap^2&\propto\atow\\
-a^{-1}a^{{3}{ 2}(1+w)}da&\propto dt\\
+a^{-1}a^{\frac{3}{ 2}(1+w)}da&\propto dt\\
 \athow&\propto t\\
 \end{align}$$
-$$\boxed{a(t)\propto t^{{2}{ 3(1+w)}}}
+$$\boxed{a(t)\propto t^{\frac{2}{ 3(1+w)}}}
 Thus, the rate of expansion of the universe depends on $w$:
 \item{(a)} The matter-dominated era: 
 $\Omega\approx\Omega_m\imply w=0, P=0, a\propto t^\frac{2 }{ 3}$.
