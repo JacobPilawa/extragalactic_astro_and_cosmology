@@ -438,7 +438,7 @@ To be more explicit, let's write out the multi-component again:
 
 where $\Omega_0 = \sum_i \Omega_{0,i}$. Note that the above equation essentially FORCES $\Omega(a) \sim 1$. This foreshadows the Flatness Problem.
 
-\subsubsection{Scale Factor}
+\subsubsection{Scale Factor (Flat Case)}
 
 This is essentially solving the Friedmann Equation for $a(t)$ for specific models (can, in general, be integrated). The most basic model is the Einstein-de Sitter model: a model that is flat $k = 0 \rightarrow \Omega =1$:
 
@@ -456,9 +456,221 @@ We have also see that $\rho \propto a^{-3(1+w)}$. Therefore:
 \boxed{a(t) \propto t^{\frac{2}{3(1+w)}}}
 \ee
 
+Recall for the Einstein-de Sitter model ($k=0, \Omega=0$), we found:
+
+\be
+a \propto t^{\frac{2}{3(1+w)}}
+\ee
+
+This is very useful since it works for each epoch (matter dominated, radiation dominated, dark energy dominated, etc;, but not in the transitions):
+
+\textbf{Matter Dominated Era} ($w=0, P\approx0$)
+
+\begin{equation}
+    \boxed{a_{m}\propto t^{\frac23}}
+\end{equation}
+
+\textbf{Radiation Dominated Era} ($w=\frac13, P=\frac13 \rho$)
+
+\begin{equation}
+    \boxed{a_{r}\propto t^{\frac12}}
+\end{equation}
+
+$\Lambda$ \textbf{Dominated Era} ($w=-1$ (for example), $P=-\rho$)
+
+\begin{equation}
+    a_{r}\propto t^{\infty} \rightarrow \text{ Wrong! }
+\end{equation}
+
+This breaks down because $H$ is a constant in this case! So here:
+
+\be
+    a \propto e^{Ht}
+\ee
+
+Isn't this reminiscent of inflation? That's because it is! It wasn't the Cosmological Constant but rather a scalar field called the inflaton.  
 
 
+\subsubsection{Scale Factor (Open Case)}
 
+Let's consider $k<0$ and $\Omega <1$. Additionally, we assume $\Lambda =0$ and that we are matter-dominated. 
+
+Start with the Friedmann Equation:
+
+\be
+\frac{\dot a^2}{a^2} = \frac{8\pi}{3}G\rho - \frac{k}{a^2} > 0 \text{ always}
+\ee
+
+Immediately, we see that expansion will never stop! The right hand side is always positive, and therefore $\dot a$ is never equal to $0$. Now, recall the equation for $H(a)$ and the fact that $H = \dot{a}/a$:
+
+\be
+\dot{a}^2 = H_0^2 \left(\frac{\Omega_0}{a^{1+3w}} + 1 - \Omega_0\right)
+\ee
+
+We now solve for $a(t)$ for this Universe:
+
+\be
+\int_0^{a_f} \frac{\mathrm{d}a}{\sqrt{\frac{\Omega_0}{a} + 1 - \Omega_0}} = \int_0^{t_f} H_0 \mathrm{d}t
+\ee
+
+The right hand side is easy. The left hand side? Let's start with completing the squares to get rid of the $\frac{1}{a}$, so let's set that up.
+
+\be
+\int_0^{a_f} \frac{a \mathrm{d}a}{\left(1-\Omega_0\right)\sqrt{a^2 + \frac{\Omega_0}{1-\Omega_0}a }}
+\ee
+
+Now we can actually complete the square in the denominator. Define $2\alpha\equiv \frac{\Omega_0}{1-\Omega_0}$:
+
+\be
+\int_0^{a_f} \frac{a\mathrm{d}a}{\sqrt{1-\Omega_0} \sqrt{\left(a + \alpha\right)^2 - \alpha^2}}
+\ee
+
+We will now shift variables: $a\prime \rightarrow a + \alpha$:
+
+\be
+\int_\alpha^{a_f + \alpha} \frac{\left(a-\alpha\right)\mathrm{d}a}{\sqrt{1-\Omega_0} \sqrt{a^2 - \alpha^2}}
+\ee
+
+We can now do trigonometric substitution. Let $a\equiv \alpha \cosh \theta$. This gives $\mathrm{d}a = \alpha \sinh\theta \mathrm{d}\theta$. Lastly, $\sqrt{a^2\alpha^2} = \alpha\sinh\theta$. Properly adjusting limits, we get the expression:
+
+\be
+\boxed{a(\theta) = \frac{\Omega_0}{2\left(1+\Omega_0\right)}\left(\cosh\theta-1\right)}
+\ee
+
+\be
+\int_{0}^{\theta_f} \frac{\alpha^2\left(\cosh\theta-1\right)\sinh\theta}{\sqrt{1-\Omega_0} \alpha \sinh\theta} \mathrm{d}\theta
+\ee
+
+\be
+\frac{\alpha}{\sqrt{1-\Omega_0}}\left(\sinh\theta - \theta\right)\rvert_0^{\theta_f}
+\ee
+
+\be
+H_0 t_f = \frac{\Omega_0}{2\left(1+\Omega_0\right)^{3/2}} \left(\sinh\theta_f -\theta_f\right)
+\ee
+
+This gives:
+
+\be
+\boxed{t(\theta) = \frac{\Omega_0}{2H_0\left(1+\Omega_0\right)^{3/2}}\left(\sinh\theta - \theta\right)}
+\ee
+
+We can then use $\theta$ as some parameter, trace out $a$ and $t$, and then find $a(t)$!
+
+\subsubsection{Scale Factor (Closed Case)}
+
+You can repeat the derivation above for the matter-dominated, closed case of $k >0$, $\Omega > 1$. Here, there \textit{will} be a maximum of $a$ and the dynamics are different $\theta \rightarrow i \theta$):
+
+\be
+\boxed{t(\theta) = \frac{\Omega_0}{2H_0\left(\Omega_0-1\right)^{3/2}}\left(\theta-\sin\theta\right)}
+\ee
+
+\be
+\boxed{a(\theta) = \frac{\Omega_0}{2\left(\Omega_0-1\right)}\left(1-\cos\theta\right)}
+\ee
+
+\subsubsection{Deceleration Parameter}
+
+Let's define this -- it was used historically since we now know the Universe is \textit{accelerating}. This is a dimensionless parameter:
+
+\be
+q \equiv -\frac{\ddot{a}a}{\dot{a}^2} \rightarrow q = - \frac{1}{H^2} \frac{\ddot{a}}{a}
+\ee
+
+Recall one of the other results we had this semester:
+
+\be
+\frac{\ddot{a}}{a} = -\frac{4\pi}{3}G\left(\rho+3P\right)
+\ee
+
+and
+
+\be
+\rho_c = \frac{3H^2}{8\pi G} \rightarrow H^2 \Omega = \frac{8\pi}{3}G\rho
+\ee
+
+Putting this together with $q$:
+
+\be
+\frac{\ddot{a}}{a} = -\frac{4\pi}{3}G\rho \left(1+3w\right) = -\frac{H^2 \Omega}{2}\left(1+3w\right)
+\ee
+
+This makes:
+
+\be
+q = \frac{\Omega}{2}\left(1+3w\right)
+\ee
+
+For multiple components:
+
+\be
+\boxed{q = \sum_i \frac{\Omega_i}{2}\left(1+3w_i\right)}
+\ee
+
+\be
+q = \frac{\Omega_m}{2} + \underbrace{\frac{1+3w}{2}\Omega_w}_\text{Dark Energy} + \Omega_r + ...
+\ee
+
+For a matter-dominated Universe and $\Omega_\Lambda \neq 0$:
+
+\be
+\boxed{q = \frac{\Omega_m}{2} - \Omega_\Lambda}
+\ee
+
+\textbf{The minus sign there is enormously important!}
+
+One thing to note: supernovae are sensitive to $q$, whereas CMB measurements are sensitive to the addition of $\Omega_m$ and $\Omega_\Lambda$, so in some sense, these are orthogonal instead of parallel. 
+
+\subsection{Robertson-Walker Metric}
+
+This is where you would start in General Relativity. 
+
+Let's set up the background. Recall Lorentz transformations in Special Relativity. There are two inertial observers, $(x,y,z,t)$ and $(x',y',z',t')$ with relative velocity $\vec{v}=v\hat{x}$:
+
+\be
+x' = \gamma(x-vt)
+\ee
+
+\be
+y' = y
+\ee
+
+\be
+z' = z
+\ee
+
+\be
+t' = \gamma\left(t-\frac{vx}{c^2}\right)
+\ee
+
+We also talked about the Lorentz invariant interval:
+
+\be
+\mathrm{d}s^2 = c^2 \mathrm{d}t^2 - \left(\mathrm{d}x^2 + \mathrm{d}y^2 + \mathrm{d}z^2\right) = \mathrm{d}s'^2
+\ee
+
+Recall that the propagation of light follows the ``null geodesic'': $\mathrm{d}s^2 = 0$:
+
+\be
+\mathrm{d}r = c\mathrm{d}t
+\ee
+
+We will quote the RW Metric here, and explore it next time. In short, Robertson and Walker showed that, for a \textbf{homogeneous and isotropic space, the most general metric is}:
+
+\be
+\mathrm{d}s^2 = c^2 \mathrm{d}t^2 - a^2\left(t\right) \left[\frac{\mathrm{d}r^2}{1-kr^2} + r^2 \left(\mathrm{d}\theta^2 + \sin^2\theta \mathrm{d}\phi^2\right) \right]
+\ee
+
+We are defining the coordinates as:
+
+\begin{figure}
+    \centering
+    \includegraphics{coordinates.png}
+    \caption{Spherical coordinate convention. }
+    \label{fig:coords}
+\end{figure}
+
+An immediate and obvious consequence is when $k=0$, where we recover the Minkowski metric for flat space. 
 
 
 
