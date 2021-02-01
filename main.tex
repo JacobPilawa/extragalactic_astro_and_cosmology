@@ -61,6 +61,27 @@
 \def\athow{a^{-\frac{3}{2}(1+w)}}
 \def\atow{a^{-3(1+w)}}
 \def\atowi{a^{-3(1+w_i)}}
+\def\hf{\frac12}
+\def\imply{\Rightarrow}
+\def\thnot{\theta_0}
+\def\etot{\Omega_0}
+\def\econs{\Omega_{0,\Lambda}}
+\def\emat{\Omega_{0,M}}
+\def\econs{\Omega_{0,\Lambda}}
+\def\p{^\prime}
+\def\iff{\Leftrightarrow}
+\def\xv{{\vec x}}\def\pv{{\vec p}}
+\def\vv{{\vec v}}
+\def\ddt{{\frac{d}{dt}}}
+\def\atow{a^{-3(1+w)}}
+\def\atowi{a^{-3(1+w_i)}}
+\def\attw{a^{3+3w}}
+\def\cc{Cosmological constant}
+\def\jumble{\frac{\Omega _0}{ \attw} + \frac{1 - \Omega _0}{ a^2}}
+\def\jimble{\sqrt{\Omega _{0,m}(1+z)^3+\Omega _{0,\Lambda}+(1-\Omega _{0,m}-\Omega _{0,\Lambda})(1+z)^2}}
+\def\paap{\left(\aa\right)}
+\def\rcr{{\rho_{crit}}}
+
 
 
 
@@ -665,7 +686,7 @@ We are defining the coordinates as:
 
 \begin{figure}
     \centering
-    \includegraphics{coordinates.png}
+    \includegraphics[width=0.75\textwidth]{coordinates.png}
     \caption{Spherical coordinate convention. }
     \label{fig:coords}
 \end{figure}
@@ -886,7 +907,233 @@ Next time, we will do the harder two cases: open and closed.
 
 \subsection{Lecture 3}
 
+\subsubsection*{ Evolution of $a(t)$: Solving the Friedmann Equation, continued }
+
+Last time we did (1), the flat universe:
+
+Einstein-deSitter, $k=0$ (flat), $\Omega =1,\imply$
+ $a\propto t^\frac{2}{ 3(1+w)}$. In general, we consider the evolution of
+the universe to be {\it matter dominated} if $a\propto t^\frac{2}{ 3}$,
+{\it radiation dominated} if $a \propto t^{\hf}$, and 
+{\it $\Lambda$ dominated} if $a \propto e^{1+t}$ (that is, $H$ is constant).
+
+
+Open, $k<0$, $\etot<1$, $\econs=0$, $\emat<1\imply$ our Friedmann
+Equation $\paap^2=\epot G\rho-\frac{k}{ a^2}$ becomes:
+$$\dot a^2=H_0^2\left(\frac{\etot }{ a^{1+3w}}+1-\etot\right)$$  
+Since we are matter dominated, $w=0$.  Solving for $a(t)$:
+\begin{align}
+\int_0^{a_f}\frac{da}{\sqrt{{\etot}{ a}+1-\etot}}
+&=\int_0^{t_f}{H_0\cdot dt}\\
+\int_0^{a_f}\frac{a\cdot da}{\sqrt{1-\etot}\sqrt{a^2+\frac{\etot}{1-\etot}a}}
+&=H_0t_f\\
+\end{align}
+Let's define $2\alpha\equiv\frac{\etot}{1-\etot}$.  Then:
+$$\int_0^{a_f}\frac{a\cdot da}{\sqrt{1-\etot}\sqrt{(a+\alpha)^2-\alpha^2}}
+=H_0t_f$$
+Defining $a^\prime=a+\alpha$, we get:
+\begin{align}
+\int_0^{a_f+\alpha}\frac{(a^\prime-\alpha)da^\prime}{ 
+\sqrt{1-\etot}\sqrt{a^{\prime 2}-\alpha^2}}&=H_0t_f\\
+\int_0^{a_f+\alpha}\frac{(a-\alpha)da}{ \sqrt{1-\etot}\sqrt{a^2-\alpha^2}}
+&=H_0t_f\\
+\end{align}
+Now we define $\alpha\cosh\theta\equiv a^\prime$, 
+$\alpha\sinh\theta\,d\theta=da$, so that 
+$\sqrt{a^{\prime 2}-\alpha^2}=\alpha\sinh\theta$.  We'll be lazy and
+just say that $a_f^\prime\to\frac{\etot }{ 2(1-\etot)(\cosh\theta -1)}$ because
+there was nothing special about time $a_f^\prime$. Then we have:
+\begin{align}
+\int_0^{\theta_f}\frac{\alpha^2(\cosh\theta-1)\sinh\theta\,d\theta}{
+\sqrt{1-\etot}\alpha\sinh\theta}&=H_0t_f\\
+\frac{\alpha}{1-\etot}(\sinh\theta-\theta)\bigg|_0^{\theta_f}&=H_0t_f\\
+\end{align}
+
+Plugging $\alpha$ back in:
+\begin{align}
+H_0t_f&=\frac{\etot}{2(1-\etot)^\frac{3}{ 2}}(\sinh\theta-\theta)\\
+t(\theta)&=\frac{\etot}{2H_0(1-\etot)^\frac{3}{2}}(\sinh\theta-\theta)\\
+\end{align}
+Thus we have a parametric relationship between $a$ and $t$ with a dummy
+variable $\theta$:
+\begin{align}a(\theta)&=\frac{\etot}{ 2(1-\etot)}(\cosh\theta-1)\\
+t(\theta)&=\frac{\etot}{ 2\,H_0(1-\etot)^{3}{ 2}}(\sinh\theta-\theta)\\
+\end{align}
+Note that $a$ has no maximum and expands forever.
+
+Closed, $k>0$, $\etot>1$, $\Omega_\Lambda=0$. As usual,
+we start with the Friedmann Equation:
+$$(\aa)^2 = \underbrace{\overbrace{\epot G\rho}^{positive} - 
+\overbrace{\frac{k}{ a^2}}^{positive}}_{can\ be\ 0}$$
+Therefore, in this model it is possible for $\dot a=0$.  We'll again solve for a
+matter-dominated era, $w=0$.  The solution is similar, to the open model, 
+but ($1-\etot<0$), so $\theta\to i\,\theta$. Thus our solution:
+\begin{align}a(\theta)&=\frac{\etot}{ 2(1-\etot)}(\cos\theta-1)\\
+t(\theta)&=\frac{\etot}{2H_0(1-\etot)^\frac{3}{ 2}}(\sin\theta-\theta)\\
+\end{align}
+is a cycloid solution.  That is, $a$ oscillates, with a maximum at 
+$\theta=\pi$.
+
+\subsubsection*{ Deceleration Parameter $q$}
+
+$$q\equiv-{\ddot aa}{ \dot a^2}$$
+Note that $q$ is {\it dimensionless}, and has a negative sign.  The minus is
+there because historically, the universe was thought to be decelerating.  Thus,
+$q<0\imply acceleration$, and $q>0\imply deceleration$.  We can find out what
+$q$ does from the $2^{nd}$ Friedmann Equation:
+$$\adda=-\frac{4\pi}{3}G(\rho+3P)$$
+Recall that $P=w\rho$, $\Omega=\frac{\rho}{\rcr}$,
+$\rcr=\frac{3H^2}{8\pi G}$, $H^2\Omega=\epot G\rho$. Thus, the
+above equation becomes:
+$$\adda=-\frac{4\pi}{3}G\rho(1+3w)=-\frac{H^2\Omega}{2}(1+3w)$$
+Substituting in our friend, $q$:
+$$q=\frac{\Omega}{2}(1+3w)=\sum_i{\frac{\Omega_i}{2}(1+3w_i)}$$
+$$\boxed{q = \frac{\Omega _m }{ 2} - \Omega _\Lambda +\Omega _r}.$$
+Note that today, $\Omega_r\ll1$.  That we are accelerating $\imply q<0
+\imply\econs\ne0$.
+
+\subsubsection*{ Redshift }
+
+$$\frac{\lambda_{obs} }{ \lambda_{emit}} \equiv 1 + z$$
+Or alternately,
+$$\boxed{1 + z = \frac{1}{ a}}$$
+$z$ is what we call the {\it redshift}. Reionization happened somewhere
+around $z=17\pm6$, and recombination around $z=1091$.
+
+\subsubsection*{ Time-Redshift Relations and the Age of the Universe }
+
+We seek a relation between $t$ and $z$.  Beginning with the Friedmann Equation:
+\begin{align}
+H^2&=H_0^2\left[\jumble\right]\\
+\inv{a}\frac{da}{ dt}&=H_0\sqrt{\jumble}\\
+dt&=\inv{H_0}\left(\inv{a}\right)\frac{da}{\sqrt{\jumble}}\\
+dt&=-\inv{H_0}\frac{dz }{ (1+z)\jimble}\\
+\end{align}
+We can calculate the time since the Big Bang at redshift $z_1$ by solving the
+integral:
+$$t_1=-\inv{H_0}\int_{z_1}^\infty{\frac{dz}{ 1+z}\inv{\jimble}}$$
+For the Age of the Universe, set $z_1=0$.  In the special case of a flat
+(Einstein-deSitter) universe: 
+$$t_0=\inv{H_0}\int_0^\infty\frac{dz}{(1+z)^\frac{5}{ 2}}={2}{3H_0}$$  
+If $H_0^{-1}\approx10Gyrs$,
+then $t_0\approx6.7h^{-1}Gyrs$, so the Hubble constant needs to be pretty
+small to get reasonable estimates of the age of the universe.
+
+
+
 \subsection{Lecture 4}
+
+\subsubsection*{ Time-Redshift Relations and the Age of the Universe }
+
+Last time we found the age of a flat universe.
+in a flat (Einstein-deSitter) universe: 
+$k=0$, $\Omega_m=1$, $\Omega_\Lambda=0$, so:
+$$t_0=\inv{H_0}\int_0^\infty{\frac{dz}{(1+z)^\frac{5}{ 2}}}
+=\frac{2}{3H_0}\approx6.7h^{-1}Gyr$$
+Alternatively, recall that for a matter-dominated era,
+$a(t) = ({t}{ t_0})^\frac{2}{ 3}.$
+Thus, $H = \aa = \frac{2}{ 3t} \imply t_0=\frac{2}{ 3H_0}$.
+
+If we have $\Lambda\ne0$: $k=0$, $\emat+\econs=1$, then:
+$$t_0=\inv{H_0}\int_0^\infty\frac{dz}{(1+z)\sqrt{\emat(1+z)^3+\econs}}$$
+Assuming $0.1\le\emat\le1$, this integral is solvable:
+$$t_0=\frac{2}{3H_0}\inv{\sqrt{1-\emat}}\ln\left(\frac{1+\sqrt{1-\emat}}{
+\sqrt{\emat}}\right)\approx\frac{2}{3H_0}(0.7\emat+0.3-0.3\econs)^{-0.3}
+\approx\frac{2}{3H_0}\emat^{-0.3}$$
+Generally, in a flat universe, $t_0\propto\inv{H_0}$.  If $\Omega_0\le1$, 
+it will be longer.
+
+In an open universe: $k<0$, $\etot<1(\econs=0)$. Recall:
+$$\begin{matrix} t(\theta)=\frac{\etot}{2H_0(1-\etot)^\frac{3}{2}}(\sinh\theta-\theta),&
+a(\theta)=\frac{\etot}{2(1-\etot)}(\cosh\theta-1)\end{matrix}$$
+
+So today: 
+\begin{align}
+a(\thnot)&={\etot}{ 2(1-\etot)}(\cosh\thnot -1)=1\\
+\cosh\thnot&=\frac{2(1-\etot)}{\etot}+1=\frac{2-\etot}{\etot}\\
+\sinh\thnot&=\sqrt{\cosh^2\thnot-1}=\frac{2}{\etot}\sqrt{1-\etot}\\
+t_0&=t(\thnot)-\frac{\etot}{ 2H_0(1-\etot)^\frac{3}{ 2}}\left[\frac{2}{\etot}
+\sqrt{1-\etot}-\cosh^{-1}\left(\frac{2-\etot}{\etot}\right)\right]\\
+\end{align}
+
+$$\boxed{t_0=\inv{H_0}\left[(1-\etot)^{-1}-\hf(1-\etot)^{-\frac{3}{ 2}}
+\cosh^{-1}\left(\frac{2-\etot}{\etot}\right)\right]}$$
+
+Thus $t_0>\frac{2}{ 3H_0}$ for $\etot\le 1$, and $t_0=\inv{H_0}$ for $\etot=0$
+(an empty universe).
+
+In a closed universe: $k>0$, $\etot>1$, $(\econs=0)$. Recall: 
+\begin{align}
+t(\theta)&=\frac{\etot}{ 2H_0(\etot -1)^\frac{3}{2}}(\theta-sin\theta)\\
+a(\theta)&=\frac{\etot}{ 2(\etot -1)}(1-\cos\theta)\\
+\end{align}
+
+Thus, today:
+$$a(\theta_0)=\frac{\etot}{ 2(\etot -1)}(1-\cos\theta)=1$$
+$$\boxed{t_0=\inv{H_0}\left[(1-\etot)^{-1}+\hf\etot(\etot-1)^{-\frac{3}{ 2}}
+\cos^{-1}\left(\frac{2-\etot}{\etot}\right)\right]}$$
+
+\subsubsection*{ The Robertson-Walker Metric}
+
+Lorentz invariance dictates that two inertial
+frame $(x, y, z, t)$ and $(x\p, y\p, z\p, t\p)$, with one 
+moving with respect to the other at velocity $\hat v=v\hat x$, are related by:
+$$\begin{matrix} x\p=\gamma(x-vt),&y\p=y,&z\p=z,&t\p=\gamma\left(t-\frac{v}{ c^2}x
+\right)\end{matrix}$$
+where $\gamma\equiv\frac{1}{\sqrt{1-\frac{v^2}{ c^2}}}$.  
+Note, to give a taste of tensor forms, this all
+may be written as ${x\p}^\alpha = \Lambda^\alpha_\beta x^\beta+I_0^\alpha$.\par
+
+Remember the Lorentz invariant interval, which is conserved between frames:
+$$ds^2=c^2dt^2-(dx^2+dy^2+dz^2)$$
+Light travels a $ds^2=0$ path.  In tensor form, this equation looks like:
+$$ds^2=g_{\alpha\beta}dx^\alpha dx^\beta$$
+where $g_{\alpha\beta}$, the metric tensor, is given by:
+$$g_{\alpha\beta}\equiv\begin{pmatrix} 1&0&0&0\\0&-1&0&0\\0&0&-1&0\\ 0&0&0&-1\\
+\end{pmatrix}$$
+Look at Weinberg, Ch. 13 for full proof, but for a homogeneous, 
+$\gamma$-isotropic space, the metric looks like: 
+$$ds^2=c^2dt^2-a^2(t)\left[\frac{dr^2}{ 1-kr^2}+r^2d\Omega\right]$$
+where $r$ is a radial direction (in
+comoving coordinates), and $d\Omega=d\theta^2+\sin^2\theta d^2\phi$ is the
+differential angle seperation of two points in space.  As usual,
+$k$ is the measure of curvature.
+
+
+The $k=0$ Model: 
+$$dr^2+r^2(d\theta^2+\sin^2\theta d\phi^2)=dx^2+dy^2+dz^2$$
+so we recover the Minkowski metric for flat space, using comoving coordinates.
+
+The $k>0$ (closed) Model:\par
+We get a coordinate singularity at $r=\frac{1}{\sqrt{k}}$, so this universe
+has a finite volume.
+For $k>0$, we need to define ``Polar Coordinates'' in 4-D (to describe a
+3-sphere embedded in 4-D).  Here is a comparison of how we define polar 
+coordinates for a 3-sphere in 4-D versus for a 2-sphere in 3-D:
+$$\begin{matrix} 
+3-sphere&2-sphere\\
+(x,y,z,w)\iff (R,\alpha,\beta,\gamma)&(x,y,z)\iff(R,\theta,\phi)\\
+w=R\cos\alpha&z=R\cos\theta\\
+z=R\sin\alpha\cos\beta&y=R\sin\theta\cos\phi\\
+y=R\sin\alpha\sin\beta\cos\gamma&x=R\sin\theta\sin\phi\\
+x=R\sin\alpha\sin\beta\sin\gamma& \\
+x^2+y^2+z^2+w^2=R^2&x^2+y^2+z^2=R^2\\
+\end{matrix}$$
+
+Take a line element on a 2-sphere: 
+$$d\gamma=R^2(d\theta^2+\sin^2\theta d\phi^2)$$
+Changing variables for $v\equiv\sin\theta$:
+$$dv=\cos\theta d\theta=\sqrt{1-v^2}d\theta$$
+Then $d\theta^2=\frac{dv^2}{1-v^2}$, so rewriting our line element, we get:
+$$d\gamma^2=R^2\left(\frac{dv^2}{ 1-v^2}+v^2d\phi^2\right)$$
+For a 3-sphere, 
+$$d\gamma^2=R^2(d\alpha^2+\sin^2\alpha d\Omega^2)$$
+where $d\Omega^2\equiv d\beta^2+\sin^2\beta d\gamma^2$.  Again, using a change
+of variables so that $v\equiv\sin\alpha$, $d\alpha=\frac{dv}{\sqrt{1-v^2}}$,
+we get that:
+$$\boxed{d\gamma^2=R^2\left(\frac{dv^2}{ 1-v^2}+v^2d\Omega^2\right)}$$
+This is what Robertson-Walker showed. 
+
 
 \subsection{Lecture 5}
 
