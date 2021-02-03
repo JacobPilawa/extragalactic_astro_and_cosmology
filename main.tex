@@ -30,6 +30,7 @@
 \newcommand{\yr}{\unit{yr}}
 \newcommand{\g}{\unit{g}}
 \newcommand{\cm}{\unit{cm}}
+\newcommand{\frw}{\mathrm{d}s^2 = c^2 \mathrm{d}t^2 - a^2\left(t\right) \left[\frac{\mathrm{d}r^2}{1-kr^2} + r^2 \left(\mathrm{d}\theta^2 + \sin^2\theta \mathrm{d}\phi^2\right) \right]}
 
 
 %%%%%
@@ -676,7 +677,7 @@ Recall that the propagation of light follows the ``null geodesic'': $\mathrm{d}s
 \mathrm{d}r = c\mathrm{d}t
 \ee
 
-We will quote the RW Metric here, and explore it next time. In short, Robertson and Walker showed that, for a \textbf{homogeneous and isotropic space, the most general metric is}:
+We will quote the RW Metric here, and explore it next time. In short, Robertson and Walker showed that, for a \textbf{homogeneous and isotropic space, the most general metric is} (see Weinberg for a full proof):
 
 \be
 \mathrm{d}s^2 = c^2 \mathrm{d}t^2 - a^2\left(t\right) \left[\frac{\mathrm{d}r^2}{1-kr^2} + r^2 \left(\mathrm{d}\theta^2 + \sin^2\theta \mathrm{d}\phi^2\right) \right]
@@ -692,6 +693,138 @@ We are defining the coordinates as:
 \end{figure}
 
 An immediate and obvious consequence is when $k=0$, where we recover the Minkowski metric for flat space. 
+Let's consider the more interesting cases of open ($k<0$) and closed ($k>0$). Immediately, we have a coordinate singularity at $r = \frac{1}{\sqrt{k}}$. Recall that $k = \frac{H_0^2}{c^2} \left(\Omega_0-1\right)$. We can thus define the \textbf{radius of curvature}:
+
+\be
+R_0 \equiv \frac{1}{\sqrt{k}} = \frac{c}{H_0} \left(\frac{1}{\sqrt{\Omega_0-1}}\right)
+\ee
+
+Let's step back a second and look at the form of the FRW metric with some analogies:
+
+$$\begin{matrix} 
+\text{3-sphere (in 4D)} & \text{2-sphere (in 3D)}\\
+(x,y,z,w)\iff (R,\alpha,\beta,\gamma)&(x,y,z)\iff(R,\theta,\phi)\\
+w=R\cos\alpha&z=R\cos\theta\\
+z=R\sin\alpha\cos\beta&y=R\sin\theta\cos\phi\\
+y=R\sin\alpha\sin\beta\cos\gamma&x=R\sin\theta\sin\phi\\
+x=R\sin\alpha\sin\beta\sin\gamma& \\
+x^2+y^2+z^2+w^2=R^2&x^2+y^2+z^2=R^2\\
+\end{matrix}$$
+
+Look at a line element of the 2-sphere embedded in 3D:
+
+\be
+\mathrm{d}\ell^2 = R^2\left(\mathrm{d}\theta^2 + \sin^2\theta \mathrm{d}\phi^2\right)
+\ee
+
+We will change variables to $u = \sin\theta \rightarrow \mathrm{d}u = \cos\theta \mathrm{d}\theta = \sqrt{1-u^2}\mathrm{d}\theta$. This makes the line element:
+
+\be
+\mathrm{d}\ell^2 = R^2 \left(\frac{\mathrm{d}u^2}{1-u^2} + u^2 \mathrm{d}\phi^2\right)
+\ee
+
+Look at that! We're not quite there, but we have a similar form to the metric we want! 
+
+And the line element of the 3-sphere embedded in 4D:
+
+\be
+\mathrm{d}\ell^2 = R^2\left(\mathrm{d}\alpha^2 + \sin^2\alpha \mathrm{d}\Omega^2\right)
+\ee
+
+where 
+
+\be
+\mathrm{d}\Omega^2 \equiv \mathrm{d}\beta^2 + \sin^2\beta \mathrm{d}\gamma^2
+\ee
+
+Again, we can change variables, $u \equiv \sin\alpha \rightarrow \mathrm{d}u = \sqrt{1-u^2}\mathrm{d}\alpha$:
+
+\be
+\mathrm{d}\ell^2  =R^2 \left[\frac{\mathrm{d}u^2}{1-u^2} + u^2 \mathrm{d}\Omega^2 \right]
+\ee
+
+Again, where
+
+\be
+\mathrm{d}\Omega^2 \equiv \mathrm{d}\beta^2 + \sin^2\beta \mathrm{d}\gamma^2
+\ee
+
+Compared to the Friedmann-Robertson-Walker metric, these are identical! 
+
+\be
+\frw
+\ee
+
+Thus, for a $3$-sphere in 4-dimensions, we recover the FRW metric dependence in a hand-wavy way. 
+
+For the open model ($k<0$), we don't have coordinate singularities. Instead of a spherical analogy, we use a saddle as an analogy (or, more tasty, Pringles!). This case has infinite volume and is called Lobachevsky space. Here, we let $u \equiv \sinh\theta$ which you can see will receover the proper FRW dependence. 
+
+There is an alternative form of the metric, too, we should know. We will see this in Problem Set 2. It is written as:
+
+\be
+\mathrm{d}s^2 = c^2 \mathrm{d}t^2 - a^2\left(t\right) \left[\mathrm{d}\chi^2 + \mathcal{S}^2 \left(\mathrm{d}\theta^2 + \sin^2\theta \mathrm{d}\phi^2\right)\right]
+\ee
+
+\subsection{Basic Kinematic Properties of the Smooth Universe}
+
+Here, we have in mind:
+
+\begin{itemize}
+    \item Distance vs. Redshift
+    \item Time vs. Redshift
+    \item Age of the Universe
+    \item Other useful quantities
+\end{itemize}
+
+\subsubsection{Comoving, Radial Distance vs. Redshift (``The Hubble Diagram'')}
+
+First, we know that photons follow $\mathrm{d}s^2 = 0$, so let's take a radial path from the observer ($\mathrm{d}\theta = \mathrm{d}\phi = 0$. Now we have:
+
+\be
+0 = c^2 \mathrm{d}t^2 - \frac{a^2 \mathrm{d}r^2}{1-kr^2}
+\ee
+
+\be
+\int_{0}^{r_1} \frac{\mathrm{d}r}{\sqrt{1-kr^2}} = c\int_{t_1}^{t_0} \frac{\mathrm{d}t}{a(t)}
+\ee
+
+where $t_0$ is the age of the Universe. Evaluating these integrals, starting with the flat, static Universe ($k=0, a=1$):
+
+\be
+\mathrm{d}r = c \mathrm{d}t \rightarrow r = ct
+\ee
+
+What about other cases? First, let's replace $\mathrm{d}t$ by $\mathrm{d}z$ using $H = \frac{1}{a}\frac{\mathrm{d}a}{\mathrm{d}t}$ and $a = (1+z)^{-1}$:
+
+\be
+H =-\frac{1}{1+z} \frac{\mathrm{d}z}{\mathrm{d}t}
+\ee
+
+Also recall:
+
+\be
+H\left(z\right) = H_0 
+\sqrt{\Omega_0 \left(1+z\right)^{3+3w} + \left(1-\Omega_0\right)\left(1+z\right)^2}
+\ee
+
+Thus:
+
+\be
+\mathrm{d}t = - \frac{\mathrm{d}z}{H(1+z)} = -\frac{\mathrm{d}z}{H_0\left(1+z\right)\sqrt{\text{stuff}}}
+\ee
+
+Going back to our integral expression:
+
+\be
+\text{RHS} = \int_{t_1}^{t_0} \frac{c\mathrm{d}t}{a(t)} = \frac{c}{H_0} \int_{0}^{z_1} \frac{\mathrm{d}z}{\sqrt{\text{stuff}}}
+\ee
+
+
+
+
+
+
+
 
 
 
