@@ -25,6 +25,8 @@
 \newcommand{\be}{\begin{equation}}
 \newcommand{\ee}{\end{equation}}
 \newcommand{\Mpc}{\unit{Mpc}}
+\newcommand{\Gpc}{\unit{Gpc}}
+\newcommand{\Gyr}{\unit{Gyr}}
 \newcommand{\s}{\unit{s}}
 \newcommand{\km}{\unit{km}}
 \newcommand{\yr}{\unit{yr}}
@@ -770,13 +772,15 @@ There is an alternative form of the metric, too, we should know. We will see thi
 Here, we have in mind:
 
 \begin{itemize}
-    \item Distance vs. Redshift
+    \item Comoving radial distance vs. Redshift
     \item Time vs. Redshift
     \item Age of the Universe
     \item Other useful quantities
 \end{itemize}
 
 \subsubsection{Comoving, Radial Distance vs. Redshift (``The Hubble Diagram'')}
+
+By the comoving radial distance, we mean the $r$ in the RW metric. 
 
 First, we know that photons follow $\mathrm{d}s^2 = 0$, so let's take a radial path from the observer ($\mathrm{d}\theta = \mathrm{d}\phi = 0$. Now we have:
 
@@ -818,6 +822,194 @@ Going back to our integral expression:
 \be
 \text{RHS} = \int_{t_1}^{t_0} \frac{c\mathrm{d}t}{a(t)} = \frac{c}{H_0} \int_{0}^{z_1} \frac{\mathrm{d}z}{\sqrt{\text{stuff}}}
 \ee
+
+We will look at two cases of the above.
+
+\begin{itemize}
+    \item Einstein-de Sitter Model $k = 0, \Omega_0 = \Omega_{0,m} = 1$. No other components. 
+    \item  Arbitrary $\Omega_{m,0}$ and $\Omega_{m,\Lambda}$ with negligible radiation. 
+\end{itemize}
+
+\noindent\textbf{Einstein-de Sitter}
+
+\begin{equation}
+\text{RHS} = \frac{c}{H_0}\int_0^{z_1} \frac{\mathrm{d}z}{(1+z)^{3/2}} = \frac{2c}{H_0}\left[1-(1+z_1)^{-1/2}\right]
+\end{equation}
+
+\begin{equation}
+\text{LHS} = \int_0^{r_1} \mathrm{d}r = r
+\end{equation}
+
+Thus, we have the comoving radial distance for the Einstein-de Sitter Universe:
+
+\be
+\boxed{r = \frac{2c}{H_0}\left(1-\left(1+z\right)^{-1/2}\right]}
+\ee
+
+Let's examine a few limits. As $z\to\infty$, $r\to\frac{2c}{H_0} \approx 6 h^{-1} \Gpc$. When $z\ll1$, $r\approx \frac{cz}{H_0}$. Note that this is just Hubble's Law! Since, for small $z$, $v \approx cz$. \\
+
+\noindent\textbf{Arbitrary Case}
+
+We will show this in PS2, but in this case:
+
+\be
+\boxed{r = |k|^{-1/2} \operatorname{sinn}\{\frac{c}{H_0}|k|^{1/2} \int_0^{z} \frac{\mathrm{d}z^\prime}{\sqrt{\Omega_{0,m}\left(1+z^\prime\right)^3 + \Omega_{0,\Lambda} + \left(1-\Omega_{0,m}-\Omega_{0,\Lambda}\right)\left(1+z^\prime\right)^2}} \}}
+\ee
+
+where 
+
+\be
+\boxed{\text{sinn} = 
+\begin{cases}
+\sin \text{ when } k > 0 \\
+\text{absent when } k = 0 \\
+\sinh \text{ when } k < 0 
+\end{cases}
+}
+\ee
+
+For $z\ll1$, all three cases of $k$:
+
+\be
+\boxed{r = \underbrace{\frac{c}{H_0}(z}_\text{Hubble's Law}-\frac{1}{2}\left[1+q_0\right]z^2) + \mathcal{O}(z^3)}
+\ee
+
+where 
+
+\be
+q_0 = \frac{\Omega_{0,m}}{2} - \Omega_{0,\Lambda} + \Omega_{0,r}
+\ee
+
+This is an enormously important equation, historically. Again, here we see that the Supernova experiments depend on $q_0$, thus the \textbf{difference} between $\Omega_{0,m}$ and $\Omega_{0,\Lambda}$, allowing good constraints. 
+
+\subsubsection{A Note on Various Distances}
+
+There are two other commonly used cosmological ``distances'':
+
+\begin{itemize}
+    \item Luminosity distance
+    \item Angular diameter distance
+\end{itemize}
+
+\noindent\textbf{Luminosity Distance} $D_L$
+
+This is based on standard candles. This is defined to be:
+
+\be
+D_L \equiv \sqrt{\frac{L_\text{emit}}{4\pi S_\text{obs}}}
+\ee
+
+where the variables are emitted luminosity and observed flux. There are two factors for $1+z$ we have to look out for. For luminosity, we have energy per time. Energy is diluted by $1+z$ and time is dilated by $1+z$, so:
+
+\be
+D_L = \left(1+z\right) r_\text{comoving}
+\ee
+
+\noindent\textbf{Angular Diameter Distance} $D_A$
+
+This is based on standard rulers. This is defined to be:
+
+\be
+D_A \equiv \frac{\ell_\text{physical}}{\underbrace{\theta}_\text{angular size}}
+\ee
+
+We can change this to comoving coordinates easily:
+
+\be
+D_A = \frac{r_\text{comoving}}{\left(1+z\right)}
+\ee
+
+\subsubsection{Time vs. Redshift}
+
+All we need here is $\mathrm{d}t$ vs. $\mathrm{d}z$, integrate, and we are okay. So how do we do that?
+
+We actually did this earlier when we were deriving $H(a)$. Recall:
+
+\be
+\mathrm{d}t = -\frac{1}{H_0} \frac{\mathrm{d}z}{\left(1+z\right) \sqrt{\Omega_0 \left(1+z\right)^{3+3w} + (1-\Omega_0)\left(1+z\right)^2}}
+\ee
+
+Let's ask a few questions -- what's the time since the Big Bang at redshift $z$?
+
+\be
+t = \frac{1}{H_0}\int_{z}^{\infty} \frac{\mathrm{d}z^\prime}{\left(1+z^\prime\right)\sqrt{\Omega_0 \left(1+z\right)^{3+3w} + (1-\Omega_0)\left(1+z\right)^2}}
+\ee
+
+A related question -- what's the age of the Universe today? All we do is set $z = 0$ above! 
+
+\be
+t_0 = \frac{1}{H_0}\int_{0}^{\infty} \frac{\mathrm{d}z^\prime}{\left(1+z^\prime\right)\sqrt{\Omega_0 \left(1+z\right)^{3+3w} + (1-\Omega_0)\left(1+z\right)^2}}
+\ee
+
+Again, as always, let's look at a few special cases, starting with EdS:
+
+\noindent\textbf{Einstein de Sitter}
+\be
+t_0 = \frac{1}{H_0} \int_)^\infty \frac{\mathrm{d}z}{(1+z)^{5/2}} = -\frac{2}{3H_0} \left(1+z\right)^{-3/2}\rvert_{0}^{\infty} =\frac{2}{3H_0}
+\ee
+
+A different way to derive this -- recall that $a(t) \propto \left(\frac{t}{t_0}\right)^{2/3}$. Thus, $H = \frac{\dot{a}}{a} = \frac23 \frac{1}{t}$. We can set this to today: $t_0 = \frac{2}{3H_0}$. Remind yourself that $H_0^{-1} = 10^{10} h^{-1} \yr$. This gives:
+
+\be
+t_0 \approx 6.7 h^{-1} \Gyr
+\ee
+
+Now, another case, where $k=0$ but allow for non-zero $\Omega_{0,\Lambda}$ (but $\Omega_m + \Omega_\Lambda = 1$. We can show this, but we won't, that:\\
+
+\be
+t_0 = \frac{2}{3H_0}\frac{1}{\sqrt{\Omega_{0,\Lambda}}}\ln \left(\frac{1 + \sqrt{\Omega_{0,\Lambda}}}{\sqrt{\Omega_{0,m}}}\right) \approx \frac{2}{3H_0}\Omega_{0,m}^{-0.3}
+\ee
+
+
+\noindent\textbf{Open Case}
+
+Here, we will consider $k<0$, $\Omega_0<1$ and matter only. We looked at this extensively when we did parametric solutions:
+
+\be
+t(\theta) = \frac{\Omega_0}{2H_0\left(1-\Omega_0\right)^{3/2}}\left(\sinh\theta - \theta\right)
+\ee
+
+\be
+a(\theta) = \frac{\Omega_0}{2\left(1-\Omega_0\right)}\left(\cosh\theta - 1\right)
+\ee
+
+Today, we have $a(\theta_0) = 1 \rightarrow \cosh\theta_0 = \frac{2-\Omega_0}{\Omega_0}$. After a little bit of algebra, we find:
+
+\be
+\sinh\theta_0 = \frac{2}{\Omega_0}\sqrt{1-\Omega_0}
+\ee
+
+\be
+t_0 = \frac{1}{H_0} \left[(1-\Omega_0)^{-1} - \frac12 \Omega_0 \left(1-\Omega_0\right)^{-3/2}\cosh^{-1}\left(\frac{2-\Omega_0}{\Omega_0}\right) \right]
+\ee
+
+We can show that:
+
+\be
+t_{0,\text{open}} > \frac{2}{3H_0} (t_0 \text{ for flat})
+\ee
+
+Additionally, if we take $\Omega_0 \to 0$ (a \textbf{Milne} Universe), then $t_0 \to \frac{1}{H_0}$.\\
+
+\noindent\textbf{Closed Case}
+
+This is when $\Omega_0 > 1$, with matter only, and $k>0$. Correspondingly, we get:
+
+\be
+t_0 = \frac{1}{H_0} \left[(1-\Omega_0)^{-1} + \frac12 \Omega_0 \left(\Omega_0 - 1\right)^{-3/2}\cos^{-1}\left(\frac{2-\Omega_0}{\Omega_0}\right) \right]
+\ee
+
+We can show that:
+
+\be
+t_{0,\text{closed}} < \frac{2}{3H_0} (t_0 \text{ for flat})
+\ee
+
+Note that there is a nice identity: $\cosh^{-1}(x) = \ln\left(x + (x^2-1)^{1/2}\right)$. 
+
+
+\section{The Luminous Universe}
+
 
 
 
