@@ -558,7 +558,7 @@ We will now shift variables: $a\prime \rightarrow a + \alpha$:
 We can now do trigonometric substitution. Let $a\equiv \alpha \cosh \theta$. This gives $\mathrm{d}a = \alpha \sinh\theta \mathrm{d}\theta$. Lastly, $\sqrt{a^2\alpha^2} = \alpha\sinh\theta$. Properly adjusting limits, we get the expression:
 
 \be
-\boxed{a(\theta) = \frac{\Omega_0}{2\left(1+\Omega_0\right)}\left(\cosh\theta-1\right)}
+\boxed{a(\theta) = \frac{\Omega_0}{2\left(1-\Omega_0\right)}\left(\cosh\theta-1\right)}
 \ee
 
 \be
@@ -570,13 +570,13 @@ We can now do trigonometric substitution. Let $a\equiv \alpha \cosh \theta$. Thi
 \ee
 
 \be
-H_0 t_f = \frac{\Omega_0}{2\left(1+\Omega_0\right)^{3/2}} \left(\sinh\theta_f -\theta_f\right)
+H_0 t_f = \frac{\Omega_0}{2\left(1-\Omega_0\right)^{3/2}} \left(\sinh\theta_f -\theta_f\right)
 \ee
 
 This gives:
 
 \be
-\boxed{t(\theta) = \frac{\Omega_0}{2H_0\left(1+\Omega_0\right)^{3/2}}\left(\sinh\theta - \theta\right)}
+\boxed{t(\theta) = \frac{\Omega_0}{2H_0\left(1-\Omega_0\right)^{3/2}}\left(\sinh\theta - \theta\right)}
 \ee
 
 We can then use $\theta$ as some parameter, trace out $a$ and $t$, and then find $a(t)$!
@@ -1008,7 +1008,99 @@ t_{0,\text{closed}} < \frac{2}{3H_0} (t_0 \text{ for flat})
 Note that there is a nice identity: $\cosh^{-1}(x) = \ln\left(x + (x^2-1)^{1/2}\right)$. 
 
 
-\section{The Luminous Universe}
+\section{The Bright Universe}
+
+We have discussed the smooth, Friedmann-Roberston-Walker Universe. What about fluctuations in density? Let's fill the Universe in, starting with the bright stuff (baryons). This climaxes with the Big Bang, and the prediction of mass ratios of the elements H, He, D, and $^7$Li (with very minor tension). The thermodynamics that we learn here differs in that we have an expanding background with different particles with different statistics. 
+
+We must then compare the expansion rate (Hubble Rate) to the particle interactions that keep things in equilibrium. 
+
+\subsection{The Planck Mass: The Ugliest Numbers in Physics}
+
+This might just look like unit conversion tricks in various branches physics:
+
+\begin{itemize}
+    \item High Energy Physics
+    \begin{itemize}
+        \item Energy $\sim \frac{1}{\text{length}}$, with $\hbar c \approx 200 \text{ fermi-MeV}$ where $1 \text{fermi} = 10^{-13} \cm$ and $\hbar \equiv \frac{h}{2\pi}$. The convention is to instead say $\hbar c =1$. Nominally, this says:
+        
+        $$
+        1 \text{ MeV} \approx \frac{1}{200} \text{ fermi}
+        $$
+        
+        \item Energy $\sim$ mass, so $c = 1$. Thus, 
+        
+        $$
+        1 \text{ GeV} \approx m_p \approx 1.67\times 10^{-24} \g
+        $$
+    \end{itemize}
+    
+    \item Condensed Matter Physics 
+    \begin{itemize}
+        \item Energy $\sim$ Temperature, and the way we do this is setting $k_B T_{\text{room, }300\text{ K}} = \frac{1}{40} \text{ eV}$. An easy example is the CMB, which has a temperature of around $3 \text{ K}$. Immediately, the characteristic photon energy is thus $\frac{1}{4000} \text{ eV}$, or around $2.5 \times 10^{-4} \text{ eV}$. As a side note, if we want to say if something is ``relativistic,'' we have to compare the particle's rest mass to the characteristic photon energy at a given temperature. 
+        
+        $$
+        k_B T_{\text{room, }300\text{ K}} = \frac{1}{40} \text{ eV}
+        $$
+    \end{itemize}
+    
+    \item Astrophysics
+    \begin{itemize}
+        \item Here, we look to the Schwarzschild radius of the Sun:
+        
+        $$
+        R_\text{Sch} = \frac{2GM}{c^2}
+        $$
+        
+        Pinning this to the sun, we get $R_\text{Sch} \approx 3 \text{ km}$. 
+    \end{itemize}
+\end{itemize}
+
+So how does this relate to the Planck Mass? This is scale at which gravity and quantum mechanics are comparable in strength. We also call this the ``unifying scale'' of gravity and quantum mechanics. For gravity, this scale is $R_\text{Sch}$ and for QM, this is $\lambda_c = \frac{hc}{mc^2} = \frac{2\pi \hbar c}{mc^2}$. When $R\sim \lambda$ and $m_\text{pl}$:
+
+$$
+\frac{G m_\text{pl}}{c^2} = \frac{\hbar c}{m_\text{pl}c^2} \rightarrow \boxed{m_\text{pl} = \sqrt{\frac{\hbar c}{G}} \approx 1.22\times 10^{19} \text{ GeV} }
+$$
+
+Schematically, we have:
+
+\begin{figure}
+    \centering
+    \includegraphics{scales.png}
+    \caption{Length and mass scales, with the Planck mass being the intersection. }
+    \label{fig:scales}
+\end{figure}
+
+A very natural scale for $\Lambda$ would be the Planck mass, right? Let's check that, looking at the Energy density in $\Lambda$ to order of magnitude:
+
+\be
+\Omega_\Lambda = 0.7 \approx 1 \rightarrow \rho_\Lambda \sim \rho_{c} \sim 1 \times 10^{-5} h^2 \frac{\unit{GeV}}{\unit{cm}^3}
+\ee
+
+Re-writing this with our conventions above (that $200 \unit{MeV} \approx \unit{fm}^{-1} \sim 10^{13} \cm^{-1}$. 
+
+\be
+\frac{1}{\cm^3} \sim \left(0.2 \unit{GeV}\right)^3\times 10^{-39} \sim 10^{-41} \unit{GeV}
+\ee
+
+Thus
+
+\be
+\boxed{\rho_\Lambda \sim 10^{-46} \unit{GeV}^4} 
+\ee
+
+Here comes the comparsion that should shock you. What's the natural scale, again? The Planck Scale! So how does $\rho_\Lambda$ compare with $m_\text{pl}^4$. 
+
+\be
+\boxed{m_\text{pl}^4 \sim 10^{76} \unit{GeV}^4}
+\ee
+
+Notice!
+
+\be
+\frac{\rho_\Lambda}{m_{pl}^4} \sim 10^{-122}
+\ee
+
+Why the heck is that so small? It's so ugly, unnatural, and not $\mathcal{O}(1)$.
 
 
 
@@ -1462,7 +1554,181 @@ This is what Robertson-Walker showed.
 
 \subsection{Lecture 5}
 
+\subsubsection*{ Finishing the Robertson-Walker Metric}
+
+We've been following Weinberg's derivation to show there are discrete metrics.
+We'll start with:
+$$ds^2=c^2dt^2-a^2(t)\left[\frac{dr^2}{ 1-kr^2}+r^2(d\theta^2+\sin^2\theta 
+d\phi^2)\right]$$
+Recall that $k$ is the {\it curvature constant} and $r$ is in {\it comoving}
+coordinates.  If we define $U\equiv\sinh\theta$, then: 
+\begin{align}
+dU&=\cosh\theta\cdot d\theta\\
+d\theta&=\frac{dU}{\sqrt{1+U^2}}\\
+\end{align}
+The beauty of this metric
+is that we derived it only using symmetry (no dynamics).  There is an alternate
+way of writing the metric above:
+$$ds^2=c^2dt^2-a^2
+\left[d\chi^2+S^2(\chi)(d\theta^2+\sin^2\theta d\phi^2\right]$$
+where:
+$$S(\chi)\equiv\begin{cases}\chi &\,(for\ k=0,\ \chi=r)\\
+k^{-\hf}\sin(k^\hf \chi)&\,(for\ k>0)\\
+(-k)^{-\hf}\sinh(\sqrt{-k}\chi)&\,(for\ k<0)\\\end{cases}$$
+\par
+
+\subsubsection*{ Comoving Radial Distance vs. Redshift: the Hubble Diagram }
+
+This is the fundamental diagram behind using a standard candle (supernova) to
+infer the curvature of the universe.  What we want here is an algebraic
+expression relating $r$ and $z$.  We'll look at light propagation ($ds^2=0$),
+and take a radial path ($d\theta=d\phi=0$) to know from the Robertson-Walker
+metric that:
+$$c^2dt^2=a^2\frac{dr^2}{1-kr^2}$$
+Separating out our $r$ dependencies
+and our $t$ dependencies and integrating, we get:
+$$\int_0^{r_1}\frac{dr}{\sqrt{1-kr^2}}=\int_{t_1}^{t_0}\frac{c\cdot dt}{ a(t)}$$
+\begin{itemize}
+\item For the flat, $k=0$, matter-dominated model ($w=0$, $\econs=0$, 
+$\emat=1$), we'll start with the Friedmann Equation:
+$$H=\aa=H_0\sqrt{\frac{\etot}{\attw}+\frac{1-\etot}{ a^2}}$$
+Recognizing that $a=\inv{1+z}$, we have:
+$$H_0dt=-\frac{dz}{ (1+z)\sqrt{\etot(1+z)^{3+3w}+(1-\etot)(1+z)^2}}$$
+These integrals evaluate to (in comoving $r$):
+$$r_1=\int_{t_1}^{t_0}\frac{c\cdot dt}{ a(t)}$$
+$$\boxed{r_1=\frac{2c}{ H_0}\left[1-(1+z)^{-\hf}\right]}$$
+\def\hubd{\frac{2c}{ H_0}}
+\def\sqmk{\sqrt{-k}}
+Here, $\hubd$ is called the Hubble distance and is the definition of 
+how far away we can possibly see--how far light could have traveled since the
+beginning of time.  Notice that as $z\to\infty$, $r=\hubd\approx10000h^{-1}Mpc$.
+
+\item For the open, $k<0$, $\etot<1$, $w=0$ model, we'll substitute 
+$\sqmk r=\sinh\chi$, $dr=\frac{\cosh\chi d\chi}{\sqmk}$ for $r$ in the integral 
+above:
+\begin{align}
+r&=\int_-^{\chi_1}\frac{\cosh\chi d\chi}{\sqmk\sqrt{1+\sinh^2\chi}}\\
+\frac{\chi_1}{\sqmk}&={\sinh^{-1}(\sqmk r_1)}{\sqmk}\\
+\end{align}
+From this, we can use {\it Mattig's Formula}, which states for $w=0$, 
+arbitrary $\emat = \etot$, that:
+$$r=\frac{2c}{ H_0\etot^2}\inv{1+z}\left[\etot z+(\etot-2)(\sqrt{1+\etot z}
+-1)\right]$$
+In general, for arbitrary $\emat, \econs$ (we'll derive this in PS\#3), one
+can show that, in comoving $r$:
+\def\sqak{\sqrt{|k|}}
+$$
+\boxed{r=\inv{\sqak}sinn\left(\frac{c}{ H_0}\sqak 
+\int_0^z\frac{dz\p}{ \sqrt{\emat(1+z)^3+\econs+(1-\emat-\econs)(1+z)^2}}
+\right)}$$
+where $sinn$ is a funny function: 
+$$sinn\equiv\begin{cases}\sin&\,for\ k>0\\
+absent&\,for\ k=0\\
+\sinh&\,for\ k<0\\\end{cases}$$
+Note that when $w=0$, for arbitrary $\emat$, we recover Mattig's Formula.
+\end{itemize}
+
+\subsubsection*{ Angular Diameter Distance}
+
+The angular diameter distance is a useful quantity which relates the physical
+size or separation of objects to the angular size on the sky.  For normal,
+Euclidean geometries, this is trivial trigonometry.  For a curved universe,
+this is not trivial.  For example, in some universes, an object pulled
+far enough away may actually start looking larger (have a larger angular
+diameter) than a closer object!\par
+This brings us to the end of the smooth universe.  We've seen $a(t)$, but we
+have not seen any perturbations off of that.  Similarly, we've seen $\rho (t)$,
+but no spatial components of density.  We will begin to talk about perturbations
+off of the Smooth Universe, and we will call this:
+
+\subsubsection*{ The Bright Side of the Universe}
+
+Let's do a quick tour of the the particles out there to give some context
+to what we're talking about.  Take a look at {\it Review of Particle Physics},
+which is also at {\it http://pgd.lbl.gov}, for some more detailed information.
+\par
+First, we'll talk about {\it fermions}.  Fermions come in two varieties:
+Leptons and Quarks.  Quarks are hadrons and group together to from
+baryons (made of 3 quarks) and mesons (made of quark-antiquark pairs).
+\centerline{Elementary Particles: Fermions (spin $\hf$)}
+$$\begin{matrix} 
+Leptons&Charge&Mass&Mean\ Lifetime\\
+e&-1&0.51099892\pm0.00000004 MeV&\infty\\
+\nu_e&0&<3 eV&\infty\\
+\mu&-1&106 MeV&2.2\mu s,\ \mu^-\to e^-\bar \nu_e\nu_p\\
+\nu_\mu&0&<190 keV&\infty\\
+\tau&-1&1.78 GeV&2.9\cdot 10^{-13}\\
+\nu_\tau&0&<18.2 MeV&\infty\\\end{matrix}$$
+
+$$\begin{matrix} 
+Quarks\ (3\ colors\ each)&Charge&Mass\\
+U&\frac{2}{ 3}&1.5 \to 4 MeV\\
+d&-\frac{1}{ 3}&4 \to 8 MeV\\
+s&-\frac{1}{ 3}&80 \to 130 MeV\\
+c&\frac{2}{ 3}&1.15 \to 1.35 GeV\\
+b&-\frac{1}{ 3}&4.1 \to 4.4 GeV\\
+t&\frac{2}{ 3}&174.3 \pm 5.1 GeV\\\end{matrix}$$
+
+
 \subsection{Lecture 6}
+
+\subsubsection*{ The Bright Side, continued }
+
+$$\begin{matrix} 
+Gauge\ Bosons&spin&charge&mass\\
+\gamma&1&0&0&(carries\ electroweak\ force)\\
+w^\pm&1&\pm 1&80.4 GeV&(carries\ electroweak\ force)\\
+Z^0&1&0&91.2 GeV&(carries\ electroweak\ force)\\
+gluons&1&0&don't\ know&(carries\ strong\ force)\\
+Higgs&0&0&>114.4GeV\\
+graviton&2&0&0\\\end{matrix}$$
+
+$$\begin{matrix} 
+Baryons&quark\ content&charge&mass&lifetime\\
+proton&uud&+1&938.07003 MeV&\ge 10^{32} yrs\\
+neutron&udd&0&939.56536 MeV&885.7 sec\\
+\Lambda&uds&0&1.11 GeV&10^{-10} sec\\
+\Sigma^{+,0,-}&uus,uds,dds&+1,0,1&1.2 GeV&10^{-10}, 10^{-19}\\
+\Xi^0&uss&0&1.3 GeV&10^{-10}\\
+\Xi^-&dss&-1&1.3 GeV&10^{-10}\\
+\Omega^-&sss&-1&1.67 GeV&?\\\end{matrix}$$
+
+$$\begin{matrix} 
+Mesons(q\bar q,\ Spin\ 0)&charge&quark&mass&lifetime\\
+\Pi^\pm&\pm 1&u\bar d, d\bar u&140MeV&10^{-8}s\\
+\Pi^0&0&u\bar u, d\bar d&135MeV&10^{-16}s\\
+K^\pm&\pm1&u\bar s,\bar us&494 MeV&10^{-8} s\\
+(Spin\ 1)\\
+J,\Psi&0&c\bar c&3.1 GeV&10^{-20}\\
+\Upsilon&0&b\bar b&9.5 GeV&10^{-20}\\\end{matrix}$$
+
+$$\begin{matrix} 
+Fundamental\ Interactions&Gravity&Weak&EM&Strong\\
+Classical&Newton/Einstein&-&Maxwell&-\\
+Quantum&?&V-A\ Theory(flawed)&QED, Gauge&QCD [SU(3)]\\\end{matrix}$$
+
+\subsubsection*{ Useful Scales/Conversion tricks}
+
+In particle physics, $E\sim\inv{length}$, because $\hbar c=1$ (which
+had units $\frac{E}{ cm}$).  In condensed matter physics, $E\sim T$.\par
+The Planck mass is the mass scale at which the effect of gravity and quantum
+effects are comparable.  We can get an estimate of the Planck mass by setting
+the Schwarzschild radius ($R_{sch} = \frac{2Gm}{ c^2}$) equal to the Compton
+wavelength of a particle ($\lambda = \frac{hc}{ mc^2} = \frac{2\pi\hbar c}{ mc^2}$).
+Dropping our constants (2's, $\pi$'s), we get:
+$$\frac{Gm_{planck}}{ c^2} \sim \frac{\hbar c}{ m_{planck}c^2}$$
+$$m_{planck} = \sqrt{\frac{\hbar c}{ G}} \approx 1.2\cdot 10^{19} \frac{GeV}{ c^2}$$
+Another number of interest is the energy density in $\Lambda$.  We know
+$$\econs \equiv \frac{\rho_\Lambda}{ \rho_{crit}} \approx 0.7 \sim 1$$
+\begin{align}
+\rho_\Lambda \sim \rho_{crit} 
+&= 1.88\cdot 10^{-29} h^2 \frac{g}{ cm^3}\\
+&= 1.054\cdot 10^{-5} h^2 \frac{GeV}{ cm^3}
+\end{align}
+Converting $\frac{GeV}{ cm^3}$ to $GeV^4$, we get:
+$$\rho_\Lambda \sim \rho_{crit} \sim 10^{-46} GeV^4$$
+$$\frac{\rho_\Lambda}{ m_{planck}^4} \approx 10^{-122} = worst\ number\ in\ 
+physics$$
 
 \subsection{Lecture 7}
 
