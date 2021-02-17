@@ -1103,6 +1103,104 @@ Notice!
 Why the heck is that so small? It's so ugly, unnatural, and not $\mathcal{O}(1)$.
 
 
+\subsection{Thermodynamics in an Expanding Universe}
+
+
+Here, we have lots of review of thermodynamics but applied to a non-static, fluid background. The conditions in the Early Universe (the first three minutes, or so). We had extremely high temperature, high pressure, and high density (either energy density $\rho$ or number density $n$). To a good approximation, though not always true, we have thermal equilibrium. Additionally, we can treat all these particles as if they are ideal gases -- gases where interactions are negligible. 
+
+In phase space, we can have a phase space volume: $\mathrm{d}^3x \mathrm{d}^3 p$ which has units of $h_\text{planck}^3$. We use the term \textbf{phase space distribution function} $f(\vec{x},\vec{p},t)$, by the way. We thus have that:
+
+\be
+\text{Particle No.: } \mathrm{d}N = f(\vec{x},\vec{p},t) \frac{\mathrm{d}^3x \mathrm{ d}^3p}{h^3} g
+\ee
+
+When thermodynamics breaks down, we always can return to the evolution of $f$ directly, which is goverened by the \textbf{Boltzmann equation}. On a good day, we don't have to solve the 6-dimensional Boltzmann equation and can return to fluid dynamics instead. On a bad day, we have to return to our distribution function analysis. 
+
+Now, recall from statistical mechanics: the equilibrium occupation number of a state of energy $\epsilon(p)$:
+
+\be
+f = \frac{1}{e^\frac{\epsilon-\mu}{kT} \pm 1}
+\ee
+
+where $+$ is for fermions  and $-$ is for bosons. Note as well that $\mu$ is the chemical potential:
+
+\be
+\mathrm{d}U =T \mathrm{d}S - P\mathrm{d}V + \mu \mathrm{d}N
+\ee
+
+The physical meaning of $\mu$ is thus the change in internal energy due to change in particle number! For a thermal radiation background, we have $\mu = 0$. This will be the case for most astrophysical contexts. 
+
+The most obvious consequence of the above Boltzmann statistics is that the temperature evolves in time, but thermal equilibrium gives us spatial homogeneity. We need to know the first order perturbations to $f$ if we want to consider the non-linear Universe (the CMB!). 
+
+Here are a few macroscopic, useful quantities:
+
+\begin{itemize}
+    \item Number density (where $\epsilon(p) = \sqrt{m^2 c^4 + p^2 c^2}$: 
+    \be
+    n = \frac{g}{h^3} \int_{0}^{\infty} \frac{4\pi p^2 }{e^\frac{\epsilon(p)}{kT} \pm 1}\mathrm{d}p
+    \ee
+    
+    \item Energy density $u$:
+    
+    \be
+    u = \rho = \frac{g}{h^3} \int_{0}^{\infty} \epsilon(p) \frac{4\pi p^2 }{e^\frac{\epsilon(p)}{kT} \pm 1}\mathrm{d}p
+    \ee
+    
+    \item Entropy density $s$:
+    \be
+    s \equiv \frac{S}{V} = \frac{1}{V}\frac{1}{T} \left(U + PV - \mu N\right)
+    \ee
+    
+    when $\mu = 0$:
+    
+    \be
+    s = \frac{u+P}{T} 
+    \ee
+\end{itemize}
+
+
+\noindent\textbf{Two limits:}
+We will see familiar expressions when we take some limits. Starting with the \textbf{ultrarelativistic limit} $kT \gg mc^2$.\footnote{Note, again, that $T$ changes in time and therefore particles change from ultrarelativistic to non-relativistic throughout the evolution of the Universe. } Here, the particles are effectively massless and $\epsilon \rightarrow pc$. Computing these integrals:
+
+\begin{itemize}
+    \item Number density:
+    \be
+    n = \frac{g}{h^3}\int_0^\infty \frac{4\pi p^2}{e^{\frac{pc}{kT}} -1} \mathrm{d}p = \frac{4\pi g}{(2\pi)^3} \left(\frac{kT}{\hbar c}\right)^3 \int_0^\infty \frac{y^2}{e^{y} -1} \mathrm{d}y  
+    \ee
+    
+    \item Energy density
+    
+    \be
+    u = \frac{4\pi g}{(2\pi)^3}\left(\frac{k^4T^4}{\hbar^3 c^3}\right) \int_0^\infty \frac{y^3 \mathrm{d}y}{e^y \pm 1}
+    \ee
+    
+    \begin{itemize}
+        \item Bosons:
+        
+        \be
+        n = \frac{1}{\Gamma(n)}\int_0^\infty \frac{y^{n-1} \mathrm{d}y}{e^y - 1}
+        \ee
+        
+        We need two results:
+        
+        \be
+        \int_0^\infty \frac{y^{2} \mathrm{d}y}{e^y - 1} = \Gamma(3) \zeta(3)
+        \ee
+        
+        \be
+        \int_0^\infty \frac{y^{2} \mathrm{d}y}{e^y - 1} = \Gamma(4) \zeta(4)
+        \ee
+        
+        
+        
+        \item Fermions:
+    \end{itemize}
+\end{itemize}
+
+
+
+
+
 
 
 
@@ -1731,6 +1829,140 @@ $$\frac{\rho_\Lambda}{ m_{planck}^4} \approx 10^{-122} = worst\ number\ in\
 physics$$
 
 \subsection{Lecture 7}
+
+The lower the temperature of the universe, the easier life gets: once the 
+temperature of the universe drops below the rest energy of a particle, it is
+no longer often created in particle/antiparticle pairs.\par
+
+\subsubsection*{ Thermodynamics of a Fermi/Bose Gas}
+
+{\it Phase Space} is a 6-dimensional space of directions and linear momenta.
+It has volume:
+$$V = {d^3xd^3p\over h^3}$$
+The {\it Distribution Function} $f(\hat x,\hat p,t)$ describes the number of particles
+in a particular $\hat x, \hat p$ state at a given time.  Thus, the number of particles
+in a phase space volume is:
+\def\fxpt{f(\hat x,\hat p,t)}
+$$dN=f(\hat x,\hat p,t){d^3xd^3p\over h}\cdot g$$
+where $g$ is used to account for {\it degeneracy}.
+Reminder of Fermi/Bose statistics:
+\def\eeukt{e^{E-\mu\over kT}}
+$$\fxpt = \inv{\eeukt\pm 1}$$
+Where $\mu$ is the chemical potential (usually 0 for us), + is for fermions,
+and - is for bosons.  The chemical potential is usually 0 because we are talking
+about photons, and it can be shown that since photon number is not conserved,
+then $\mu = 0$.  
+\begin{itemize}
+\item \# density in thermal equilibrium (integrating $dN$ above, dividing
+by volume, recall $E=\sqrt{p^2c^2+m^2c^4}$):
+$$n = {g\over h^3}\int{4\pi p^2dp\over e^{E(p)\over kT}\pm 1}$$
+\item Energy density ($dN$, weighted by energy):
+$$u={g\over hA^3}\int_0^\infty{E(p){4\pi p^2dp\over e^{E(p)\over kT}\pm 1}}$$
+\item Entropy density $s={S\over V}=\inv{V}\inv{T}(U+PV-\mu N)$.  $P$ is
+pressure. For $\mu=0$:
+$$s={u+P\over T}$$
+Without proving, we'll state $P=\langle{p^2c^2\over 3E}\rangle$.  
+The proof comes from
+kinetic theory.  Thus:
+\def\epkt{e^{E(p)\over kT}}
+$$s={g\over h^3}\int_o^\infty{{4\pi p^2dp\over\epkt\pm 1}\left({E(p)\over T}
++{p^2c^2\over 3ET}\right)}$$
+\end{itemize}
+So we have ways to calculate 3 very useful quantities for the early universe.  
+We can take two useful limits of these quantities:
+
+\subsubsection*{ Ultra-relativistic ($kT\gg mc^2$) Particles in the Early Universe }
+
+In this limit, particles are effectively massless (their energy is 
+dominated by their motion, $E=\sqrt{m^2c^4+p^2c^2}\approx pc$).  
+\begin{itemize}
+\item"A." Bosons
+\item{(1)} The \# density of relativistic bosons is:
+\begin{align}
+n&={g\over h^3}\int_0^\infty{4\pi p^2dp\over e^{pc\over kT}\pm 1}\\
+&={4\pi g\over (2\pi)^2}\left({kT\over \hbar c}\right)^3
+\int_0^\infty{y^2dy\over e^y\pm 1}\\
+\end{align}
+where $y\equiv {pc\over kT}$.  This integral is calculable, and is the 
+definition of the Reimann-Zeta function:
+\begin{align}
+\zeta(n)&\equiv\inv{\Gamma(n)}\int_0^\infty{y^{n-1}dy\over e^y-1}\\
+\int_0^\infty{y^2dy\over e^y-1}=\Gamma(3)\zeta(3)&\approx 2\cdot 1.202\\
+\int_0^\infty{y^3dy\over e^y-1}=\Gamma(4)\zeta(4)&={\pi^4\over 15}\\
+\end{align}
+So getting back to the \# density of bosons:
+$$\boxed{n_B={g\over\pi^2}\zeta(3)\left({kT\over\hbar c}\right)^3}$$
+
+\item{(2)} The energy density of relativistic bosons is:
+\def\epckt{e^{pc\over kT}}
+\begin{align}
+u&={g\over h^3}\int_0^\infty{pc{4\pi p^2dp\over\epckt\pm 1}}\\
+&={4\pi g\over (2\pi)^3}{(kT)^4\over(\hbar c)^3}
+\int_0^\infty{y^3dy\over e^y\pm 1}\\
+\end{align}$$
+$$\boxed{u_B={\pi^2\over 30}g{(kT)^4\over(\hbar c)^3}}
+For photons, $g=2$.  We can calculate a flux related to their energy density:
+$$F=\inv{4}u_\gamma c={\pi^2\over 60}{K^4\over\hbar^3c^3}T^4=
+\sigma=5.67\cdot 10^{-8}{W\over m^2K^4}$$
+\item{(3)} The entropy density of relativistic bosons is:
+$$\boxed{s_B={u_B+P_B\over T}={4\over 3}{u_B\over T}
+={2\pi^2\over45}\left({kT\over\hbar c}\right)^3K=3.602n_BK}$$
+Recall that for radiation, the energy density 
+$\rho\propto a^{-3(1+w)}\propto a^{-4}$.  Since 
+$u\propto\rho\propto T^4\imply T\propto\inv{a}$.
+This is only true if $g$ is fixed.
+\item"B." Fermions: here's a trick:
+$$\inv{e^y+1}=\inv{e^y-1}-{2\over e^{2y}-1}$$
+This is an identity.  
+\item{(1)} \# density. Since $y\equiv {pc\over kT}$, then
+$2y={pc\over K({T\over 2})}$, then using our identity:
+\begin{align}
+n_F(T)&={g_F\over g_B}[n_B(T)-2n_B({T\over 2})]\\
+&={g_F\over g_B}n_B(T)[1-2(\hf)^3]\\
+\end{align}
+$$\boxed{n_F(T)={g_F\over g_B}{3\over 4}n_B(T)}$$
+\item{(2)} Energy density:
+\def\gfgb{{g_F\over g_B}}
+\begin{align}
+u_F(T)&=\gfgb[u_B(t)-2u_B({T\over 2})]\\
+&=\gfgb u_B(t)[1-2(\hf)^4]\\
+\end{align}
+$$\boxed{u_F(T)=\gfgb{7\over 8}u_B(T)}$$
+\item{(3)} Entropy density:
+$$s_F(T)={4\over 3}{u_F\over T}$$
+$$\boxed{s_F(T)=\gfgb {7\over 8}s_B(T)}$$
+\end{itemize}
+When doing computations like this for the universe, we'll have to keep track
+of the $g$'s of each particle's contribution.  To aid us in doing this, we'll
+define an {\it effective degeneracy}:
+$$\boxed{g^*=\sum_{i=bosons}{g_i}+{7\over 8}\sum_{i=fermions}{g_i}}$$
+Using this definition, the total energy density $u_{tot}\propto g^*T^4$.
+
+\subsubsection*{ Non-Relativistic ($kT\ll mc^2$) Particles In the Early Universe }
+
+In this limit, a particle's energy is dominated by its rest mass:
+$E=\sqrt{m^2c^4+p^2c^2}\approx mc^2(1+\hf{p^2c^2\over m^2c^4}+\dots)$.  
+Then in general, the denominator inside the integral over momentum simplifies:
+\def\emckt{e^{-{mc^2\over kT}}}
+$$e^{E\over kT}\pm 1\approx e^{E\over kT}\approx e^{{mc^2\over kT}+
+{p^2\over 2kTm}}$$
+So dropping the ``$\pm 1$'' in the denominator:
+\begin{align}
+n&\approx {g\over h^3}\int_0^\infty{4\pi p^2dpe^{-{mc^2\over kT}}
+e^{-{p^2\over 2mkT}}}\\
+&\approx{4\pi g\over h^3}\emckt(2mkT)^{3\over 2}\int_0^\infty{dy\cdot y^2
+e^{-y^2}}\\
+\end{align}
+$$\boxed{n\approx{g\over h^3}\left({mkT\over 2\pi}\right)^{3\over 2}\emckt}$$
+This the the Maxwell-Boltzmann distribution if we put $\mu$, the chemical
+potential, back in the exponent with the energy ($mc^2$).  Thus, the \#
+density is exponentially suppressed for $kT\ll mc^2$.  For example, at
+$kT\ll 1GeV\sim m_{proton}$, if we are in thermal equilibrium, then the
+neutron-to-proton ratio is:
+$${n_n\over n_p}\approx e^{-{(m_n-m_p)c^2\over kT}}\approx e^{-1.293MeV\over
+kT}$$
+This determines the Hydrogen/Helium ratio!
+
 
 \subsection{Lecture 8}
 
