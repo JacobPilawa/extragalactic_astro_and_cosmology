@@ -5,6 +5,7 @@
 \usepackage{hyperref}
 \usepackage{eufrak}
 \usepackage{fullpage}
+\usepackage{physics}
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage[makeroom]{cancel}
@@ -1188,14 +1189,194 @@ We will see familiar expressions when we take some limits. Starting with the \te
         \ee
         
         \be
-        \int_0^\infty \frac{y^{2} \mathrm{d}y}{e^y - 1} = \Gamma(4) \zeta(4)
+        \int_0^\infty \frac{y^{2} \mathrm{d}y}{e^y - 1} = \Gamma(4) \zeta(4) = \frac{\pi^4}{15}
+        \ee
+        
+        Thus:
+        
+        \be
+        \boxed{n_\text{bosons} = \frac{g}{\pi^2} \zeta(3) \left(\frac{kT}{\hbar c}\right)^3}
+        \ee
+        \be
+        \boxed{u_\text{bosons} = \frac{\pi^2}{30} g \left(\frac{(kT)^4}{(\hbar c)^3}\right)}
+        \ee
+        
+        For photons, this is blackbody radiation since $g=2$ for two polarization states. This also gives us an energy flux of 
+        
+        \be
+        \boxed{F = \frac14 uc = \frac{\pi^2}{60}\frac{k^4}{(\hbar c)^3} T^4 = \sigma T^4}
+        \ee
+        
+        where we introduce $\sigma = \frac{\pi^2 k^4}{60 (\hbar c)^3} = 5.67\times 10^{-8} \frac{\unit{W}}{\unit{m}^2\unit{K}^4}$. An obvious next question -- what's the photon pressure (from equation of state)?
+        
+        \be
+        P = \frac13 u
+        \ee
+        
+        And lastly, the entropy density:
+        
+        \be
+        s = \frac{u+P}{T} = \frac43 \frac{U}{T}
+        \ee
+        
+        One thing that is important to note -- recall that $\rho \propto a^{-4}$ for radiation. Since $u\propto T^4$, $\boxed{T\propto a^{-1}}$ assuming fixed $g$. \textbf{As the Universe cools, the effective} g \textbf{changes}.
+        
+        \item Fermions:
+        
+        We can use one trick to make this easy! There's an identity that:
+        
+        \be
+        \frac{1}{e^y + 1} = \frac{1}{e^y - 1} - \frac{2}{e^{2y}-1}
+        \ee
+        
+        where $y = \frac{pc}{kT} \rightarrow 2y = \frac{pc}{k\frac{T}{2}}$.
+        
+        \be
+        n_\text{fermions}(T) = \left[n_B(T) - 2n_B\left(\frac{T}{2}\right) \right]\frac{g_\text{fermions}}{g_\text{bosons}}
+        \ee
+        
+        \be
+        n_\text{fermions}(T) = \left[1-2\left(\frac12\right)^3\right] n_B(T) \frac{g_\text{fermions}}{g_\text{bosons}}
+        \ee
+        
+        \be
+        \boxed{n_\text{fermions}(T) = \frac{g_\text{fermions}}{g_\text{bosons}} \frac34 n_\text{bosons}(T) }
+        \ee
+        
+        And thus the same thing for the energy density:
+        
+        \be
+        u_\text{fermions}\left(T\right) = \left[u_b(T) - 2u_B\left(T/2\right)\right]\frac{g_f}{g_b}
+        \ee
+        
+        \be
+        \boxed{u_\text{fermions}\left(T\right) = \frac{g_\text{fermions}}{g_\text{bosons}} \frac78 u_B\left(T\right)}
+        \ee
+        
+        And similarly, for energy density:
+        
+        \be
+        \boxed{s_\text{fermions}\left(T\right) = \frac{g_\text{fermions}}{g_\text{bosons}} \frac78 s_B\left(T\right)}
         \ee
         
         
-        
-        \item Fermions:
     \end{itemize}
+    
+    For convenience, we can define an effective degeneracy:
+    
+    \be
+    \boxed{g^\star = \sum_\text{boson types} g_i + \frac78 \sum_\text{fermion types} g_i}
+    \ee
+    
+    And thus:
+    
+    \be
+    \boxed{u_\text{Tot} \propto g^\star T^4}
+    \ee
+    
+    
 \end{itemize}
+
+\noindent\textbf{Non-relativistic limit:}
+
+This is the case when $kT \ll mc^2$. In this limit, $\epsilon = \sqrt{m^2c^4 + p^2 c^2} \rightarrow mc^2 \left(1+\frac{1}{2}\frac{p^2}{m^2c^2} + ...\right) \gg kT$. Our Fermi-Dirac or Bose-Einstein distribution thus become the same since the $\pm 1$ becomes irrelevant! We drop that in the distribution function for $f$, and thus:
+
+\be
+f \sim e^{-\epsilon/kT} \approx e^{-\frac{mc^2}{kT}}\underbrace{e^{-\frac{p^2}{2mkT}}}_{e^{-mv^2/2kT}}...
+\ee
+
+Look at that! The second term is a 
+Maxwellian distribution! This makes sense -- if we talk about the distribution of stars in a cluster, we don't care if they are bosons!
+
+What about number density? 
+
+\be
+n \approx \frac{g}{h^3} \int_0^\infty \mathrm{d} p 4\pi p^2 e^{-\frac{p^2}{2mkT}}
+\ee
+
+\be
+n \approx \frac{4\pi g}{h^3} \left(2mkT\right)^{3/2} e^{-\frac{mc^2}{kT}} \underbrace{\int_0^\infty \dd{y} y^2 e^{-y^2}}_{\pi^{1/2}/2}
+\ee
+
+\be
+\boxed{n = \frac{g}{\hbar^3} \left(\frac{mkT}{2\pi}\right)^{3/2} e^{-\frac{\left(mc^2 - \mu\right)}{kT}}}
+\ee
+
+where $\mu$ is the chemical potential, sometimes non-zero. The key feature here is that $n$ is exponentially suppressed at $kT \ll mc^2$. For example, at $T \ll 1 \unit{GeV}$ and in thermal equilibrium, neutrons and protons are non-relativistic:
+
+\be
+\frac{n_n}{n_p} \approx e^{-\frac{\left(m_n - m_p\right)c^2}{kT}} \approx e^{-\frac{1.293 \unit{MeV}}{kT}}
+\ee
+
+Note that neutrons are a bit heavier, and therefore a small under abundant! Also, as temperature drops, so does the ratio $n_n$ to $n_p$. What matters here is at what value is this ratio frozen? This will give us the hydrogen to helium mass ratio! 
+
+\subsection{Thermal History of the Universe: The Longest Three Minutes of Our Lives}
+
+Let's first agree to some rules or questions to ask:
+
+\begin{itemize}
+    \item Rule 1: Thermal equilibrium (TE) vs. Decoupling or ``Freeze-Out''\footnote{Decoupling from photons! We might say something like "the photons and electrons froze out at..."}: Need to compare relevant interaction rate $\Gamma$ with Hubble expansion rate $H$ 
+    \begin{itemize}
+        \item $\Gamma \gg H \rightarrow$ many interactions per Hubble time, and thus can keep equilibrium. 
+        \item $\Gamma \ll H \rightarrow$ interactions are negligible, and particles are decoupled
+        \item \textbf{Example}: Weak interactions (neutrinos) which freeze-out first since they are so weak:
+        \be
+        \sigma_\text{weak} \sim G_\text{Fermi}^2 T^2 \sim 10^{-43} \left(\frac{kT}{1 \unit{MeV}}\right)^2 \cm^2
+        \ee
+        \be
+        \sigma_\text{Thomson} \sim 10^{-24} \cm^2 \text{ for reference}
+        \ee
+        \begin{itemize}
+            \item This gives us an interaction rate dependent on $T$:
+            \be
+            \Gamma_\text{weak} \sim n \sigma_\text{weak} v \propto G_F^2 T^5
+            \ee
+            \item And we compare this to the Hubble rate:
+            \be
+            H = \sqrt{\frac{8\pi}{3}G \rho} \propto \sqrt{G g^\star} T^2 \text{ for radiation dom. era}
+            \ee
+            \item So when are neutrinos in equilibrium with the photons? 
+            \be
+            \Gamma_\text{weak} < H \rightarrow G_F^2 T^5 < \sqrt{Gg^\star}T^2 \rightarrow \boxed{T \leq 1 \unit{MeV}} 
+            \ee
+            \item Thus, after about $T = 1\unit{MeV}$, the weak interaction decouples from the electromagnetic interaction. Thus neutrinos start to free-stream through the Universe! Neutrinos follow geodesics from General Relativity. 
+        \end{itemize}
+    \end{itemize}
+    
+    \item Rule 2: Which particles contribute to thermal radiation/the radiation background?
+    \begin{itemize}
+        \item Answer: All relativistic particles in equilibrium (high interaction rates with photons).  
+    \end{itemize}
+    
+    \item Rule 3: How do we relate temperature to time in the radiation dominated era?
+    \begin{itemize}
+        \item Recall that $u \propto \rho c^2 = \frac{\pi^2}{30}g^\star \frac{(kT)^4}{(\hbar c)^3}$ for ultrarelativistic particles. Also recall from the Friedmann equation that $H^2 = \frac{8\pi G}{3} \rho = \frac{\dot a}{a}$ and $a \propto t^{1/2}$ in the radiation dominated era. Putting all of this together:
+        \be
+        \left(\frac{1}{2t}\right)^2 = \frac{8\pi G}{3} \frac{\pi^2}{30} g^\star \frac{(kT)^4}{(\hbar c)^3}
+        \ee
+        
+        \be
+        \boxed{kT = \left(\frac{45 \hbar^3 c^5}{16 \pi^3 g^\star G}\right)^{1/4} t^{-1/2}}
+        \ee
+        
+        \item Usefully:
+        
+        \be
+        \boxed{kT = \frac{0.86 \unit{MeV}}{\sqrt{t [\unit{s}]}} \left(\frac{10.75}{g^\star}\right)^{1/4}}
+        \ee
+        
+        \be
+        \boxed{T \sim \frac{10^{10} \unit{K}}{\sqrt{t \left[\unit{s}\right]}}}
+        \ee
+        
+        \item So, about 1 second after the Big Bang, the Universe is around $10^{10}$ Kelvin or $1 \text{MeV}$. We know from earlier that neutrinos decouple from the photons at this time! \textbf{So, 1 second after the Big Bang, neutrinos are already decoupled from the thermal background}.
+    \end{itemize}
+    
+\end{itemize}
+
+
+
+
 
 
 
