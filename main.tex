@@ -1374,6 +1374,113 @@ Let's first agree to some rules or questions to ask:
     
 \end{itemize}
 
+With all of that out of the way, let's start with the first of 5 and a half frames!
+
+\subsubsection{Frame 1: t = 0.01 sec}
+
+Here, $kT = 8.6 \unit{MeV}$ and $T \sim 10^{11} \unit{K}$. Additionally, this is a redshift of around $z \sim 3 \times 10^{10}$.
+
+A first question -- what's $g^\star$ for radiation? Well, the major players are:
+\begin{itemize}
+    \item Photos: $g_\gamma = 2$
+    \item Neutrinos: $g_\nu = 3^\text{species}\times 2^{\nu \bar{\nu}} \times 1^\text{spin}\times \left(\frac{7}{8}\right)^\text{fermions} = \frac{21}{4}$\footnote{left handed neutrinos only!}
+    \item Electrons, Positrons\footnote{muons and taus are highly non-relativistic in this regime!}: Highly relativistic from our rules above! Here, $g_e = 2^{e^+e^-}\times 2^\text{spins} \times \left(\frac{7}{8}\right)^\text{fermions} = \frac72$
+\end{itemize}
+
+Together, we have:
+
+\be
+g^\star = 2 + \frac{21}{4} + \frac72 = 10.75
+\ee
+
+We also want to keep track of the baryons (just protons and neutrons for our purposes). They are highly non-relativistic since their rest mass is of order $1$ GeV. However, we want to keep track of the neutron to proton ratio:
+
+\be
+\frac{n_n}{n_p} = e^{-\frac{\Delta E}{kT}} \text{ where} \Delta E = \left(m_n - m_p\right) c^2 = 1.293 \unit{ MeV}
+\ee
+
+At this stage, we get:
+
+\be
+\frac{n_n}{n_p} = 0.86 \rightarrow \boxed{\frac{n_n}{n_p + n_n} = 0.46}
+\ee
+
+We have a bit more protons than neutrons. Another interesting question -- what is controlling this ratio? Well, a bunch of processes are, but the one with the highest branching ratios are:
+
+\begin{itemize}
+    \item $\text{n} + \nu_e \iff \text{p} + e^{-}$
+    \item $\text{n} + e^{+} \iff \text{p} + \bar{\nu_e}$
+    \item $\text{n} \iff \text{p} + \bar{\nu_e} + e^{+}$: Neutron decay, which is of order 15 minutes! Right now, this is negligible, since we have only had $t = 0.01 \s$\footnote{Only the very precocious neutrons have decayed by now.}.
+\end{itemize}
+
+\subsubsection{Frame 2: t = 0.1 sec}
+
+Let's drop the energy by half a dex. This makes $kT \sim 2.72 \unit{ MeV} \rightarrow T \sim 10^{10.5} \unit{ K}$. We know, too, that $\rho_{rad}\propto T^4$ drops by a  factor of $100$. We thus have:
+
+\be
+\frac{n_n}{n_p} = 0.62
+\ee
+
+and
+
+\be
+\frac{n_n}{n_p + n_n} = \frac{n_n}{n_\text{baryon}} = 0.38
+\ee
+
+\subsubsection{Frame 3: t = 1 sec}
+
+Thus, $kT \sim 0.86 \unit{ MeV} \rightarrow T \sim 10^{10} \unit{ K}$. Note that we crossed a threshold! The weak interaction has decoupled since we are lower than $kT \sim 1 \text{ MeV}$. As a result, neutrinos decouple from thermal radiation.\footnote{Not a sharp transition, but happens when $\Gamma_\text{weak} \leq H \rightarrow T \leq 1 \unit{ MeV}$} At this time,
+
+\be
+\frac{n_n}{n_B} = 0.24
+\ee
+
+When the neutrinos decouple, remember, we have to change $g^\star$. Originally, $g^\star = 10.75$. Afterwards, neutrinos stop talking to photons, so:
+
+\be
+g^\star = 2 + \frac{7}{2} = \frac{11}{2}
+\ee
+
+Now that they are free streaming, neutrinos are pretty similar to the CMB! This is actually termed the \textbf{comsic neutrino background}. Imagine if we had that information...
+
+
+\subsubsection{Frame 4}
+
+Because $g^\star$ changed, we have a different relationship between $T$ and $t$. We will drop the energy to $kT = 0.272 \unit{ MeV} \rightarrow T = 10^{9.5} \unit{ K} \rightarrow t \sim 14 \s$. 
+
+An important threshold was crossed! We crossed the rest mass of the electrons (and positrons), and thus electrons are non-relativistic! The reaction $e^+e^- \rightarrow 2\gamma$ is favored compared to $2\gamma \rightarrow e^+e^-$. As electron-positron annihilations occur, entropy must be conserved. Thus, entropy is being transferred to photons! 
+
+Recall entropy density:
+
+\be
+s \propto g^\star T^3
+\ee
+
+Before the electrons and positrons disappear, $g^\star = 11/2$. Right after, $g^\star = 2$. $s$ must be conserved. Bizarrely:
+
+\be
+T_\text{after} = \left(\frac{11}{4}\right)^{1/3} T_\text{before}
+\ee
+
+But neutrinos had decoupled in Frame 2, so $T_\nu$ is not affected. As a result:
+
+\be
+T_\nu = \left(\frac{4}{11}\right)^{1/3} T_\gamma
+\ee
+
+This is a famous result! The photon temperatures are slightly higher because the entropy of the photon bath must increase. An incredibly powerful prediction -- and it should hold even today! \textbf{We thus predicted the neutrino background temperature}. 
+
+One other thing to note -- the photon temperature doesn't have a \textit{kink}, but looks something like this:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{entropy_transfer.png}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
+
+\subsubsection{Frame 5}
 
 
 
@@ -2146,6 +2253,107 @@ This determines the Hydrogen/Helium ratio!
 
 
 \subsection{Lecture 8}
+
+\subsubsection*{ Thermal Equilibrium vs. Decoupling (``Freeze-Out'')}
+
+The rule of thumb here is to compare the interaction rate ($\Gamma$)
+of the particle we are interested in to the expansion rate of the universe.  
+We'll examine two extremes: $\Gamma\gg H\imply TE$, and $\Gamma\ll H\imply 
+decoupled$.
+\begin{itemize}
+\item"Ex:" Weak Interactions:\par
+The cross-section for weak interaction goes as $\sigma\sim G_F^2T^2$, where
+$G_F^2$ is the Fermi constant, ${G_Fm_o^2\over(\hbar c)^2}\sim 10^{-5}$.  Thus,
+for $v\sim c$ (recall that $n\propto T^3$ in the relativistic limit):
+$$\Gamma_{weak}\sim n\sigma v\sim G_F^2T^5$$
+Let's compare this to the Hubble expansion rate of early universe, when 
+$\Omega\approx 1$, so curvature is negligible.  Therefore:
+$$H=\sqrt{\epot G\rho}\sim\sqrt{Gg_*T^4}$$
+where $G$ is Newton's constant and $g_*$ is the effective degeneracy.  In 
+order for $\Gamma_{weak}\ll H$, we need:
+$$G_F^2T^5\ll\sqrt{g_*G}T^2$$
+$$T^3\ll {\sqrt{g_*\hbar c}\over G_F^2m_{planck}}$$
+We know $m_{planck}\sim\sqrt{\hbar c\over G}\sim 10^{19}GeV$, so the 
+temperature requirement for decoupling of the weak interaction is:
+$$\Gamma_{weak}<1 MeV$$
+\end{itemize}
+In general we can say that particles decouple after the rest mass stops
+being much more that $kT$.  We can compute the threshold temperature for
+particles based on their rest mass:
+$$\begin{matrix} Particles&mc^2&T_{thresh}={mc^2\over K}\\
+\tau&1.78GeV&2.1\cdot10^{13} K\\
+n,p&.94GeV&1.1\cdot10^{13}\\
+\pi&140MeV&1.6\cdot10^{12}\\
+\mu&106MeV&1.2\cdot10^{12}\\
+e&.511MeV&6\cdot10^9\\\end{matrix}$$
+
+\subsubsection*{ Relating Temperature and Time in the Radiation-Dominated Era}
+
+Recall that the energy density of relativistic bosons is given by:
+$$u=\rho c^2={\pi^2\over 30}g_*{(kT)^4\over(\hbar c)^3}$$
+We also have shown that in the radiation-dominated era, $a\propto t^\hf$, so:
+$$H=\aa=\inv{2t}$$
+Now since $H^2=\epot G\rho$:
+\def\psot{{\pi^2\over 30}}
+$$\left(\inv{2t}\right)^2=\epot G\psot{g_*(kT)^4\over\hbar^3c^5}$$
+$$\boxed{kT=\left({45\hbar^3c^5\over16\pi^3g_*G}\right)^{1\over4}t^{-\hf}
+={0.86MeV\over\sqrt{t(sec)}}\left({10{3\over4}\over g_*}\right)^{1\over4}}$$
+$$\boxed{T\approx{10^{10}Kelvin\over\sqrt{t(sec)}}\left({10.75\over 
+g_*}\right)^{1\over4}}$$
+A useful relation is that $1sec\sim 10^{10}Kelvin\sim 1MeV$.
+
+\subsubsection*{ The First 30 Minutes (in 6 frames)}
+
+\begin{itemize}
+\item"Frame 1:" $T=10^{11}Kelvin$, $t=0.01sec$, $kT=8.6MeV$, 
+$z\sim 1+z=\inv{a}={T\over T_0}\sim 3\cdot 10^{10}$.  
+To put things in perspective, $m_e<T<m_\mu$.  The major players at this point
+in time are photons ($\gamma$), electrons and positrons ($e^-,e^+$), neutrinos 
+($\nu_i\bar \nu_i$), and protons and neutrons ($p, n$). For $p, n$, we're assuming 
+baryon asymmetry has occurred, and we should note that they only show up in 
+small numbers.  $\gamma,e,\nu$ particles are all ultra-relativistic.  
+Let's figure out our $g_*$:
+$$g_*\ composed\ of\ \begin{cases}\gamma &g_\gamma=2\\
+\nu\bar \nu &g_\nu=3\cdot2\cdot{7\over8}={21\over4}\\
+e^+e^- &g_{ee}2\cdot2\cdot{7\over8}={7\over2}\\\end{cases}$$
+$$g_* = 10{3\over4}$$
+
+Note that $g_\nu$ was computed as [3 species $\cdot$ 2 particle/antiparticle 
+pairs with 1 spin state each $\cdot$ fermion factor].  We ignored $p, n$ 
+because they were not relativistic.  Their reactions are:
+$$n+\nu_e\to p+e^-$$
+$$n+e^+\to p+\bar \nu_e$$
+$$[n\to p+e^-+\bar \nu_e]$$
+The last reaction is negligible because it has timescale $\sim15$ minutes.
+Remember that we derived the neutron-to-proton ratio:
+$${n_n\over n_p}=e^{-\Delta E\over kT}$$
+where $\Delta E\approx1.293MeV$.  Thus:
+$${n_n\over n_p}\approx 0.86$$
+The neutron-to-baryon ratio is:
+$${n_n\over n_B}={n_n\over n_p+n_n}={0.86\over0.86+1}=0.46$$
+
+\item"Frame 2:" $T=10^{10.5}Kelvin$,$t=0.1sec$, $kT=2.72MeV$, $\rho$ drops by
+a factor of 100.  Our major player are the same, so:
+$$\begin{matrix} {n_n\over n_p}\approx 0.62,&{n_n\over n_B}\approx 0.38 \end{matrix}$$
+
+\item"Frame 3:" $T=10^{10} Kelvin$, $t=1sec$, $kT=0.86MeV$.  Now the weak
+interaction rate falls below the Hubble time ($<1MeV$). Therefore, neutrinos 
+are decoupling from the thermal bath.  Before this decoupling occurred, 
+recall that
+$\gamma, e^+,e^-,\nu,\bar \nu$ were all in thermal equilibrium, $g_*=10{3\over4}$.
+After decoupling, $\gamma,e^+,e^-$ are in thermal equilibrium, 
+so $g_*=2+{7\over2}={11\over2}$.
+For the neutrinos, their Fermi-Dirac distribution is ``frozen'' in place:
+$$dn_\nu=g_\nu{d^3p\over h^3}{1\over e^{pc\over kT}+1}$$
+
+\item"Frame 4:" $T=10^{9.5} Kelvin$, $t=14s$, $kT=.272MeV$.  Because
+$T<0.511MeV$, it's hard to make new $e^+,e^-$.  That is, $e^+e^-\to 2\gamma$
+is a favored interaction over the reverse, so $e^+e^-$ start to disappear.
+As they annihilate, entropy is transferred to photons, so the entropy density
+$S=const\cdot g_*\cdot T^3$ is conserved (see Kolb and Turner, 66).
+$$\begin{matrix} {n_n\over n_p}=0.2,& g_*=2\end{matrix}$$
+\end{itemize}
+
 
 \subsection{Lecture 9}
 
