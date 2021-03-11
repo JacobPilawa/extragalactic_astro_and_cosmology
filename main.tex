@@ -1444,7 +1444,7 @@ g^\star = 2 + \frac{7}{2} = \frac{11}{2}
 Now that they are free streaming, neutrinos are pretty similar to the CMB! This is actually termed the \textbf{comsic neutrino background}. Imagine if we had that information...
 
 
-\subsubsection{Frame 4}
+\subsubsection{Frame 4: t = 14 sec}
 
 Because $g^\star$ changed, we have a different relationship between $T$ and $t$. We will drop the energy to $kT = 0.272 \unit{ MeV} \rightarrow T = 10^{9.5} \unit{ K} \rightarrow t \sim 14 \s$. 
 
@@ -1479,12 +1479,63 @@ One other thing to note -- the photon temperature doesn't have a \textit{kink}, 
     \label{fig:my_label}
 \end{figure}
 
+What about protons and neutrons? We need more detailed thermodynamics here, but the result:
 
-\subsubsection{Frame 5}
+\be
+\frac{n_n}{n_p} \sim 0.2
+\ee
+
+The main reaction here to form nuceli is $\text{p} + \text{n} \iff \text{D} + \underbrace{\gamma}_\text{2.2 MeV}$ since directly making He is incredibly unlikely. Are there enough reactions taking place? This is called the ''deuterium bottleneck,'' and we \textbf{must} break this bottleneck. Thus, $\text{D}$ is still unstable until $T$ drops further. 
 
 
+\subsubsection{Frame 5: t = 3 minutes}
+
+Here, we have $T_\gamma \sim 10^{9} \unit{K}$, giving $kT_\gamma = 0.086 \unit{MeV}$. Remember that $g^\star = 2$. Most of the positrons and electrons have disappeared, and we still have the \textbf{deuterium bottleneck}, so there are no appreciable heavier nuclei yet. Free neutron decay starts to become more important, and the neutron-proton ratio is:
+
+\be
+\frac{n_n}{n_p} \sim 0.16
+\ee
 
 
+\subsubsection{Frame 5.5: t = 3.75 minutes}
+
+Here, we have:
+
+\be
+\frac{n_n}{n_p} \sim \frac17
+\ee
+
+This is when deuterium becomes stable enough for: $\text{n} + \text{p} \rightarrow \text{D} + \gamma$. \textbf{This is when nucleosynthesis begins}. Very quickly, nearly all neutrons turn into Helium-4. There are a few isotopes like tritium, He-3, and a bit of lithium. But, most of the neutrons are in Helium-4.
+
+What is the helium abundance? Let $Y$ be the mass fraction of Helium:
+
+\be
+Y = \frac{4m_p n_{He-4}}{m_p n_{baryons}}
+\ee
+
+We also have $n_{He-4} = \frac{n_n}{2}$. Substituting that in:
+
+\be
+Y = \frac{2 \frac{n_n}{n_p}}{\frac{n_n}{n_p}}
+\ee
+
+For $n_n / n_p \sim 1/7$, we have $\boxed{Y = 1/4}$. 
+
+
+There is one more thing to note. The BBN He abundance Y depends on a number of other basic parameters in addition to temperature in the Universe. Some of these include:
+
+\begin{itemize}
+    \item Baryon-to-photon ratio $\eta \equiv \frac{n_B}{n_\gamma} = \frac{n_n + n_p}{n_\gamma}$. We can show (in Problem Set 4): $\Omega_{0,B} h^2 = 0.00365 \eta_{10}$ where $\eta_{10} = \frac{\eta}{10^{-10}}$. Thus, if we can measure $\eta$, we can measure $\Omega_{0,B}$! If we have a larger $\eta$, deuterium is more stable and the bottleneck is broken earlier. Thus, we have a higher $Y$ for higher $\eta$. 
+    \item Neutron lifetime: $\tau_n = 880.2 \pm 1.0 \s$ (2019) where $N(t) = N_0 e^{-t/\tau_n}$. If the neutron lifetime is longer, we have fewer neutron decays and thus higher $Y$. 
+    \item Number of species of neutrinos $N_\nu$ (or $g^\star$ generally). Larger $N_\nu$ gives us larger $g^\star$. The net result is that we have a larger $Y$.  
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics{Screen Shot 2021-03-10 at 11.51.46 AM.png}
+    \caption{The master plot for discussions of BBN. This is from \url{https://pdg.lbl.gov/2020/reviews/rpp2020-rev-bbang-nucleosynthesis.pdf}. }
+    \label{fig:my_label}
+\end{figure}
 
 
 
