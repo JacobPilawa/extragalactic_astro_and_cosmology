@@ -1534,8 +1534,162 @@ There is one more thing to note. The BBN He abundance Y depends on a number of o
     \centering
     \includegraphics{Screen Shot 2021-03-10 at 11.51.46 AM.png}
     \caption{The master plot for discussions of BBN. This is from \url{https://pdg.lbl.gov/2020/reviews/rpp2020-rev-bbang-nucleosynthesis.pdf}. }
-    \label{fig:my_label}
+    \label{fig:lablablab}
 \end{figure}
+
+
+\section{The Mildly Lumpy Universe}
+
+\subsection{Gravitational Instability in a Static Medium}
+
+How does a \textit{nearly} smooth Universe become some lumpy? The basic principle is \textbf{gravitational instability}: tiny deviations from equilibrium become greatly enhanced. In practice, this means that \textbf{slightly overdense regions become denser}, whereas \textbf{slightly underdense regions become less dense}. How do we quantify this process? 
+
+In the static case, we have the \textbf{Jeans Instability}. For a static Universe filled with non-relativistic fluid with mass density $\rho$, pressure $P$, (fluid) velocity $\vec{v}$, and gravitational potential $\Phi$. In this classical limit, what are the equations that govern these quantities?
+
+Here are the fluid equations:
+
+\noindent\textbf{Continuity Equation/Mass Conservation:}
+
+\be
+\partial_t \rho + \vec{\nabla} \cdot (\rho \vec{v}) = 0
+\ee
+
+\noindent\textbf{Equation of Motion (Euler Equation):}
+\be
+\underbrace{\partial_t \vec{v} + \left(\vec{v} \cdot \vec{\nabla}\right)\vec{v}}_\text{acceleration} = -\frac{1}{\rho}\vec{\nabla}P - \vec{\nabla} \Phi
+\ee
+
+Note that above, we are ignoring viscosity, magnetic fields, etc. We can include those on the right side of the Euler equation. 
+
+\noindent\textbf{Poisson Equation:}
+\be
+\nabla^2 \Phi = 4\pi G \rho
+\ee
+
+We have three equations with four unknowns, so we need the equation of state for a unique solution. 
+
+The unperturbed piece (with subscript $0$): static uniform fluid:
+
+\be
+\rho_0 = P_0 = \vec{v}_0 = \text{const.}
+\ee
+
+And we introduce small perturbations (like $\rho_1 \ll \rho_0$ with a subscript $1$ (which are not necessarily constant):
+
+\be
+\rho = \rho_0 + \rho_1
+\ee
+
+\be
+P = P_0 + P_1
+\ee
+
+\be
+\vec{v} = \vec{v}_1
+\ee
+
+\be
+\Phi = \Phi_0 + \Phi_1
+\ee
+
+Let's introduce one other concept: sound speed. Specifically, we are talking about \textbf{adiabatic sound speed}:
+
+\be
+v_s^2 \equiv \left(\frac{\partial P}{\partial \rho}\right)_\text{const. entropy} = \frac{P_1}{\rho_1}
+\ee
+
+Note! If we don't have perturbations, we don't have a sound speed! We return to the master equations and we get two sets of equations -- perturbed and unperturbed. Starting with the zeroth-order fluid equations:
+
+\noindent\textbf{Unperturbed Fluid Equations:}
+\be
+0 + 0 = 0
+\ee
+
+\be
+\partial_t \vec{v}_0 + \left(\vec{v}_0 \cdot \vec{\nabla}\right)\vec{v}_0 = -\frac{1}{\rho_0} \vec{\nabla}P_0 - \vec{\nabla}\Phi_0 \rightarrow \Phi_0 = \text{const.}
+\ee
+
+\be
+\nabla^2 \Phi_0 = 4\pi G\rho_0 \rightarrow \vec{\nabla} \Phi_0 = \frac{4\pi}{3} G\rho_0 \vec{r}
+\ee
+
+But we just said that the term had to be $0$! Historically, this is called \textbf{Jean's Swindle}: a basic inconsistency between Poisson and Euler equation. It's not worth doing, there is no reconciliation! Mathematically this checks out. What doesn't check out -- there is no such thing as a \textbf{static, uniform, fluid}. We are not allowing a pressure gradient to balance gravity, but we \textbf{NEED A PRESSURE GRADIENT TO BALANCE GRAVITY}. So, what's the swindle? We worry about this if it were relevant at all to physics; this is not the case since we never worry about it!
+
+Any system with rotation, or any system that is not static, we don't have a Jean's swindle. Let's look at the \textbf{perturbed equations} to first order:
+
+\be
+\partial_t \rho_1 + \rho_0\vec{\nabla} \cdot \vec{v}_1 = 0
+\ee
+
+\be
+\partial_t \vec{v}_1 = -\frac{v_s^2}{\rho_0}\vec{\nabla}P_1 - \vec{\nabla} \Phi_1
+\ee
+
+\be
+\nabla^2 \Phi_1 = 4\pi G \rho_1
+\ee
+
+We can combine these since we have three equations with three unknowns (treating $v_s$ as a parameter):
+
+Let's combine the first two perturbed equations (by taking the derivative of the first equation with respect to time and exchanging order of partials):
+
+\be
+\partial_t^2 \rho_1 + \rho_0 \left(-\frac{v_s^2}{\rho_0} \nabla^2 \rho_1 - \nabla^2 \Phi_1\right)
+\ee
+
+Using equation 3...
+
+\be
+\boxed{\partial^2_t  - v_s^2 \nabla^2 \rho_1 - 4\pi G \rho_0\rho_1 = 0}
+\ee
+
+This is the linearized fluid equation. It is functionally similar to the wave equation with a non-zero driving term. The standard trick is to go to Fourier space with an ansatz:
+
+\be
+\rho_1 (\vec{r},t) \propto \int e^{i(\vec{k}\dot\vec{r} - \omega t)} c\left(
+\vec{k}\right) \mathrm{d}^3 k
+\ee
+
+This gives:
+
+\be
+-\omega^2 + v_s^2 k^2 - 4\pi G \rho_0 = 0 
+\ee
+
+\be
+\boxed{\omega^2 = v_s^2 k^2 - 4\pi G \rho_0 }
+\ee
+
+This is the \textbf{dispersion relation for a linearized gravitational instability}. What is gravity doing here? The minus sign is crucial. Contrast this with the plasma frequency (which comes from electromagnetism which has \textit{two} signs):
+
+\be
+\omega^2 = v^2_s k^2 + \frac{4\pi n_e e^2}{m_e} > 0
+\ee
+
+What happens when $\omega^2 < 0$ in the gravitational case? Let's rewrite $\omega^2$:
+
+\be
+\omega^2 = v_s^2 \left(k^2 - k_J^2\right)
+\ee
+
+where we define the \textbf{Jeans wavenumber} and correspondingly a \textbf{Jeans' length} and a \textbf{Jeans' mass}:
+
+\be
+k_J \equiv \sqrt{\frac{4\pi G \rho_0}{v_s^2}}
+\ee
+
+\be
+\lambda_J = \frac{2\pi}{k_J}
+\ee
+
+\be
+M_J = \frac{4\pi}{3} \lambda_J^3 \rho_0
+\ee
+
+
+
+
+
 
 
 
@@ -2408,9 +2562,511 @@ $$\begin{matrix} {n_n\over n_p}=0.2,& g_*=2\end{matrix}$$
 
 \subsection{Lecture 9}
 
+\begin{itemize}
+\item"Frame 5:" $T=10^9K$, $t=3min$, $kT=0.086MeV$.  As was started in Frame 4,
+the major player is $\gamma$, with only small contributions from (p,n,$e^-$).
+Therefore:
+$$g_*=2$$
+At this point, neutron decay becomes important (${n_n\over n_p}\sim0.16$):
+$$p+n\to D+\overbrace{\gamma}^{2.2MeV}$$
+There isn't much deuterium in the universe because $n_p,n_n$ are small and
+$n_\gamma$ is large, so deuterium gets broken up as soon as it's made.\par
+Digression: The primary channel for energy generation in the center of stars
+is the {\it pp chain}, whereby H is fused into He.  The pp chain generates
+about 85\% of the energy in the sun.  This chain goes as follows:
+\begin{align}
+&(1) p+p\to D+e^++\nu_e\\
+&(2) p+D\to ^3He+\gamma\\
+&(3) ^3He+^3He\to ^4He+2p\\
+&(net) 4p\to ^4He+2e^++2\nu_e+energy\\
+\end{align}
+This generates a temperature of about $1.5\cdot10^7K$ in the core of the sun.
+The early universe, this temperature occurred about 9 days in.  Back then,
+the dominant energy-releasing reaction was:
+$$p+n\to D+\gamma$$
+Why are the primary reactions different for the center of a star and the
+early universe?  Well, in the center of a star, there aren't so many free
+neutrons floating around, so the early universe reaction doesn't work there.
+Also, the density of the core of a star ($\sim100{g\over cm^3}$) is much
+greater than the density of the early universe ($\sim10^{-8}{g\over cm^3}$).
+Notice that one of the reactions for the sun generates a neutrino, so these
+reactions involve weak interactions.  We already discussed that the universe's
+density was out of the realm of weak interactions after about 1 sec.  Now back
+to our regularly scheduled program.
+
+\item"Frame 5.5:" $t=3.75min$.  Here T finally gets low enough for deuterium
+\def\nnnp{{n_n\over n_p}}
+to persist.  Nucleosynthesis begins. $\nnnp\sim0.15$.
+
+\item"Frame 6:" $T=10^{8.5}K$, $t\sim30min$, $kT=.027MeV$.  The major players
+are still $\gamma$, with a little more p, $e^-$.  Free neutrons are now
+mostly in $He$.\par
+\end{itemize}
+
+After Frame 6, the next important epoch is matter-radiation equality.  After
+that, it's the last scattering of $e^-$ off $\gamma$.  The CMB epoch is
+when recombination occurs.
+
+\subsubsection*{ Frame 4 Revisited}
+
+\def\e{e^-}
+\def\ep{e^+}
+This is the epoch of $\e,\ep$ annihilation.  Energy conservation dictates
+that $S$ (the entropy density) be conserved.  Thus, the entropy is transferred
+into $\gamma$ as $\e, \ep$ annihilate.  Since $S=constant\cdot g_*T^3$, we
+can calculate how much the photon gas was heated up in this epoch:
+$$\overbrace{\ep+\e}^{g_*={11\over2}}\to\overbrace{2\gamma}^{g_*=2}$$
+$$\begin{matrix} {11\over2}T_{before}^3=2T_{after}^3&\imply&
+{T_{after}\over T_{before}}=\left({11\over4}\right)^{1\over3}\end{matrix}$$
+Since the neutrinos have already decoupled, they are unaffected by this
+heating.  Therefore:
+$$\boxed{T_\nu=\left({4\over11}\right)^{1\over3}T_\gamma}$$
+This is true even today.
+
+\subsubsection*{ Frame 5.5 Revisited}
+
+Recall that this was the epoch of nucleosynthesis.  In Frame 5, there was 
+a bottleneck where elements heavier that H could not be made because D kept
+being destroyed by radiation.  In 5.5, that bottleneck has been lifted, and
+heavier elements are synthesized:
+\begin{align}
+D+D&\to^3He+n\\
+D+D&\to^4He+\gamma\\
+n+D&\to^3H+\gamma\\
+D+^3H&\to^4He+n\\
+^4He+^3H&\to^7Li+\gamma\\
+^4He+^3He&\to^7Be+\gamma\\
+^7Be+\e&\to^7Li+\nu_e\\
+\end{align}
+This tree continues ad infinitum.  The most abundant element in the universe
+is $H$, then $He$.  The abundance of $^4He$ can be calculated:
+$$Y\equiv{mass\ in\ ^4He\over mass\ of\ all\ baryons}
+={4m_p\cdot n_{^4He}\over m_p(n_p+n_n)}$$
+We can estimate that $n_{^4He}\approx{n_n\over2}$, since all other n-containing
+elements are rare.  Thus:
+$$\boxed{Y={2{n_n\over n_p}\over1+{n_n\over n_p}}}$$
+We can use an estimate of ${n_n\over n_p}\sim{1\over7}$.
+
+\subsubsection*{ Y dependencies}
+\begin{itemize}
+\item $Y$ depends on the baryon-to-photon ratio=$\eta\propto\Omega_bh^2$.  
+As $\eta$ increases, $p+n\to D+\gamma$ is favored over photo-dissociation, so
+D is more stable and the bottleneck breaks earlier, so $n_n\over n_p$ is
+higher when $He$ forms.  Thus $Y$ would be larger.
+
+\item $Y$ depends on the lifetime of neutrons: $\tau_n$.  
+\item $Y$ depends on the \# of species of neutrinos, $N_\nu$.  This parameter 
+affects the energy density of the universe.  A higher $N_\nu$ causes the 
+expansion of the universe to increase, since:
+$$H\propto\sqrt{\rho}\propto\sqrt{g_*}T^2$$
+This affects how many neutrons have decayed.  We can establish a fitting
+formula for Y:
+$$Y=0.23+0.025\log_{10}({\eta\over10^{10}})+
+0.0075(g_*-10.75)+0.014(\tau-10.6min)$$
+This shows, for example, that an increase in $N_\nu$ of 1 would change
+$g_*$:
+$$\begin{matrix}\Delta g_*=2\cdot{7\over8}={7\over4}&\imply&
+\Delta Y\approx0.013\end{matrix}$$
+\end{itemize}
+
 \subsection{Lecture 10}
 
+\subsubsection*{ The Dark Side of the Universe}
+
+There is evidence that dark matter exists:
+\begin{itemize}
+\item Zwicky (1933): measurements of $\sigma_\nu$ (the total mass) of galaxies 
+in the Coma Cluster showed:
+$${M\over L}\approx300h{M_\odot\over L_\odot}$$
+This means that there is lots of mass that doesn't appear in luminosity
+(the mass is 300 times what you'd expect if all the stars were sun-like).
+\item Dynamics (70's, Rubin and others): the rotation curves of galaxies
+is {\it flat}.  That is, $v^2\propto{M(r)\over r}$, and this is constant,
+so $M(r)\propto r$.
+\item Structure formation: A baryonic universe can't grow structure
+until decoupling (CMB era) has occurred, since rapid collisions with photons
+prevents gravitational collapse.  But if that's when gravitational collapse
+started, there wouldn't have been time to form the structure we see today.
+Since dark matter does not couple, it could start collapsing earlier and suck 
+the baryonic matter down with it. 
+\item CMB fluctuations give us a measure of $\Omega_m$.
+\item Gravitational lensing probes luminous {\it and} dark matter.
+\end{itemize}
+
+\subsubsection*{ Nature of Dark Matter }
+If we calculate the mass of luminous matter we get 
+$\Omega_{stars}+\Omega_{gas}\approx .003$ (Fukugita et al, 98).  For baryons
+(p,n), $\Omega_bh^2\approx .024$, as calculated from Big Bang Nucleosynthesis.
+Overall, matter is estimated to constitute $\Omega_m\sim.2\to.4$ (baryons and
+non-baryons).  This brings us to the two levels of the ``dark matter problem''.
+\begin{itemize}
+\item $\Omega_b\gg \Omega_{luminous}\imply$ some baryons must be ``dark''.
+This is the ``Baryon Dark Matter problem''.  What are these ``dark baryons''?
+Candidates are:
+\item{(a)} MACHOs (compact stellar-mass objects), searched for by 
+micro-lensing.  These could be faded white dwarfs ($\sim\hf M_{sun}$) or 
+brown dwarfs (``failed stars'' with $M<.08M_{sun}$).  So far it seems that 
+these cannot account for the mass density difference between baryonic 
+and luminous matter.
+\item{(b)} Black holes, neutron stars: too few.
+\item{(c)} Planets: $M_{Jupiter}\sim\inv{300}M_{sun}$, too little mass.
+\item{(d)} Dust: radiates, bounded by metallicity constraints.
+\item{$\to$(e)} Diffuse warm gas: $T\le10^6K$.  Can't detect this very well.
+It will emit in the soft x-ray range.  This one is still a viable option.
+\item The ``Non-Baryonic Dark Matter Problem'': $\Omega_m\gg \Omega_{baryon}$
+tells us that there is mass coming from non-baryons.  Some options here are
+hot dark matter (massive neutrinos, for example), and cold dark matter
+(SUSY=SUper SYmmetry particles).  
+See PS\#5 for why neutrinos are ``hot''.
+In order for neutrinos to work out as hot dark matter, they need to have mass.
+\end{itemize}
+
+\subsubsection*{ Massive Neutrinos (as Hot Dark Matter) }
+\begin{itemize}
+\item{1.} Current lab limits (based on weak-decay kinematics):
+$m_{\nu_\tau}<18.2 MeV$ based on $\tau$ decays: $\tau^-\to\nu_\tau+pions$.
+$m_{\nu_\mu}<190 keV$ based on $\Pi^+$ decays: $\Pi^+\to\mu^++\nu_\mu$.
+$m_{\nu_e}<3 eV$ based on tritium decays.
+\item{2.} Neutrino oscillations (in vacuum) measures $\Delta m^2=m_1^2+m_2^2$.
+When solving the interaction Lagrangian, there are mass eigenstates and
+weak-interaction eigenstates, which do not have to be identical.  Considering
+$\nu_1,\nu_2$ as the mass eigenstates of a 2-generation interaction, and
+$\nu_e,\nu_\mu$ as the weak eigenstates, then:
+$$\begin{pmatrix} \nu_e\\ \nu_\mu\end{pmatrix}=\begin{pmatrix} \cos\theta&\sin\theta\\
+-\sin\theta&\cos\theta\\\end{pmatrix}\begin{pmatrix} \nu_1\\ \nu_2\end{pmatrix}$$
+The Weak interaction Lagrangian is $S=\int{d^4x\mathfrak{L}}$, where $\mathfrak{L}$ is 
+the Lagrangian density.  Then:
+$$\mathfrak{L}_{weak}\propto\bar \nu_e\gamma^\alpha(1-\gamma_5)eW_\alpha
++\bar \nu_\mu\gamma^\alpha(1-\gamma_5)\mu W_\alpha
++\overbrace{m_1\bar \nu_1\nu_1+m_2\bar \nu_2\nu_2}^{mass\ terms}$$
+Where the ``mass terms'' are what's relevant for determining neutrino
+oscillations.
+\end{itemize}
+
 \subsection{Lecture 11}
+\subsubsection*{ Massive $\nu$ (Hot Dark Matter) continued}
+
+\def\ket#1{|#1\rangle}
+\def\bra#1{\langle #1|}
+\def\mean#1{\langle #1\rangle}
+Last time we started talking about (1) and (2) below:
+\begin{itemize}
+\item Lab upper bounds on $m_\nu$.
+\item Neutrino oscillations: $\Delta m^2=m_1^2=m_2^2$:
+$$\begin{pmatrix} \nu_e\\\nu_\mu\end{pmatrix}=\begin{pmatrix}\cos\theta&\sin\theta\\
+-\sin\theta&\cos\theta\end{pmatrix}\begin{pmatrix}\nu_1\\\nu_2\end{pmatrix}$$
+Now suppose at time $t=0$ we have a pure $\nu_e$ produced.  Then:
+$$\ket{\nu(0)}=\ket{\nu_e}=\cos\theta\ket{\nu_1}+\sin\theta\ket{\nu_2}$$
+At time t:
+$$\ket{\nu(t)}=\cos\theta e^{-iE_1t}\ket{\nu_1}+\sin\theta 
+e^{-iE_2t}\ket{\nu_2}$$
+Where $E_1=\sqrt{p^2+m_1^2}$, and $E_2=\sqrt{p^2+m_2^2}$, assuming a fixed
+momentum state.  We assume this for simplicity, but a full wave-packet-based
+derivation is done in (Kayser (81) PRD 24,110).  Anyway, the probability 
+of finding a $\nu_\mu$ state at time t is:
+\def\ieot{{-iE_1t}}
+\def\iett{{-iE_2t}}
+\begin{align}
+P(\nu_e\to\nu_\mu)&=|\mean{\nu_\mu|\nu(t)}|^2\\
+&=|(-\sin\theta\bra{\nu_1}+\cos\theta\bra{\nu_2})
+(\cos\theta e^\ieot\ket{\nu_1}+\sin\theta e^\iett\ket{\nu_2})|^2\\
+&=|-\cos\theta\sin\theta e^\ieot+\cos\theta\sin\theta e^\iett|^2\\
+&=\cos^2\theta\sin^2\theta|e^\ieot-e^\iett|^2\\
+&={\sin^22\theta\over4}(1-\cos(E_1-E_2)t)\\
+&=\sin^22\theta\sin^2\left({(E_1-E_2)t\over2}\right)\\
+\end{align}
+For relativistic $\nu$ (we don't really need to make this assumption, it just
+makes our lives easier), then:
+$$E_1-E_2\approx\hf{m_1^2-m_2^2\over E}\sim\hf{\Delta m^2\over E}$$
+Thus:
+\begin{align}
+\hf(E_1-E_2)t&\sim{1\over4}{\Delta m^2Lc^3\over e}\\
+&=1.27{\Delta m^2L\over E}\\
+\end{align}
+Where $L\sim ct$ is the distance $\nu$ travels in meters, $\Delta m^2$ is in 
+$eV^2$, and $E$ is in MeV
+Thus we have our expression for the probability of an $\e$ neutrino turning
+into a $\mu$ neutrino in a vacuum:
+$$\boxed{P(\nu_e\to\nu_\mu)=\sin^22\theta\sin^2\left({1.27\Delta m^2L\over E}
+\right)}$$
+\item Supernova $\nu$: (SN1987A: Feb 23 1987)
+\item"(a)" Supernovae produce $\nu$ via: $\e+p\to n+\nu_e$,
+which happens within the first (0.1 sec) of final star collapse (note that the
+n is what makes neutron stars.
+\item"(b)" They also produce $\nu$ via: 
+$\e+\ep\to\nu_i+\bar \nu_i$, where $i=e,\mu,\tau$.
+\item"(c)" Time for $\nu$ to travel from 1987A:
+If neutrinos are massless, $\mu_\nu=0$, $T_0={d\over c}\sim169,000 lyrs$.  
+However if $\mu_\mu\ne0$, then $E=\gamma mc^2$, $p=\gamma mv$, so:
+$${v\over c}={pc\over E}={\sqrt{E^2-m^2c^4}\over E}=\sqrt{1-{m_\nu^2c^4\over
+E^2}}$$
+$$T={d\over v}={d\over c}\left(1-{m_\nu^2c^4\over E^2}\right)^{-\hf}$$
+The difference in times of arrival for if neutrinos are massive or not is:
+\begin{align}
+\Delta t&\equiv T-T_0\approx{d\over c}{m_\nu^2c^4\over 2E^2}\\
+&=0.0257sec\left({d\over 50kpc}\right)\left({m_\nu\over1eV}\right)
+\left({10MeV\over E}\right)^2\\
+\end{align}
+\end{itemize}
+
+\subsection{Lecture 12}
+
+\subsubsection*{ Wrapping Up Massive $\nu$}
+
+So far we've discussed (1), (2), and (3) below:
+\begin{itemize}
+\item Direct Lab upper limits.
+\item $\nu$ oscillations
+\item Supernova $\nu$
+\item Cosmology (PS \#5): 
+There is a relic $\nu$ background from 1 second after
+the Big Bang, 
+$$T_{\nu,0}=1.945K\sim\left({4\over11}\right)^{1\over3}
+T_{\gamma,0}$$
+We calculated that the neutrino mass required to close the universe is:
+$$\Omega_\nu h^2={\sum_{i=e,\mu,\tau}{m_i}\over93.5eV}$$
+(for $m_i\ll1MeV$). This puts a pretty tight limit on the mass of neutrinos, 
+given that we observe an open universe.  The assumption we made about mass
+allowed us to make the assumption that $\nu$'s were relativistic when
+they decoupled from the rest of the universe.  \par
+If $m_\nu>1MeV$, then
+the \# density of neutrinos will have a $e^{-{m_\nu c^2\over kT}}$ suppression, 
+since $\nu\bar \nu$ will annihilate to $Z^0$. Lee-Weinberg (1977) showed that
+$\Omega_\nu\propto m_\nu^{-2}$ for $m_\nu\gg1MeV$.  Since this is a square
+function, there are two values for which $\Omega_\nu=1$.  If we want
+$\Omega_\nu<1$, we have that either $m_\nu>2GeV$ or $m_\nu<100eV$.
+\end{itemize}
+
+\subsubsection*{ Cold Dark Matter (CDM)}
+
+The two best known candidates for CDM are:
+\begin{itemize}
+\item WIMPs (Weakly Interacting Massive Particles): The lightest
+super-symmetric particle is in the range of 10-100 GeV.
+\item Axions: These were ``introduced'' to resolve the {\it strong CP}
+problem in QCD.  The problem was that non-perturbative effects in QCD led
+to a CP,T,P violation.  Which would predict an excessively large electric
+dipole moment for the neutron.  Axions were invented to suppress this effect.
+In terms of the Lagrangian density:
+$$L_{QCD}=L_{pert}+\underbrace{\bar \Theta{g^2\over32\pi^2}
+\overbrace{G^{a\atop\mu\nu}}^{gluon
+\atop fields}\tilde G_{\mu\nu}^a}_{violates\ CP}$$
+The CP violating term predicted an electric dipole moment of the neutron of
+$d_n\sim10^{-15}\bar \Theta\ e\cdot cm$.  Experimental results show that
+$d_n<.63\cdot10^{-25} e\cdot cm\imply\bar \Theta<10^{-10}$.  Thus, the axion mass
+required to suppress this is $10^{-5}eV$.  Why are we calling these cold? 
+Clearly, these are still relativistic particles even today.  However, since
+axions couple with photons only very weakly, they were never really in
+thermal equilibrium.
+\end{itemize}
+
+\subsubsection*{ The Lumpy Universe: Structure Formation}
+
+The universe has a dichotomy between being initially nearly smooth 
+(as per the CMB), and quite lumpy (as in galaxy clusters).  The general
+belief is that the lumpiness of the universe is caused by small perturbations
+amplified by gravitational instability.  We will concern ourselves with the
+time-evolution of
+small perturbations to {\it uniform} (Robertson-Walker-Friedmann mode)
+parameters such as $\rho$ (density), $P$ (pressure), $\vec v$ (fluid velocity),
+and $\phi$ (gravitational potential).
+
+
+\subsection{Lecture 13}
+
+\subsubsection*{ Jeans (Gravitational) Instability (in a Static Universe)}
+
+\def\eval#1{\big|_{#1}}
+In a non-relativistic, non-dissipative, static fluid described by
+$\rho, P$, the fluid velocity $\vec v$, and gravitational potential $\phi$,
+we can write three equations to describe motion:
+\begin{itemize}
+\item The Continuity equation (describing mass conservation):
+\def\div{{\vec\nabla}}
+\def\vv{{\vec v}}
+$${\partial\rho\over\partial t}+\div(\rho\vv)=0$$
+\centerline{(Continuity Equation)}
+\item Euler's Equation:
+$$\underbrace{{\partial\vv\over\partial t}+(\vv\cdot\div)\vv}_{{d\vv\over
+dt}=({\partial\over\partial t}+\dot x_i{d\over dx_i})\vv}
+=\underbrace{-\inv{\rho}\div P-\div\phi}_{force\over mass}+other\ terms$$
+\centerline{(Euler's Fluid Equation)}
+where ``$other/ terms$'' could come from other forces like magnetic fields or 
+viscous force.  The full version of the above equation is called the 
+Wavier-Stokes equation.  This equation describes how the fluid velocity changes 
+with force.
+\item Poisson's equation:
+$$\nabla^2\phi=4\pi G\rho$$
+\centerline{(Poisson's Equation)}
+This is just a Gauss' Law for a gravitational field.
+\end{itemize}
+At this point, we would like to write an equation of state which relates
+$P$ to $\rho$.  To add a little bit of generality to this derivation
+so that we can perturb the equation for a lumpy universe, we'll
+start using $\rho_0=const$ to describe the ``zeroth order'' of mass density.
+We'll also say $P_0=const$, and $\vv_0=0$.  We have to be careful about
+$\phi_0$, though: Euler's equation (2) tells us that $\div\phi_0=0$,
+but if $\phi_0=const=0$,  then Poisson's Equation (3) says:
+$$\div\phi_0={4\pi\over3}G\rho_0\vec x\ne0$$
+\centerline{(Jeans Swindle)}
+There is really no way to fix this.  On PS\#6 we will show that although
+this fails for the completely static case, when we start doing first-order
+perturbations to this equation, things work out better.\par
+For small perturbations to the static uniform solution $(\rho_1,P_1,\vv_1,
+\phi_1)$ such that:
+$$\begin{matrix} \rho=\rho_0+\rho_1&P=P_0+P_1\\
+\vv=\vv_0+\vv_1=\vv_1&\phi=\phi_0+\phi_1\\\end{matrix}$$
+We will define the {\bf Adiabatic Sound Speed} as $v_s^2\equiv{\partial P\over
+\partial\rho}\eval{s}={P_1\over \rho_1}\eval{s}$, so our equations become:
+$${\partial P\over \partial t}+\rho_0(\div\cdot\vv)=0$$
+$${\partial\vv_1\over\partial t}={-v_s^2\over\rho_0}\div\rho_1
+-\div\phi_1$$
+$$\nabla^2\phi_1=4\pi G\rho_1$$
+We can combine (1) and (2) to get:
+$${\partial P_1\over\partial t^2}+\rho_0\left(-{v_s^2\over\rho_0}\nabla^2\rho_1
+-\nabla^2\phi_1\right)=0$$
+Then using (3) we get:
+$$\boxed{{\partial^2P_1\over\partial t^2}-v_s^2\nabla^2\rho_1
+-4\pi G\rho_0\rho_1=0}$$
+Given that this equation looks like a wave equation, we can guess there
+is a solution where 
+$\rho_1(\vec r,t)=\int{d^3ka_ke^{i(\vec k\vec r-\omega t)}}$. This gives
+us a dispersion relation:
+$$\boxed{\omega^2=v_s^2k^2-4\pi G\rho_0}$$
+This looks similar to the dispersion relation of plasma physics.  However,
+in a plasma, $\omega^2=v_s^2k^2+{4\pi n_ee^2\over m_e}$.  Therefore,
+in plasma, $\omega^2>0$, so it is always oscillating.  In our case, we can
+rewrite $\omega$ as:
+$$\omega^2=v_s^2(k^2-k_J^2)$$
+where $k_J$ is:
+$$\boxed{k_J\equiv\sqrt{4\pi G\rho_0\over v_s^2}}$$
+\centerline{\bf (Jeans Wavenumber)}
+There is also a Jeans Wavelength: $\lambda_J={2\pi\over k_J}$, and a
+Jeans Mass: $M_J={4\pi\over3}({\pi\over k_J})^3\rho_0$.\par
+We have two regimes for the Jeans Wavenumber:
+\begin{itemize}
+\item $k<k_J$ (or $\lambda>\lambda_J$):
+$$\omega^2=v_s^2(k^2-k_J^2)<0$$
+So $\omega$ is imaginary, and thus:
+$$\rho_1\propto e^{\pm|\omega|t}$$
+\centerline{\bf (Jeans Instability)}
+So the density of waves can grow or decay exponentially.
+\item $k>k_J$ (or $\lambda<\lambda_J$):\par
+$\omega$ is real, so $\rho_1$ oscillates stably.
+\end{itemize}
+Thus, in a static universe, small scale density waves are stable, but for 
+larger scale waves, we have runaway growth.
+
+\subsection{Lecture 14}
+
+\subsubsection*{ Jeans Instability Continued}
+
+So far we've written down 3 equations: the Continuity Equation, Euler's 
+Equation, and Poisson's Equation.
+From these we derived a dispersion relation for a static medium.  We
+evaluated two wavelength regimes for this relation and found that
+for wavelengths longer than the Jeans wavelength, we had exponential
+collapse due to self-gravity, and
+for wavelengths shorter than the Jeans wavelength, we have normal,
+stable oscillation.\par
+
+Basically, we are seeing a balance between pressure outward and gravity inward.
+Collapse occurs when gravity wins out over pressure.  Consider a
+sphere of density $\rho$, and a piece of volume $V$ at distance $R$.  Then
+the force of gravity on that piece is:
+$${F_{grav}\over V}\sim{GM\rho\over R^2}\sim G\rho^2R$$
+since $M\sim\rho R^3$.  The pressure force on that volume is:
+$${F_{pres}\over V}\sim\nabla P\sim v_s^2\nabla \rho\sim v_s^2{\rho\over R}$$
+Comparing these forces, we find that gravity wins if:
+$$G\rho^2R>v_s^2{\rho\over R}$$
+Solving for $R$:
+$$R>\sqrt{v_s^2\over G\rho}\sim\lambda_J$$
+So this is a quick-and-dirty way of deriving the Jeans length scale.
+The timescale for collapse is also a balance between gravity and
+pressure.  The time for gravitational free fall is given by:
+\begin{align}
+R&\sim a_{grav}t_{ff}^2\sim{GM\over R^2}t_{ff}^2
+\sim G\rho Rt_{ff}^2\\
+t_{ff}&\sim\inv{\sqrt{G\rho}}\\
+\end{align}
+Thus, the free fall time is independent of distance.
+The pressure timescale is the sound crossing time, given by:
+$$t_{sound}\sim{R\over v_s}$$
+We will have gravitational collapse if $t_{ff}<t_{sound}$, which means:
+$$\begin{matrix} \inv{\sqrt{G\rho}}<{R\over v_s}&\imply&R>\sqrt{v_s^2\over G\rho}
+\end{matrix}$$
+So again we get out the Jeans wavelength.
+
+\subsubsection*{ Gravitational Instability in an Expanding Fluid}
+
+Density is obviously affected by expansion.  To zeroth order:
+\begin{align}
+\rho_0&=\rho_0(t)={\rho_0(t_{today})\over a^3}\\
+{\partial\rho_0\over\partial t}&=-3\aa\rho_0\\
+\end{align}
+where $a$ is our familiar scale factor.   To examine first order perturbations,
+we define the {\bf density field} $\delta$, where $\rho_1\equiv\rho_0\delta$,
+so that:
+$$\delta={\rho_1\over\rho_0}={\rho-\rho_0\over\rho_0}$$
+$$\boxed{\delta={\partial\rho\over\rho_0}}$$
+Our velocities are also changed by expansion:
+$$\vec v_0=H\vec r=\aa\vec r$$
+where $\vec r$ is in physical coordinates.  This velocity is purely from
+Hubble expansion.  Note that:
+$$\nabla\cdot\vec v_0=\aa(\nabla\cdot\vec r)=3\aa$$
+We'll use $\vec v_1$ to describe the peculiar velocity (motion with respect
+to the expansion).  Now we need to solve our fluid equations using these
+parameters.  The continuity equation, to zeroth order, says:
+\def\vvz{\vec v_0}
+\def\vvo{\vec v_1}
+\begin{align}
+{\partial\rho_0\over\partial t}+\rho_0(\nabla\cdot\vvz)&=0\\
+{\partial\rho_0\over\partial t}+3\aa\rho_0&=0\\
+\rho_0(t)&\propto a^{-3}\\
+\end{align}
+To first order:
+\begin{align}
+{\partial\rho_1\over\partial t}+\rho_0(\nabla\cdot\vvo)
++\nabla(\rho_1\vvo)&=0\\
+\rho_0\dot \delta+\dot \rho_0\delta+\rho_0(\nabla\cdot\vvo)+\rho_0\vvz(\nabla\cdot
+\delta)+\rho_0\delta(\nabla\cdot\vvz)&=0\\
+\end{align}
+Using that $\dot \rho_0\delta=-3\aa\rho_0\delta$, and $\nabla\cdot\vvz=3\aa$:
+$$\boxed{\dot \delta+\nabla\cdot\vvo+\aa(\vec r\cdot\nabla)\delta=0}$$
+Euler's equation gives us, to zeroth order:
+$${\partial\vvz\over\partial t}+(\vvz\cdot\nabla)\vvz=-\nabla\cdot\phi_0\ne0$$
+So there is no Jeans swindle in this case.  Expanding this to first order,
+we get:
+$${\partial\vvo\over\partial t}+(\vvz\cdot\nabla)\vvo+(\vvo\cdot\nabla)\vvz
+=-{v_s^2\over\rho_0}\nabla\rho_1-\nabla\phi_1$$
+To figure out what $(\vvo\cdot\nabla)\vvz$ is, let's expand it:
+\begin{align}
+(\vvo\cdot\nabla)\vvz&=H(v_{1x}\hat x+v_{1y}\hat y+v_{1z}\hat z)(\hat x\partial_x
++\hat y\partial_y+\hat z\partial_z)\vec r\\
+&=H\vvo=\aa\vvo\\
+\end{align}
+Thus our equation above becomes:
+$$\boxed{{\partial\vvo\over\partial t}\aa(\vec r\cdot\nabla)\vvo+\aa\vvo=
+-v_s^2\nabla\rho-\nabla\pi_1}$$
+Finally, we have Poisson's Equation:
+$$\boxed{\nabla^2\phi=4\pi G\rho_1=4\pi G\rho_0\delta}$$
+
+
+\subsection{Lecture 15}
+
+\subsection{Lecture 16}
+
+\subsection{Lecture 17}
+
+\subsection{Lecture 18}
+
+\subsection{Lecture 19}
+
+\subsection{Lecture 20}
+
+\subsection{Lecture 21}
+
+\subsection{Lecture 22}
 
 
 
