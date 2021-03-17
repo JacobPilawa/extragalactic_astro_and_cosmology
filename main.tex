@@ -1679,20 +1679,147 @@ k_J \equiv \sqrt{\frac{4\pi G \rho_0}{v_s^2}}
 \ee
 
 \be
-\lambda_J = \frac{2\pi}{k_J}
+\lambda_J = \frac{2\pi}{k_J} = 2 \times \text{ Jean's Radius}
 \ee
 
 \be
 M_J = \frac{4\pi}{3} \lambda_J^3 \rho_0
 \ee
 
+This last quantity gives us a scale for gravitational collapse.
+
+Anyways, let's continue!
+
+Naturally, we have two regimes:
+
+\begin{itemize}
+    \item $k > k_J$ or $\lambda < \lambda_J$. In this case, we have $\omega^2 > 0$ and $\omega$ is thus real. As a consequence, $\rho_1$ oscillates like sound waves! This is stable.
+    \item $k > k_J$ or $\lambda > \lambda_J$. In this case, $\omega^2 < 0$, and $\omega \in \mathbb{C}$, giving us an exponential damping in time for the solution: $\rho_1 \propto e^{\pm |\omega|t}$. This grows or decays \textbf{exponentially}. This is \textbf{Jean's Instability}, or more generally, a \textbf{gravitational instability}. There are other instaiblities -- Kelvin-Helmholtz, Rayleigh-Jeans, etc. 
+\end{itemize}
+
+What are the underlying physics? Balance between pressure (outward) and gravity (inward). When pressure is larger, you get oscillations. When gravity is larger, we have an instability. 
+
+By the way, let's do the SAME THING but much easier. This is called a \textbf{desert-island} analysis -- we are stuck on an island, and we need Jean's instability to get our boat moving. Let's start by looking at the dimensions of the forces and then the timescales:
+
+\begin{enumerate}
+    \item Instability occurs if gravity is larger than pressure, so consider the forces on a fluid element at the boundary of a star of density $\rho$ and radius $R$.
+    \be
+    \frac{F_G}{V_\star} \sim \frac{GM\rho}{R^2} \sim G R \rho^2
+    \ee
+    \be
+    \frac{F_P}{V_\star} \sim \nabla P \sim v_s^2 \nabla \rho \sim v_s^2 \frac{\rho}{R}
+    \ee
+    \begin{itemize}
+        \item Gravity wins if $F_G > F_P$
+    \end{itemize}
+    \be
+    G \rho^2 R > \frac{v_s^2 \rho}{R} \rightarrow \boxed{R > \sqrt{\frac{v_s^2}{G \rho}} \sim \lambda_J}
+    \ee
+    
+    \item Instability occurs if free-fall timescale (gravity) is smaller than sound crossing time:
+    
+    \be
+    R \sim a_\text{accel.}t_g^2 \sim \frac{GM}{R^2} t_g^2 \sim G \rho R t^2_g
+    \ee
+    \be
+    \boxed{t_g \sim \frac{1}{G\rho}}
+    \ee
+    \be
+    t_p \sim \frac{R}{v_s}
+    \ee
+    \be
+    t_g < t_p \rightarrow \frac{1}{\sqrt{G\rho}} < \frac{R}{v_s} \rightarrow R > \sqrt{\frac{v_s^2}{G\rho}}
+    \ee
+\end{enumerate}
 
 
+\subsection{Gravitational Instability in an Expanding Medium}
 
+James Jeans definitely did not know about this! 
 
+Recall our fluid equations:
 
+\be
+\rho_0 = \rho_0(t) \text{ and } \rho_1 \equiv \delta \rho_0 \text{ where } \delta \equiv \frac{\rho - \rho_0}{\rho_0}
+\ee
 
+We introduced the ``fractional deviation'' $\delta$ from uniform background. The smallest $\delta$ can be is $-1$, but it has no bound! Just keep that in mind. We also have to take Hubble expansion into account:
 
+\be
+\vec{v}_0 = H \vec{r} = \frac{\dot{a}}{a} \vec{r}
+\ee
+
+And $\vec{v}_1$ is the peculiar velocity. One thing to note for later that we will need: $\vec{\nabla} \cdot \vec{v}_0 = \frac{\dot{a}}{a} \vec{\nabla} \cdot \vec{r} = 3 \frac{\dot{a}}{a}$.
+
+Returning to our fluid equations:
+
+\be
+\partial_t \rho + \vec{\nabla} \left(\rho \vec{v}\right) = 0
+\ee
+
+To 0th order, 
+
+\be
+\frac{\partial \rho_0}{\partial t} + \rho_0 \vec{\nabla} \cdot \vec{v}_0  = \dot{\vec{\rho}}_0 + 3\frac{\dot{a}}{a} \rho_0 = 0 
+\ee
+
+Solving in our head...we get what we had seen earlier in class!
+
+\be
+\rho_0 \propt a^{-3}
+\ee
+
+The linearised (first order piece):
+
+\be
+\dot{\rho}_1 + \rho_0 \vec{\nabla} \cdot \vec{v}_1  + \vec{\nabla} \left(\rho_1 \vec{v}_0\right)
+\ee
+
+We can now switch to $\delta$ notation...
+
+\be
+\underbrace{\dot{\rho}_0 \delta}_{-3\dot{a}/a \rho_0}+ \rho_0 \dot{\delta} + \rho_0 \vec{\nabla} \cdot \vec{v}_1 + \rho_0 \vec{v}_0 \cdot \vec{\nabla} \delta + \underbrace{\rho_0 \delta \vec{\nabla} \cdot \vec{v}_0}_{3\dot{a}/a \rho_0} = 0
+\ee
+
+Simplifying....
+
+\be
+\boxed{\dot{\delta} + \vec{\nabla} \cdot \vec{v}_1 + \left(\frac{\dot{a}}{a}\vec{r} \cdot \vec{\nabla} \right)\delta}
+\ee
+
+The first term is the density change, the second term is a velocity flux, and the third term reminds us that we are in an expanding fluid.
+
+Now take a look at the equation of motion:
+
+To 0th order, 
+
+\be
+\frac{\partial \vec{v}_0}{\partial t} + \left(\vec{v}_0 \cdot \vec{\nabla}\right)\vec{v}_0 = -\vec{\nabla} \Phi_0 \neq 0 \text{ unlike the static case}
+\ee
+
+There is no Jeans Swindle here! Now to first order, we get...
+
+\be
+\partial_t \vec{v}_1 + \left(\vec{v}_0 \cdot \vec{\nabla}\right) + \left(\vec{v}_1 \cdot \vec{\nabla}\right)\vec{v}_0 = -\frac{v_s^2 \vec{\nabla} \rho}{\rho_0} - \vec{\nabla} \Phi_1
+\ee
+
+Note:
+
+\be
+\left(\vec{v}_1 \cdot \vec{\nabla} \right) \vec{v}_0 = H \left(v_{1x} \partial_x + v_{1y} \partial_y + v_{1z} \partial_z\right)\vec{r} = H \vec{v}_1 = \frac{\dot{a}}{a} \vec{v}_1
+\ee
+
+This makes:
+
+\be
+\boxed{\partial_t \vec{v}_1 + \frac{\dot{a}}{a} \left(\vec{r} \cdot \vec{\nabla}\right)\vec{v}_1 + \frac{\dot{a}}{a}\vec{v}_1 = - v_s^2 \vec{\nabla} \delta - \vec{\nabla} \Phi_1}
+\ee
+
+The last is trivial:
+
+\be
+\boxed{\nabla^2 \Phi_0 = 4\pi G \rho_0 \text{ and } \nabla^2 \Phi_1 = 4\pi G \rho_0 \delta}
+\ee
 
 
 
