@@ -1821,6 +1821,342 @@ The last is trivial:
 \boxed{\nabla^2 \Phi_0 = 4\pi G \rho_0 \text{ and } \nabla^2 \Phi_1 = 4\pi G \rho_0 \delta}
 \ee
 
+Just so we are clear, here are the \textbf{unperturbed fluid equations}:
+
+\be
+\frac{\partial \rho}{\partial t} + \vec{\nabla} \left(\rho \vec{v}\right) = 0
+\ee
+
+\be
+\frac{\partial \vec{v}}{\partial t} + \left(\vec{v} \cdot \vec{\nabla}\right)\vec{\nabla} = -\frac{1}{\rho} \vec{\nabla}P - \vec{\nabla}\Phi
+\ee
+
+\be
+\nabla^2 \Phi = 4\pi G \rho
+\ee
+
+The \textbf{perturbed, 1st order} equations:
+
+\be
+\frac{\partial \rho_1}{\partial t} + \vec{\nabla} \left(\rho_0 \vec{v}_1\right) = 0
+\ee
+
+\be
+\frac{\partial \vec{v}_1}{\partial t}  = -\frac{v_s^2}{\rho} \vec{\nabla}P - \vec{\nabla}\Phi_1
+\ee
+
+\be
+\nabla^2 \Phi_1 = 4\pi G \rho_1
+\ee
+
+Above is for \textbf{a static medium}. When we have an expanding medium, we have $\vec{v}_0 = H \vec{r} = \frac{\dot{a}}{a} \vec{r}$. Also $\vec{\nabla} \cdot \vec{v}_0 = \frac{\dot{a}}{a} \vec{\nabla} \cdot \vec{r} = 3 \frac{\dot{a}}{a}$.
+
+Note:
+
+\begin{figure}
+    \centering
+    \includegraphics{Screen Shot 2021-03-29 at 10.22.16 AM.png}
+    \caption{Summary of perturbed and unperturbed equations in an expanding Universe.}
+    \label{fig:summ}
+\end{figure}
+
+Let's work with some of these equations. The best way to proceed is to go to Fourier Space. Also, let's move to co-moving coordinates.  The key variables are:
+
+\be
+\delta(\vec{r},t) = \int d^3 k \, e^{i\frac{\vec{k} \cdot \vec{r}}{a(t)}}\delta_k(\vec{r},t)
+\ee
+
+\be
+v_1 \left(\vec{r},t\right)= \int d^3 k \, e^{i\frac{\vec{k} \cdot \vec{r}}{a(t)}} \vec{v}_k(\vec{r},t)
+\ee
+
+\be
+\Phi_1\left(\vec{r},t\right) \int d^3 k \, e^{i\frac{\vec{k} \cdot \vec{r}}{a(t)}} \Phi_k(\vec{r},t)
+\ee
+
+We also have $\vec{r} = a \vec{x}$ where $x$ is our co-moving coordinate and $\vec{k}$ is the co-moving wavenumber. There are a few pieces of math we should do, first:
+
+\be
+\dot{\delta}(\vec{r},t) = \int d^3 k \, e^{i\frac{\vec{k} \cdot \vec{r}}{a(t)}}\delta_k(\vec{r},t) \left(\dot{\delta}_k - \frac{\dot{a}}{a} \frac{i\vec{k}\cdot\vec{r}}{a}\delta_k\right)
+\ee
+
+\be
+\vec{\nabla} \delta(\vec{r},t) = \frac{i\vec{k}}{a}\int d^3 k \, e^{i\frac{\vec{k} \cdot \vec{r}}{a(t)}}\delta_k(\vec{r},t)
+\ee
+
+\be
+\vec{\nabla} \cdot \vec{v}_1 = \frac{i\vec{k}}{a}\int d^3 k \, e^{i\frac{\vec{k} \cdot \vec{r}}{a(t)}} \vec{v}_k(\vec{r},t)
+\ee
+
+Knowing this, we turn to the continuity equation:
+
+\be
+\left(\dot{\delta}_k - \frac{\dot{a}}{a} \frac{i\vec{k}\cdot\vec{r}}{a}\delta_k\right) + i\vec{k}\cdot \frac{\vec{v}_k}{a} + \frac{\dot{a}}{a} \vec{r} \cdot \frac{i \vec{k}}{a} \delta_k = 0
+\ee
+
+Simplifying:
+
+\be
+\boxed{\dot{\delta}_k + \frac{i \vec{k} \cdot \vec{v_k}}{a} = 0 }
+\ee
+
+And now, going to the Euler equation:
+
+\be
+\vec{v}_k - \frac{\dot{a}}{a}\frac{i \vec{k} \cdot \vec{r}}{a}\vec{v}_k + \frac{\dot{a}}{a} \frac{i\vec{r}\cdot\vec{k}}{a}\vec{v}_k + \frac{\dot{a}}{a}\vec{v}_k = -v_s^2 \frac{i\vec{k}}{a}\delta_k - i \frac{\vec{k}}{a} \Phi_k
+\ee
+
+Again, simplifying and re-writing a bit (multiplying by $a^2$), we get:
+
+\be
+\boxed{\partial_t \left(a \vec{v}_k\right) + i v_s^2 \vec{k} \delta_k + i \vec{k} \Phi_k = 0}
+\ee
+
+And lastly, Poisson's equation:
+
+\be
+\boxed{\frac{k^2}{a^2} \Phi_k = - 4\pi G\rho_0 \delta_k}
+\ee
+
+Let's use the middle and top equation to get rid of $v$, giving a single equation for $\delta$. Stare at the top equation, and convince yourself that you should multiply by $a^2$ and take the time derivative. Doing that, we get:
+
+\be
+a^2 \ddot{\delta}_k + 2a \dot{a} + i\vec{k} \cdot \left(-iv_s^2 \vec{k} \delta_k - i\vec{k} \Phi_k\right) = 0
+\ee
+
+Simplifying and using the Poisson equation:
+
+\be
+\ddot{\delta}_k + 2\frac{\dot{a}}{a} \dot{\delta}_k + \frac{v_s^2 k^2}{a^2} \delta_k - 4\pi G \rho_0 \delta_k = 0
+\ee
+
+This is suspiciously similar to what we had earlier! Let's make some new definitions:
+
+\be
+\ddot{\delta}_k + 2\frac{\dot{a}}{a}\dot{\delta}_k + \frac{v_s^2}{a^2} \left(k^2 - k_J^2\right)\delta_k = 0 \text{ where } k_J \equiv \sqrt{\frac{4\pi G \rho_0 a^2}{v_s^2}}
+\ee
+
+The last definition we had there is nothing but the \textbf{co-moving Jeans wavenumber}. We can look at two regimes, starting with the unstable case of $k \ll k_J$:
+
+\be
+\ddot{\delta}_k + 2\frac{\dot{a}}{a}\dot{\delta}_k - 4 \pi G\rho_0 \delta_k = 0
+\ee
+
+The time dependence here is complicated because of our dependence on $a$.
+
+\begin{itemize}
+    \item Einstein-de Sitter: Flat, $\Omega_m =1$. Here, we have $4\pi G \rho = \frac32 H^2  = \frac32 \left(\frac{2}{3t}\right)^2 = \frac{2}{3t^2} \rightarrow a \propto t^{2/3}$. We assume a power-law ansatz $t^\alpha$. Thus:
+    \be
+    \ddot{\delta}_k + \frac{4}{3t} \dot{\delta} - \frac{2}{3t^2} \delta_k = 0
+    \ee
+    
+    \be
+    \alpha\left(\alpha -1\right) + \frac43 \alpha - \frac23 = 0 \rightarrow \alpha = -1, \frac23
+    \ee
+    
+    \be
+    \boxed{\delta\left(t\right) \propto a(t) \propto t^{2/3}} \text{ and } \boxed{\delta(t) \propto t^{-1}}
+    \ee
+    \begin{itemize}
+        \item We have a growing and decaying part! Compare this with the static gravitational instability, in which $\delta \propto e^{\pm \omega t}$. The origin of this slowing is the friction term in the 2nd order differential equation for $\delta$. \textbf{The expansion of the Universe slows down the instability growth to a  power law}. We can use this simple calculation to show that the perturbations MUST GROW faster in order for galaxies to form. With dark matter, $\delta$ can grow much, much faster since they are not coupled to photons. 
+    \end{itemize}
+    
+    \item Open Universe Model, $\Omega_m < 1$, $\Omega_\lambda = 0$. The only thing that is different is our $a$. Recall:
+    
+    \be
+    a(\theta) \propto \cosh \theta -1
+    \ee
+    \be
+    t(\theta) \propto \sinh\theta - \theta
+    \ee
+    
+    \begin{itemize}
+        \item Our key equation becomes:
+        
+        \be
+        \ddot{\delta} + 2\frac{\dot{a}}{a} \delta - 4\pi G \rho \delta = 0
+        \ee
+        
+        \item Through some simple, but tedious math:
+        
+        \be
+        \left(\cosh\theta - 1\right) \frac{d^2 \delta}{d\theta^2} + \sinh\theta \frac{d\delta}{d\theta} - 3\delta = 0
+        \ee
+        
+        \be
+        \text{Growing: } \delta_+ \propto \frac{3\sinh\theta \left(\sinh\theta - \theta\right)}{\left(\cosh\theta - 1\right)^2} - 2
+        \ee
+        
+        \be
+        \text{Decaying: } \delta_- \propto \frac{\sinh\theta}{\left(\cosh\theta - 1\right)^2}
+        \ee
+        
+    \end{itemize}
+    
+    \item Closed Case: $\Omega_m>1$
+    
+    \begin{itemize}
+        \item The key equation becomes:
+        
+        \be
+        \left(1-\cos\theta\right)\frac{d^2 \delta}{d\theta^2} + \sin\theta \frac{d\delta}{d\theta} - 3\delta = 0
+        \ee
+        
+        \item Which has solutions:
+        
+        \be
+        \text{Growing: } \delta_+ \propto 2 - \frac{3\sin\theta \left(\theta - \sin\theta\right)}{\left(1-\cos\theta\right)^2}
+        \ee
+        
+        \be
+        \text{Decaying: } \delta_- \propto \frac{\sin\theta}{\left(1-\cos\theta\right)^2}
+        \ee
+    \end{itemize}
+\end{itemize}
+
+\subsection{Time Evolution of V and Phi}
+
+Let's return to the Einstein-de Sitter model and solve for the other two parameters, $\vec{v}$ and $\Phi$; that is, the perturbed $\vec{v}_k$ and $\Phi_k$. 
+
+A standard technique for solving these systems is to decompose our vectors into parallel and perpendicular components:
+
+\be
+\vec{v} = \vec{v}_\perp + \vec{v}_\parallel \text{ where } \vec{\nabla}\cdot \vec{v}_\perp = 0 \text{ and } \vec{\nabla}\times \vec{v}_\parallel = 0
+\ee
+
+In Fourier-space, we have:
+
+\be
+\vec{\nabla} \cdot \vec{v}_\perp \rightarrow i \vec{k} \cdot \vec{v}_\perp \left(\vec{k}\right) = 0 \rightarrow \vec{v}_\perp \perp \vec{k}
+\ee
+
+\be
+\vec{\nabla} \times \vec{v}_\parallel = 0 \rightarrow \vec{k} \times \vec{v}_\parallel \left(\vec{k}\right) = 0 \rightarrow \vec{v}_\parallel \parallel \vec{k}
+\ee
+
+We often call the perpendicular piece the \textbf{transverse piece} (divergence-free) and the parallel (curl-free) piece is the \textbf{longitudinal piece}. 
+
+Now returning to our Euler equation with the perpendicular piece:
+
+\be
+\partial_t \left(a \vec{v}_\perp\right) = 0 \rightarrow \vec{v}_\perp \propto \frac{1}{a(t)}
+\ee
+
+\textbf{Angular momentum conservation falls out}! We care thus about the parallel piece of the velocity, since that is affecting the perturbed equations. For this parallel component:
+
+\be
+\partial_t \left(a v_\parallel\right) + i v_s^2 k \delta_k + i k\Phi_k = 0
+\ee
+
+We can use the continuity equation to derive the time evolution since we know how $\dot{\delta}$ behaves. The continuty equation tells us:
+
+\be
+\dot{\delta}_k + \frac{i k v_\parallel}{a} = 0 \rightarrow v_\parallel = i \frac{a}{k} \dot{\delta}_k
+\ee
+
+\be
+v_\parallel \propto t^{1/3} \propto a^{1/2}
+\ee
+
+What about the perturbed $\Phi_k$. From the third equation, we have:
+
+\be
+\Phi_k \propto \text{ constant in t} 
+\ee
+
+\subsection{Full Linear Perturbation Theory}
+
+The framework in which we were working breaks down if we consider non-fluid things in the Universe! We can move to kinetic theory and work in phase space to overcome this.
+
+Let's start by extending the fluid equations to the ``Boltzmann equation,'' broadly called \textbf{kinetic theory}. Additionally, our Newtonian potential $\Phi$ needs to become the Einstein equations of General Relativity.
+
+\noindent\textbf{Kinetic Theory}
+
+We start with the phase space: a 6-dimensional space of positions $\vec{r}$ and momenta $\vec{p}$. Note that this is a relativistic momentum (conjugate of position). Additionally, we have the phase-space distribution function $f(\vec{x},\vec{p},t)$. Integrating this over momentum,  you get number density, etc. The collisionless Boltzmann equation (conservation of phase-space density):
+
+\be
+\frac{\mathrm{D} f}{\mathrm{D} t} = \frac{\partial f}{\partial t} + \dot{x}_i \frac{\partial f}{\partial x_i} + \dot{p}_i \frac{\partial f}{\partial p_i} = 0 
+\ee
+
+In the absence of collisions, phase-space density should be conserved. In the case when collisions are important (i.e., Thomson scattering at the surface of last scattering), we have the \textbf{collisional} Boltzmann equation:
+
+\be
+\frac{\mathrm{D} f}{\mathrm{D} t} = \left(\frac{\partial f}{\partial t}\right)_c
+\ee
+
+Note that here, $f$ is totally generic and we need to keep track/evolve them simultaneously for each component's $f$. In general, one has to solve the Boltzmann equation, and that's a total mess in $6+1$-dimensions. 
+
+A standard way to move forward: take velocity (momentum) moments. For example, the $0$th order velocity moment is the number density $n = \frac{N}{V} = \int d^3 p \, f$ since, recall: $\mathrm{d}N = \mathrm{d}^3 x \, \mathrm{d}^3 p \, f$. 
+
+The first velocity moment of the distribution function $f$ is the \textbf{mean} velocity:
+
+\be
+\langle v \rangle = \frac{\int f\vec{v}\,\mathrm{d}^3 p}{\int f\,\mathrm{d}^3 p} = \frac{1}{n} \int f\vec{v}\,\mathrm{d}^3 p
+\ee
+
+The second velocity moment:
+
+\be
+\langle v_i v_j \rangle = \frac{1}{n} \int \mathrm{d}^3 p \, v_i v_j f
+\ee
+
+Often, we use $\sigma_{ij}^2 = \langle v_i v_j \rangle - \langle v_i \rangle \langle v_j \rangle$.
+
+The $\ell$th velocity moment:
+
+\be
+\langle v_1 v_2 \cdots v_\ell \rangle = \cdots
+\ee
+
+Now that we have our bearings, let's take velocity moments of the Boltzmann equation to see what we find. The \textbf{zeroth order velocity moment of the collisionless Boltzmann equation is}:
+
+\be
+\int \mathrm{d}^3 p \, \left(\text{Boltzmann equation}\right) = \frac{\partial}{\partial t}\int \mathrm{d}^3 p \, f + \int \mathrm{d}^3 p \, \vec{v}\cdot \vec{\nabla} f - \underbrace{m \partial_i \Phi}_{\dot{p}_i} \int \mathrm{d}^3 p \, \frac{\partial f}{\partial p_i} = 0
+\ee
+
+The last term is trivial since we can use integration by parts, leaving only the surface terms. The last term is thus 0 since $f$ has to drop off. We could also do this last term by the divergence theorem, assuming that $f \to 0$ at large $p_i$. This gives:
+
+
+\be
+\frac{\partial}{\partial t}n + \vec{\nabla} \underbrace{\int \mathrm{d}^3 p \, \vec{v} f}_{n\langle v\rangle} - \underbrace{m \partial_i \Phi}_{\dot{p}_i} \int \mathrm{d}^3 p \, \frac{\partial f}{\partial p_i} = 0
+\ee
+
+\be
+\boxed{\frac{\partial}{\partial t} n + \vec{\nabla} \left(n \langle\vec{v}\rangle\right) = 0 }
+\ee
+
+This looks just look the continuity equation for fluids!
+
+Let's look at the \textbf{first velocity moment of the Boltzmann equation}
+
+\be
+\int \mathrm{d}^3 p \, v_j \left(\text{Boltzmann equation}\right) = \frac{\partial}{\partial t} \int \mathrm{d}^3 p \, v_j \, f + \int \mathrm{d}^3 p \, v_j v_j \partial_i f + - m \partial_i \Phi \int \mathrm{d}^3 p \, v_j \frac{\partial f}{\partial p_i} = 0
+\ee
+
+This looks messy, but look at each term (first, second, and third) separately:
+
+\begin{itemize}
+    \item Term 1: $\partial_t \left(n \langle v_j \rangle\right) = n \frac{\partial \langle v_j\rangle}{\partial t} + \langle v_j\rangle \frac{\partial n}{\partial t} = n \frac{\partial \langle v_j\rangle}{\partial t} - \underbrace{\langle v_j \rangle \partial_i \left(n \langle v_i \rangle\right)}_\text{Note!}$
+    \item Term 2: $\partial_i \left(n \langle v_i v_j \rangle\right) = \partial_i \left(n\sigma_{ij}^2  \right) + \partal_i \left(n\langle v_i\rangle\langle v_j \rangle\right) = \partial_i \left(n\sigma_{ij}^2  \right) + \underbrace{\langle v_j \rangle \partial_i \left(n \langle v_i \rangle\right)}_\text{Note!} + n \langle v_i \rangle \partial_i \langle v_j \rangle$
+    \item Term 3: $-\partial_i \Phi \int \mathrm{d}^3 p \, p_j \frac{\partial f}{\partial p_i} = -\partial_i \Phi \int \mathrm{d}^3 p\, \left(\underbrace{\frac{\partial}{\partial p_i}\left[p_j f\right]}_\text{surface} - f \frac{\partial p_j}{\partial p_i}\right) = \partial_j \Phi n$
+\end{itemize}
+
+Doing these messy simplifications and collecting our prizes:
+
+\be
+\frac{\partial \langle v_j \rangle}{\partial t} - \langle v_i \rangle \partial_i \langle v_j \rangle = -\partial_j \Phi - \frac{1}{n} \partial_i \left(n\sigma_{ij}^2\right)
+\ee
+
+This looks familiar! If we drop the ensemble averages $\langle\rangle$, and compare with our Euler equation:
+
+\be
+\frac{\partial \vec{v}}{\partial t} + \left(\vec{v}\cdot \vec{\nabla}\right) \vec{v} = -\vec{\nabla}\Phi - \frac{1}{\rho} - \vec{\nabla} P
+\ee
+
+The key difference between the two are the pressure term versus the second velocity moment term $\sigma_{ij}^2$. The right side is the stress tensor.
+
+
+
 
 
 
