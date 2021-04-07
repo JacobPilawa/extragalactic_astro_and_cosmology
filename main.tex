@@ -2153,7 +2153,186 @@ This looks familiar! If we drop the ensemble averages $\langle\rangle$, and comp
 \frac{\partial \vec{v}}{\partial t} + \left(\vec{v}\cdot \vec{\nabla}\right) \vec{v} = -\vec{\nabla}\Phi - \frac{1}{\rho} - \vec{\nabla} P
 \ee
 
-The key difference between the two are the pressure term versus the second velocity moment term $\sigma_{ij}^2$. The right side is the stress tensor.
+The key difference between the two are the pressure term versus the second velocity moment term $\sigma_{ij}^2$. The right side is the stress tensor. In the fluid picture, all we had was gravity against pressure; here, with kinetic theory, we have something more intricate:
+
+\begin{equation}
+    \vec{\nabla} \rightarrow \partial_i \left(\rho \sigma_{ij}^2\right)
+\end{equation}
+
+Diagonal terms are typically the pressure. The off-diagonal terms do not have to be zero, and this concept does not exist in fluid dynamics. These are called ``anisotropic stress,'' and the dominant parts of these are neutrinos. This is also can be seen as the spatial part of $T_{\mu\nu}$, the stress-energy tensor, in GR. In GR, we need the $T_{00}$ term (time-dependence). 
+
+Now we can take the \textbf{second velocity moment of the Boltzmann equation}:
+
+\be
+\int \mathrm{d}^3p \, v_i v_j \left(\text{Boltzmann Eq.}\right)
+\ee
+
+\be\partial_t \sigma_{ij}^2 + \cdots = \cdots = \underbrace{\sigma_{ijk}}_\text{3rd velocity moment}
+\ee
+
+You can see the issue now: the $\ell^{\text{th}}$ moment:
+
+\be
+\partial_t \sigma_{ijk \cdots \ell} \text{ is coupled to } \ell-1 \text{ and } \ell+1 \text{ moments}
+\ee
+
+In practice, we need to truncate this infinite hierarchy. Where and how are the two questions we must ask. This often depends on the particle species. Baryons can be truncated at low order, photons are often a few thousand. \textbf{In some ways, the fluid equations are truncated simplications of this infinite hierarchy}.
+
+How do we truncate these? In the old days, we just set the higher order moments to $0$, but this often leads to a spurrious coupling at the boundaries. At higher $\ell$, we can often choose some Bessel function for a smooth cutoff to zero. Very similar to MHD, where you need an infinite series of moments but need truncation. Having a \textbf{smart closure relation} is important. 
+
+\textbf{One huge point: the initial conditions of the non-linear Universe are set by linear perturbation theory.}
+
+Let's wrap a few things up concisely:
+
+\noindent\textbf{Full Linear Perturbation Theory}
+
+Here, we have:
+
+\be
+f(\vec{x},\vec{p}.t) = f_0 + f_1
+\ee
+
+And the density field: 
+
+\be
+\delta \equiv \frac{\delta \rho_i}{\rho_i}: i = \text{ c, h, b} \nu \text{, } \gamma 
+\ee
+
+where c is CDM, $\nu$ are massless neutrinos, h is hot dark matter, $\gamma$ is photons, b is baryons. 
+We also have the gravitational potential we kept writing down as $\Phi$. This needs to be replaced by metric perturbations (perturb the RW metric). Let's choose a ``conformal Newtonian gauge,'' (a particular coordinate system). We perturb the RW metric:
+
+\be
+\mathrm{d}s^2 = a^2 \left[-\left(1+2\Psi\right)\mathrm{d}\tau^2 + \left(1-2\phi\right)\mathrm{d}x^{i}\,\mathrm{d}x_i\,\right]
+\ee
+
+where $\phi$ and $\Psi$ are our scalar perturbations and $\tau$ is our conformal time $\mathrm{d}t = a \mathrm{d}\tau$. We have $\psi \rightarrow$ Newtonian perturbed $\Phi_1$. A small, cute note: that $2$ is the difference for gravitational deflection between Newton and Einstein (Eddington, 1919, Solar Eclipse). 
+
+For convenience, let's define $\theta \equiv \vec{\nabla} \cdot \vec{v} \rightarrow i \vec{k} \cdot \vec{v}_k$ in $k$ space. For cold dark matter:
+
+\be
+\dot{\delta}_c = -\theta_c + 3 \dot{\phi} \approx \text{ cont. equation from before} 
+\ee
+
+Note that the $\dot{\phi}$ is something new and comes from the metric perturbation we introduced. 
+
+We then have the first velocity moment:
+
+\be
+\dot{\theta}_c = -\frac{\dot{a}}{a} \theta_c + k^2 \Psi \approx \text{ Euler eq. for } w = 0 (\text{ CDM})
+\ee
+
+There are similar but more complicated equations for the baryons, neutrinos, $h$, photons, etc., with the Einstein equations governing the metric perturbations $\dot{\phi}$ and $\dot{\psi}$. These are a giant set of coupled, \textbf{linear}, equations 
+
+\section{The Baby Universe}
+
+\subsection{Successes of the Big Bang Model}
+
+The key predictions of the Big Bang are:
+
+\begin{itemize}
+    \item Hubble Expansion: velocity is linearly proportional to distance: $v = \text{H}r$. 
+    \begin{itemize}
+        \item If everyone is moving with a constant speed regardless of $r$, there is no isotropy!
+    \end{itemize}
+    \item Big Bang Nucleosynthesis
+    \begin{itemize}
+        \item $Y \sim \frac17$ (Helium). 
+    \end{itemize}
+    \item Existence of $2.728$ K CMB Photons (uniform piece discovered by Penzias and Wilson). Anisotropies of the CMB is a \textbf{problem} for the Big Bang theory.
+\end{itemize}
+
+There are some key problems for the Big Bang, though.
+
+\subsection{Problems of the Big Bang Model}
+
+There are a few things that lead us to believe that the Big Bang is incomplete (not wrong). It just doesn't explain everything! The problems of the Big Bang model are:
+
+\begin{itemize}
+    \item The Horizon Problem
+    \item The Flatness Problem
+    \item The Monopole Problem
+    \item The Structure Formation Problem (anisotropies of the CMB)
+\end{itemize}
+
+
+\noindent\textbf{The Horizon Problem}/\textbf{The Homogeneity Problem}
+
+
+Why is the CMB homogeneous on such large scales? The CMB fluctuations are of order $\sim 10^{-5}$. One patch of the sky completely separated from another are the \textbf{same} temperature/have the same number density of galaxies on large scales. 
+
+To understand this, let's introduce the concept of a \textbf{particle horizon} at some time $t$. This is the physical distance photons have traveled since time $t=0$ (the Big Bang). Recall the R-W metric:
+
+\be
+\mathrm{d}s^2 = c^2 \mathrm{d}t^2 - a\left(t)\right)^2 \left[\frac{\mathrm{d}r^2}{1-kr^2}+ \cdots \right]
+\ee
+
+We will show in a future problem set that (for $\mathrm{d}s^2 = 0$ for photons):
+
+\be
+d_\text{H}(t) = a\left(t\right) \int_0^{r} \frac{\mathrm{d}r\prime}{\sqrt{1-kr\prime^2}} = a(t) \int \frac{c \mathrm{d}t^\prime}{a(t^\prime)}
+\ee
+
+For detailed calculations, do Problem Set 7, but here are some useful results:
+
+
+At $t=t_0$ (present day):
+\be
+d_\text{H}(t_0)\approx 6 h^{-1}\, \unit{Gpc} \text{ for } \Omega_m = 1
+\ee
+
+The more relevant question to ask -- what was the horizon distance at recombination $t = t_{dec}$ (photon decoupling from electrons):
+
+\be
+d_\text{H} \sim \text{ a few } 100 \text{ Mpc}
+\ee
+
+Each patch on the sky is only in causal contact with patches within this horizon distance! \textbf{The angular size subtended by $d_\text{H}$ on the last scattering surface, computed properly, is about $\sim 1^\circ$. } There is a slight refinement to this -- this is the photon causual distance; the real horizon we want is the acoustic horizon, which represents the photon-baryon coupling. Accounting for this, we just need to divide that horizon distance by $\sqrt{3}$.
+
+The Big Bang does not tell us how to explain the homogeneity of the CMB beyond about a degree. This is where inflation comes in!  
+
+\noindent\textbf{The Flatness Problem}
+
+Why is $\Omega_{0}$ so close to $\Omega_0 = 1$? What do we mean by ``close?'' It means $0.1 \sim 1 \sim 10$. Recall in Problem Set 1:
+
+\be
+1 - \Omega(a) = \frac{1 - \Omega_0}{1 - \Omega_0 + \Omega_{0,\Lambda}a^2 + \Omega_{0,m} a^{-1} + \Omega_{r,0} a^{-2} }
+\ee
+
+Using this, let's compute $\Omega(a_{dec})$ where $a_{dex} \sim 10^{-3}$, with $\Omega_{0,m}= 0.3, 1.0, 3.0$:
+
+\begin{equation}
+    \Omega(a = 10^{-3}) \approx 0.998, 1.0, 1.00067
+\end{equation}
+
+Again, we can do the same at the Planck time ($t \approx 10^{-43} \text{ s}$, or $a_\text{Pl} \sim 10^{-32}$, meaning we only really need to care about $\Omega_{r,0}$ since that dominates the denominator. We find the exact value in the problem set, but we find:
+
+\be
+1 - \Omega(a_\text{Pl}) \approx (1 - \Omega_0) \times \varepsilon
+\ee
+
+where $\varepsilon$ is very, very, very, very $\cdots$ small. The actual problem is that, to be close to $1$ now, we need to tune $\varepsilon$ to 1 part in roughly $10^{64}$. Unless you are in an INCREDIBLY small $\varepsilon$ of $1$ at the beginning, the Universe would not exist today! \textbf{This is the flatness problem}! 
+
+\noindent\textbf{The Monopole Problem}
+
+Funny enough, in the beginning of Inflation, Alan Guth was motivated by the Monopole problem since he was trained as a high-energy theorist. \footnote{Scientific discoveries are tortorous.} If magnetic monopoles existed, they would dominate the energy density of the Universe. Alan realized that dampening out monopoles would ALSO solve the horizon problem and the flatness problem. 
+
+Let's get back to the basics. What is a ``magnetic'' monopole? Recall Maxwell's equations:
+
+\be
+\vec{\nabla} \cdot \vec{E} = 4\pi \rho_e
+\ee
+
+\be
+\vec{\nabla} \cdot \vec{B} = 0 \text{ no magnetic monopoles!}
+\ee
+
+At least in standard E\&M theory. This is not true when you go to higher symmetry theories -- when you elevate EM to a higher order theory, you get monopoles such as $\text{SU}(3) \times \text{SU}(2) \times \text{U}(1)$. Phase transitions in breaking these symmetries give rise to topological defects called monopoles.
+
+From Grand Unified theories of the three forces, we find that the monopole mass should be about $10^{16} \text{ GeV}$. Depending on the monopole, we calculate (Preskill+1979) the number density to be $10^{-11} n_\gamma$. This gives rise to the fact that \textbf{one} monopole in the Universe would cause the Universe to have collapsed. 
+
+
+
+
 
 
 
