@@ -1476,7 +1476,7 @@ One other thing to note -- the photon temperature doesn't have a \textit{kink}, 
     \centering
     \includegraphics[width=0.75\textwidth]{entropy_transfer.png}
     \caption{Caption}
-    \label{fig:my_label}
+    \label{fig:entropy_transfer}
 \end{figure}
 
 What about protons and neutrons? We need more detailed thermodynamics here, but the result:
@@ -2330,8 +2330,139 @@ At least in standard E\&M theory. This is not true when you go to higher symmetr
 
 From Grand Unified theories of the three forces, we find that the monopole mass should be about $10^{16} \text{ GeV}$. Depending on the monopole, we calculate (Preskill+1979) the number density to be $10^{-11} n_\gamma$. This gives rise to the fact that \textbf{one} monopole in the Universe would cause the Universe to have collapsed. 
 
+When symmetries are break, we call this a \textbf{phase transition} in an abstract sense. It is during this phase transition when a monopole (lump of energy, 0-dimensional) is produced. The topology of the group (if the homotopy group is non-trivial) determines whether or not you get monopoles. As long as the homotopy group $\pi_0$ has non-trivial has contractable loops, you will generate monopoles. 
+
+Let's estimate the density of monopoles if they exist, recalling that we showed there to  be $n_\gamma \approx 400 \text{ cm}^3$. This gives a mass density of monopoles as:
+
+\be
+\rho_\text{mono} = \left(10^{16} \times 2 \times 10^{-24} \unit{ g}\right) \times \left(400 \times 10^{-11} \frac{\unit{g}}{\unit{cm}^3}\right)
+\ee
+
+\be
+\Omega_\text{mono} \sim 10^{13}!
+\ee
+
+We \textbf{need} to get rid of monopoles, somehow, as did Alan Guth and others.\footnote{Other types of ``topological defects'' include: monopole (point-like), string-like defects (called cosmic strings, when the $\pi_1$ group is non-trivial, sheet-like (domain-walls) when $\pi_2$ is non-trivial; and lastly, textures which is when $\pi_3$ is non-trivial. } 
 
 
+\noindent\textbf{The Structure Formation Problem}
+
+Where is $\frac{\delta_\rho}{\rho}$, $\frac{\delta T}{T}, \cdots$ from? We need initial seeds for these perturbations!
+
+\subsection{Classical Scalar Fields and their Equation of Motion}
+
+This concept is \textit{really} prevalent in high-energy theory. Inflation is driven by a scalar field, so let's understand the dynamics of a scalar field before we head into inflation. 
+
+\begin{itemize}
+    \item Particles (1D)
+    \begin{itemize}
+        \item $x(t)$
+        \item Action Principle $S = \int \mathrm{d}t \, L$, where $L = \frac12 m \dot{x}^2 - V(x)$
+        \item Hamiltonian (Energy): $H = p \dot{x} - L = \frac12 m\dot{x}^2 + V(x)$. 
+        \item Requiring a stationary action $\delta S = 0$:
+        
+        \be
+        \frac{\mathrm{d}}{\mathrm{d}t} \left(\frac{\partial L}{\partial \dot{x}}\right)= \left(\frac{\partial L }{\partial x}\right)
+        \ee
+    \end{itemize}
+    
+    
+    
+    \item Fields
+    \begin{itemize}
+        \item $t \rightarrow x^\mu = (t, \vec{x})$, $\mathrm{d}t \rightarrow \mathrm{d}^4 x$. This gives $\phi(x^\mu)$ as the equivalent to x(t). 
+        \item Action $S = \int \mathrm{d}^4x \, \mathcal{L} \sqrt{-g}$ where $\mathcal{L}$ is the Lagrangian density and $\sqrt{g} = \text{det}\left(g^{\mu\nu}\right)$. The analogous action principle is thus: $\mathcal{L} = \frac12 \partial_\mu \phi \partial^\mu \phi - V(\phi)$, assuming we have a \textbf{real} field $\phi$.
+        \begin{itemize}
+            \item Simplifying the Lagrangian density: $\mathcal{L} = \frac12 \dot{\phi}^2 - \frac12 \left(\vec{\nabla} \phi\right)^2 - V(\phi)$.
+        \end{itemize}
+        \item Analogous to the Hamilton is the energy-momentum tensor $T^{\mu\nu} \equiv \partial^\mu \phi \partial^\nu \phi - g^{\mu\nu}\mathcal{L}$. For example, $T^{00} = \rho_\phi$ which is the energy density in $\phi$. We also have $T^{ii} = P_\phi$ is the pressure in the field $\phi$. 
+        \item Again, insisting a stationary action, we have:
+        
+        \be
+        \partial_\mu \left[\frac{\partial \mathcal{L}}{\partial\left(\partial_\mu \phi\right)}\right] = \frac{\partial \mathcal{L}}{\partial \phi}
+        \ee
+        
+        \be
+        \partial_\mu \partial^\mu \phi = -\frac{\mathrm{d} V}{\mathrm{d}\phi}
+        \ee
+        
+        \be
+        \ddot{\phi} - \nabla^2 \phi + 3 \frac{\dot{a}}{a} \dot{\phi} = -\frac{\mathrm{d}V}{\mathrm{d}\phi}
+        \ee
+    \end{itemize}
+\end{itemize}
+
+Also note that we had $\partial_\mu = \frac{\partial}{\partial x^\mu}$:
+
+\be
+\mathrm{d}s^2 = g_{\mu\nu} \mathrm{d}x^\mu \mathrm{d}x^\nu
+\ee
+
+which is unity for a flat spacetime  $g = \left(+,-,-,-\right)$. Another thing -- to go from upstairs to downstairs, we multiply by a $g^{\mu\nu}$. 
+
+\subsection{Inflation}
+
+The main ingredient of inflation is a scalar field called ``inflaton field'' $\phi$. This must contribute energy to the Universe:
+
+\be
+H^2 = \frac{8\pi G}{3}\left(\rho_\Lambda + \rho_m + \rho_r + \rho_\phi\right)
+\ee
+
+The energy density in $\phi$:
+
+\be
+\rho_\phi = T^{00} = \dot{\phi}^2 - \mathcal{L} = \frac12 \dot{\phi}^2 + \frac12 \left(\vec{\nabla} \phi\right)^2 + V(\phi)
+\ee
+
+The pressure in $\phi$:
+
+\be
+P_\phi = T^{ii} = \frac13 \left(\vec{\nabla} \phi\right)^2 + \mathcal{L} = \frac12 \dot{\phi}^2 - \frac16 \left(\vec{\nabla}\phi\right)^2
+\ee
+
+Inflation occurs when $\phi$ is \textbf{slowing varying} $(\dot{\phi} \ll V(\phi)$ and \textbf{spatially homogeneous} ($\left(\vec{\nabla} \phi\right)^2 \ll V(\phi)$, so that the only term that dominates is $V(\phi)$.
+
+All of this leads to $\rho_\phi = V(\phi)$ and $\P_\phi = - V(\phi)$, giving us an \textbf{equation of state}:
+
+\be
+\rho_\phi = -P_\phi \rightarrow \boxed{w_\phi = -1}
+\ee
+
+Also recall from the beginning of the course that $\rho \propto a^{-3(1+w)}$. This means that both the Cosmological Constant and the Inflaton field are constant in time! This is \textbf{super weird}. Thus, is $\phi$ dominates at some point, we have:
+
+\be
+H^2 = \frac83 \pi G \rho_\phi \sim \text{ constant} \rightarrow \frac{\dot{a}}{a} = \text{ constant} \rightarrow \boxed{a \propto e^{Ht}}
+\ee
+
+Exponential expansion driven by $\phi$ is exactly what inflation is! Much of the work nowadays is in designing a potential $V$ and in getting the inflation to stop. So what's the potential?
+
+\noindent\textbf{Dynamics of the Inflaton Field}
+
+See above for the equation of motion for $\phi$. What's the actual form of the potential, though? Here are some \textit{finite-temperature field theory} results of the ``effective potential:''
+
+\be
+V_\text{eff}(\phi, T) = \underbrace{V(\phi, 0)}_\text{zero temp. piece} + \mu \left(\frac{T}{T_c}\right)^2 \phi^2
+\ee
+
+where $T_c$ is some critical temperature of the phase-transition, and $\mu$ is some coupling constant. The typical form of the zero temperature piece is (which also happens to be the same form of the Higgs potential):
+
+\be
+V(\phi,0) \propto \left(\phi^2 - \mu^2\right)^2
+\ee
+
+If you plot this, this is what the potential looks like:
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{Screen Shot 2021-04-12 at 11.36.57 AM.png}
+    \caption{When $T\gg T_c$, the second term dominates (represented in blue). As $T$ decreases, the shape of the potential changes to have a minimum at $\phi = \mu$. Note that the minimum at $\phi = \mu$ is called the \textbf{true vacuum}. The $\phi$ field ``rolls down'' during inflation, oscillating about the new minimum. During this oscillation, the energy of the inflaton field is transferred to the radiation field, giving rise to the radiation dominated era. Inflation happens during the ``slow roll'' phase moving down the potential. The art is in designing the potential to be flat-enough for long-enough (about 60-expansion folds) and then to stop. This is extremely similar to the phase transition to water/ice, so it's not entirely unfamiliar. }
+    \label{fig:llllll}
+\end{figure}
+
+
+Due to quantum fluctuations (slightly different starting times for the roll), we can predict the power spectrum of inflation. 
+
+We also had a great discussion about \textbf{Bay to Breakers} and the salmon-people and Elvis impersonators. 
 
 
 
